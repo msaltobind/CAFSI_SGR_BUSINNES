@@ -1,0 +1,42 @@
+name: Bot Automatizador CAFCI
+
+on:
+  schedule:
+    # Corre de Lunes a Viernes a las 11:00 AM hora Argentina (UTC-3)
+    # Como los servidores usan UTC, 11 AM ARG = 14:00 UTC
+    - cron: '0 14 * * 1-5' 
+  workflow_dispatch: # Esto te agrega un botón para correrlo a mano cuando quieras
+
+permissions:
+  contents: write
+
+jobs:
+  descargar-y-procesar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: 2. Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 3. Instalar Librerías
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas openpyxl beautifulsoup4 requests
+
+      - name: 4. Correr el Script ETL (Descarga web y genera JSON)
+        run: python scraper.py
+
+      - name: 5. Guardar los nuevos datos en el repositorio
+        run: |
+          git config --global user.name "Bot-Tesorería-BIND"
+          git config --global user.email "bot@bind.com.ar"
+          git add docs/data.json
+          # (Opcional) Si quieres guardar los Excels históricos en GitHub, descomenta la línea de abajo:
+          # git add *.xlsx
+          git commit -m "Actualización diaria de mercado CAFCI" || echo "No hay datos nuevos para actualizar"
+          git push

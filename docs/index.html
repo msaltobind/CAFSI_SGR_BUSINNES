@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind | Treasury Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <style>
+        :root {
+            --bind-yellow: #FFD100;
+            --bind-black: #1a1a1a;
+            --bind-blue: #002130;
+            --bg-gray: #f4f5f7;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-gray);
+            margin: 0;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: var(--bind-black);
+            color: white;
+            padding: 12px 30px;
+            border-bottom: 4px solid var(--bind-yellow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        /* TOOLBAR */
+        .toolbar {
+            background: white;
+            padding: 10px 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .filtro-grupo {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .filtro-grupo label {
+            font-size: 9px;
+            font-weight: 800;
+            color: var(--bind-blue);
+            text-transform: uppercase;
+        }
+
+        .toolbar select {
+            padding: 6px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 220px;
+            font-family: 'Montserrat';
+        }
+
+        /* LAYOUT PRINCIPAL */
+        .main-layout {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            padding: 15px;
+            gap: 15px;
+        }
+
+        /* IZQUIERDA: KPIs y GRÁFICOS */
+        .col-left {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 450px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        /* DERECHA: TABLA */
+        .col-right {
+            width: 55%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* KPIS */
+        .kpi-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .kpi-card {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            flex: 1;
+            border-left: 4px solid var(--bind-yellow);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .kpi-card h3 {
+            margin: 0;
+            color: var(--bind-blue);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-card .value {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 4px 0 0 0;
+            color: var(--bind-blue);
+        }
+
+        /* GRÁFICOS */
+        .chart-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .chart-box h2 {
+            font-size: 12px;
+            margin: 0 0 10px 0;
+            text-align: center;
+            color: var(--bind-blue);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            font-weight: 800;
+        }
+
+        /* TABLA */
+        .table-container {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 11px;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: var(--bind-blue);
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            z-index: 10;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+
+        tbody td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover td {
+            background-color: #f1f4f9;
+        }
+
+        .badge {
+            background: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 700;
+            color: var(--bind-blue);
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>bind <span style="color:white; font-weight:400">| Treasury Intelligence</span></h1>
+        <span id="fecha-actualizacion" style="font-size: 12px; color: var(--bind-yellow);">Cargando Terminal...</span>
+    </div>
+
+    <div class="toolbar">
+        <div class="filtro-grupo">
+            <label>Sociedad Depositaria</label>
+            <select id="filtro-sd" onchange="actualizarFiltroGerente()">
+                <option value="TODAS">TODAS LAS DEPOSITARIAS</option>
+            </select>
+        </div>
+        <div class="filtro-grupo">
+            <label>Sociedad Gerente</label>
+            <select id="filtro-sg" onchange="aplicarFiltros()">
+                <option value="TODAS">TODOS LOS GERENTES</option>
+            </select>
+        </div>
+        <button onclick="resetFiltros()"
+            style="background:var(--bind-blue); color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer; font-size:11px; font-weight:bold; margin-top:12px; font-family:'Montserrat';">LIMPIAR</button>
+    </div>
+
+    <div class="main-layout">
+        <div class="col-left">
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <h3>AUM Total</h3>
+                    <p class="value" id="kpi-patrimonio">$ 0</p>
+                </div>
+                <div class="kpi-card">
+                    <h3>Fondos Activos</h3>
+                    <p class="value" id="kpi-fondos">0</p>
+                </div>
+                <div class="kpi-card" style="border-left-color: var(--bind-blue);">
+                    <h3>Fee Ponderado</h3>
+                    <p class="value" id="kpi-honsg">0%</p>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <h2>Share Sociedades Depositarias</h2>
+                <div style="flex:1; position:relative; min-height: 150px;"><canvas id="chartSD"></canvas></div>
+            </div>
+
+            <div class="chart-box">
+                <h2>Share Sociedades Gerentes</h2>
+                <div style="flex:1; position:relative; min-height: 150px;"><canvas id="chartSG"></canvas></div>
+            </div>
+        </div>
+
+        <div class="col-right">
+            <div
+                style="padding:12px; background:var(--bind-blue); color:white; font-weight:800; font-size:12px; letter-spacing:0.5px;">
+                EXPLORADOR DE FONDOS</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fondo</th>
+                            <th>Patrimonio (AUM)</th>
+                            <th>Fee SG</th>
+                            <th>Fee SD</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-fondos"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        Chart.register(ChartDataLabels);
+        let datosGlobales = [];
+        let chartSD_obj, chartSG_obj;
+
+        const fmtMonto = (n) => n >= 1e9 ? `$ ${(n / 1e9).toFixed(2)} B` : `$ ${(n / 1e6).toFixed(1)} M`;
+
+        fetch('data.json').then(r => r.json()).then(data => {
+            document.getElementById('fecha-actualizacion').innerText = "Ultima Actualización: " + data.fecha_actualizacion;
+            datosGlobales = data.fondos;
+            const selectSD = document.getElementById('filtro-sd');
+            const d_unicas = [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort();
+            d_unicas.forEach(sd => selectSD.appendChild(new Option(sd, sd)));
+            actualizarFiltroGerente();
+        });
+
+        function actualizarFiltroGerente() {
+            const sdSel = document.getElementById('filtro-sd').value;
+            const selectSG = document.getElementById('filtro-sg');
+            selectSG.innerHTML = '<option value="TODAS">TODOS LOS GERENTES</option>';
+            let f = sdSel === "TODAS" ? datosGlobales : datosGlobales.filter(x => x.Sociedad_Depositaria === sdSel);
+            [...new Set(f.map(x => x.Sociedad_Gerente))].sort().forEach(g => selectSG.appendChild(new Option(g, g)));
+            aplicarFiltros();
+        }
+
+        function resetFiltros() { document.getElementById('filtro-sd').value = "TODAS"; actualizarFiltroGerente(); }
+
+        function aplicarFiltros() {
+            const sd = document.getElementById('filtro-sd').value;
+            const sg = document.getElementById('filtro-sg').value;
+            let filtrados = datosGlobales;
+            if (sd !== "TODAS") filtrados = filtrados.filter(x => x.Sociedad_Depositaria === sd);
+            if (sg !== "TODAS") filtrados = filtrados.filter(x => x.Sociedad_Gerente === sg);
+
+            const totalPat = filtrados.reduce((s, f) => s + f.Patrimonio, 0);
+            document.getElementById('kpi-patrimonio').innerText = fmtMonto(totalPat);
+            document.getElementById('kpi-fondos').innerText = filtrados.length;
+
+            let sPond = 0, sPatV = 0;
+            filtrados.forEach(f => { if (f.Hon_SG > 0) { sPond += (f.Hon_SG * f.Patrimonio); sPatV += f.Patrimonio; } });
+            document.getElementById('kpi-honsg').innerText = sPatV > 0 ? (sPond / sPatV).toFixed(2) + '%' : '0%';
+
+            document.getElementById('tabla-fondos').innerHTML = filtrados.sort((a, b) => b.Patrimonio - a.Patrimonio).map(f => `
+                <tr>
+                    <td><strong>${f.Fondo.substring(0, 45)}</strong></td>
+                    <td style="color:var(--bind-blue); font-weight:800">${fmtMonto(f.Patrimonio)}</td>
+                    <td><span class="badge">${f.Hon_SG}%</span></td>
+                    <td><span class="badge">${f.Hon_SD}%</span></td>
+                </tr>
+            `).join('');
+
+            updateCharts(filtrados, totalPat);
+        }
+
+        function updateCharts(data, total) {
+            const procesar = (key) => {
+                let ag = data.reduce((acc, obj) => { acc[obj[key]] = (acc[obj[key]] || 0) + obj.Patrimonio; return acc; }, {});
+                let lista = Object.keys(ag).map(k => ({ l: k, v: ag[k] })).sort((a, b) => b.v - a.v);
+                let final = [], otrosV = 0;
+                lista.forEach(item => {
+                    if ((item.v / total) > 0.03 || item.l.includes("INDUSTRIAL")) final.push(item);
+                    else otrosV += item.v;
+                });
+                if (otrosV > 0) final.push({ l: "OTROS COMPETIDORES", v: otrosV });
+                return final;
+            };
+            renderPie(document.getElementById('chartSD'), procesar('Sociedad_Depositaria'), 'chartSD_obj', total);
+            renderPie(document.getElementById('chartSG'), procesar('Sociedad_Gerente'), 'chartSG_obj', total);
+        }
+
+        function renderPie(canvas, data, objRef, total) {
+            if (window[objRef]) window[objRef].destroy();
+            const palette = ['#002130', '#004691', '#0072CE', '#4B8BBE', '#7FB3D5', '#A9CCE3', '#D4E6F1'];
+
+            window[objRef] = new Chart(canvas, {
+                type: 'pie',
+                data: {
+                    labels: data.map(x => x.l),
+                    datasets: [{
+                        data: data.map(x => x.v),
+                        backgroundColor: data.map((x, i) => {
+                            if (x.l.includes("Industrial")) return '#FFD100';
+                            if (x.l === "OTROS COMPETIDORES") return '#3B332F';
+                            return palette[i % palette.length];
+                        }),
+                        borderWidth: 1, borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    layout: { padding: 10 }, /* Margen de respiro agregado */
+                    plugins: {
+                        legend: {
+                            position: 'right', /* LEYENDA MOVIDA ABAJO PARA NO APLASTAR EL GRÁFICO */
+                            labels: { boxWidth: 10, font: { size: 9, family: 'Montserrat', weight: 'bold' }, padding: 5 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (item) => {
+                                    let label = item.label || '';
+                                    let p = (item.raw * 100 / total).toFixed(1) + "%";
+                                    return `${label}: ${p} (${fmtMonto(item.raw)})`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            color: '#CCB8AD',
+                            font: { weight: '800', size: 8 },
+                            formatter: (val) => {
+                                let p = (val * 100 / total).toFixed(1);
+                                return p > 3 ? p + '%' : null;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
