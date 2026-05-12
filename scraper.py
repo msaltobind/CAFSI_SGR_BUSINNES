@@ -93,12 +93,18 @@ def procesar_etl(ruta_archivo):
     comisiones = ['Hon_SG', 'Hon_SD', 'Gastos_Gestion', 'Com_Rescate']
     df_limpio[comisiones] = df_limpio[comisiones].fillna(0)
     
+    # Capturamos la hora actual (ajustada a Argentina si prefieres, o UTC)
+    fecha_ejecucion = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
     datos_json = {
         "fecha_actualizacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "debug_id": datetime.now().timestamp(), # Esto obliga a Git a ver un cambio siempre
         "archivo_origen": os.path.basename(ruta_archivo),
         "fondos": df_limpio.to_dict(orient='records')
     }
+
+    with open('docs/data.json', 'w', encoding='utf-8') as f:
+        json.dump(datos_json, f, ensure_ascii=False, indent=4)
     
     os.makedirs("docs", exist_ok=True)
     with open('docs/data.json', 'w', encoding='utf-8') as f:
