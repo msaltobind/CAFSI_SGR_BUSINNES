@@ -20,23 +20,22 @@ def obtener_archivo_cafci():
         respuesta = requests.get(url_pagina, headers=headers)
         soup = BeautifulSoup(respuesta.text, 'html.parser')
         
-        # 2. Buscamos dinámicamente el link que termine en .xlsx o diga "descargar"
-        link_dinamico = None
+        # ... dentro de la función obtener_archivo_cafci ...
+        links = []
         for enlace in soup.find_all('a', href=True):
-            href = enlace['href'].lower()
+            href = enlace['href']
             texto = enlace.text.lower()
-            # Ajusta estas palabras clave si el botón en la web dice otra cosa
-            if '.xlsx' in href or 'descargar' in texto or 'planilla' in texto: 
-                link_dinamico = enlace['href']
-                break
+            # Buscamos links que sean de Excel y no sean de manuales o instructivos
+            if '.xlsx' in href.lower() and ('planilla' in texto or 'diaria' in texto):
+                links.append(href)
         
-        if not link_dinamico:
-            print("[-] No se encontró el botón de descarga dinámico hoy.")
+        if not links:
+            print("[-] No se encontraron links válidos.")
             return None
             
-        # Si el link es relativo (ej: /descargas/archivo.xlsx), le pegamos el dominio
-        if link_dinamico.startswith('/'):
-            link_dinamico = "https://www.cafci.org.ar" + link_dinamico
+        # Tomamos el ÚLTIMO link de la lista, que suele ser el más nuevo en CAFCI
+        link_dinamico = links[0] 
+        # Si ves que sigue bajando el viejo, prueba cambiar links[0] por links[-1]
             
         print(f"[+] Link dinámico encontrado: {link_dinamico}")
         
@@ -96,7 +95,8 @@ def procesar_etl(ruta_archivo):
     
     datos_json = {
         "fecha_actualizacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "archivo_origen": os.path.basename(ruta_archivo), # <--- AGREGAR ESTA LÍNEA
+        "debug_id": datetime.now().timestamp(), # Esto obliga a Git a ver un cambio siempre
+        "archivo_origen": os.path.basename(ruta_archivo),
         "fondos": df_limpio.to_dict(orient='records')
     }
     
