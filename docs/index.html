@@ -206,6 +206,62 @@
             color: var(--bind-blue);
             font-size: 10px;
         }
+
+        /* =========================================
+           REGLAS RESPONSIVE (AÑADIDAS PARA CELULARES) 
+           ========================================= */
+        @media (max-width: 900px) {
+            body {
+                height: auto;
+                overflow-y: auto;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .toolbar select {
+                width: 100%;
+            }
+
+            .main-layout {
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .col-left {
+                width: 100%;
+                min-width: unset;
+                padding-right: 0;
+                overflow: visible;
+            }
+
+            .col-right {
+                width: 100%;
+                min-width: unset;
+                overflow: visible;
+            }
+
+            .kpi-row {
+                flex-wrap: wrap;
+            }
+
+            .kpi-card {
+                min-width: 45%;
+            }
+
+            .table-container {
+                max-height: 400px;
+            }
+        }
     </style>
 </head>
 
@@ -371,10 +427,10 @@
                 },
                 options: {
                     responsive: true, maintainAspectRatio: false,
-                    layout: { padding: 10 }, /* Margen de respiro agregado */
+                    layout: { padding: 10 },
                     plugins: {
                         legend: {
-                            position: 'right', /* LEYENDA MOVIDA ABAJO PARA NO APLASTAR EL GRÁFICO */
+                            position: 'right',
                             labels: { boxWidth: 10, font: { size: 9, family: 'Montserrat', weight: 'bold' }, padding: 5 }
                         },
                         tooltip: {
