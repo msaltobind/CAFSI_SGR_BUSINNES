@@ -345,7 +345,7 @@
         const fmtMonto = (n) => n >= 1e9 ? `$ ${(n / 1e9).toFixed(2)} B` : `$ ${(n / 1e6).toFixed(1)} M`;
 
         fetch('data.json').then(r => r.json()).then(data => {
-            document.getElementById('fecha-actualizacion').innerText = "Ultima Actualización: " + data.fecha_actualizacion;
+            document.getElementById('fecha-actualizacion').innerText = "Corte: " + data.fecha_actualizacion + " | Archivo: " + (data.archivo_origen || "Local");
             datosGlobales = data.fondos;
             const selectSD = document.getElementById('filtro-sd');
             const d_unicas = [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort();

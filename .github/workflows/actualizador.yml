@@ -2,10 +2,9 @@ name: Bot Automatizador CAFCI
 
 on:
   schedule:
-    # Corre de Lunes a Viernes a las 11:00 AM hora Argentina (UTC-3)
-    # Como los servidores usan UTC, 11 AM ARG = 14:00 UTC
-    - cron: '0 14 * * 1-5' 
-  workflow_dispatch: # Esto te agrega un botón para correrlo a mano cuando quieras
+    # 10:00 AM hora de Argentina (UTC-3) equivale a las 13:00 en el servidor UTC
+    - cron: '0 13 * * 1-5' 
+  workflow_dispatch: # Botón de prueba manual
 
 permissions:
   contents: write
@@ -28,15 +27,33 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas openpyxl beautifulsoup4 requests
 
-      - name: 4. Correr el Script ETL (Descarga web y genera JSON)
+      - name: 4. Correr el Script ETL
         run: python scraper.py
 
-      - name: 5. Guardar los nuevos datos en el repositorio
+      - name: 5. Guardar los nuevos datos
         run: |
           git config --global user.name "Bot-Tesorería-BIND"
           git config --global user.email "bot@bind.com.ar"
           git add docs/data.json
-          # (Opcional) Si quieres guardar los Excels históricos en GitHub, descomenta la línea de abajo:
-          # git add *.xlsx
-          git commit -m "Actualización diaria de mercado CAFCI" || echo "No hay datos nuevos para actualizar"
+          git commit -m "Actualización diaria 10:00 AM" || echo "Sin cambios"
           git push
+
+      - name: 6. Enviar Correo de Confirmación a Tesorería
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          # Credenciales del correo REMITENTE (Guardadas en GitHub Secrets)
+          username: ${{ secrets.EMAIL_BOT_USER }}
+          password: ${{ secrets.EMAIL_BOT_PASS }}
+          subject: "✅ Dashboard CAFCI Actualizado Exitosamente"
+          to: msalto@bancoindustrial.com.ar
+          from: "Bot CAFCI Intelligence"
+          body: |
+            Hola equipo,
+            
+            El proceso de actualización de las 10:00 AM ha finalizado correctamente.
+            El nuevo archivo de CAFCI fue descargado e inyectado en el Dashboard.
+            
+            Puedes visualizarlo aquí: https://msaltobind.github.io/CAFSI_SGR_BUSINNES/

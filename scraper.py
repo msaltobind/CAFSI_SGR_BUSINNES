@@ -96,8 +96,8 @@ def procesar_etl(ruta_archivo):
     
     datos_json = {
         "fecha_actualizacion": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "depositarias_unicas": depositarias,
-        "fondos": df_limpio.to_dict(orient='records') # Mandamos TODA la base
+        "archivo_origen": os.path.basename(ruta_archivo), # <--- AGREGAR ESTA LÍNEA
+        "fondos": df_limpio.to_dict(orient='records')
     }
     
     os.makedirs("docs", exist_ok=True)
