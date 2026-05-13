@@ -27,7 +27,6 @@
             flex-direction: column;
         }
 
-        /* HEADER */
         .header {
             background-color: var(--bind-black);
             color: white;
@@ -45,7 +44,6 @@
             font-size: 18px;
         }
 
-        /* TOOLBAR */
         .toolbar {
             background: white;
             padding: 10px 30px;
@@ -79,7 +77,6 @@
             font-family: 'Montserrat';
         }
 
-        /* LAYOUT PRINCIPAL */
         .main-layout {
             display: flex;
             flex: 1;
@@ -88,7 +85,6 @@
             gap: 15px;
         }
 
-        /* IZQUIERDA: KPIs y GRÁFICOS */
         .col-left {
             width: 45%;
             display: flex;
@@ -99,7 +95,6 @@
             padding-right: 5px;
         }
 
-        /* DERECHA: TABLA */
         .col-right {
             width: 55%;
             background: white;
@@ -110,7 +105,6 @@
             overflow: hidden;
         }
 
-        /* KPIS */
         .kpi-row {
             display: flex;
             gap: 10px;
@@ -141,7 +135,6 @@
             color: var(--bind-blue);
         }
 
-        /* GRÁFICOS */
         .chart-box {
             background: white;
             padding: 15px;
@@ -150,7 +143,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            min-height: 0;
+            min-height: 200px;
         }
 
         .chart-box h2 {
@@ -163,7 +156,6 @@
             font-weight: 800;
         }
 
-        /* TABLA */
         .table-container {
             flex: 1;
             overflow-y: auto;
@@ -207,9 +199,7 @@
             font-size: 10px;
         }
 
-        /* =========================================
-           REGLAS RESPONSIVE (AÑADIDAS PARA CELULARES) 
-           ========================================= */
+        /* Responsive */
         @media (max-width: 900px) {
             body {
                 height: auto;
@@ -237,25 +227,10 @@
                 overflow: visible;
             }
 
-            .col-left {
-                width: 100%;
-                min-width: unset;
-                padding-right: 0;
-                overflow: visible;
-            }
-
+            .col-left,
             .col-right {
                 width: 100%;
                 min-width: unset;
-                overflow: visible;
-            }
-
-            .kpi-row {
-                flex-wrap: wrap;
-            }
-
-            .kpi-card {
-                min-width: 45%;
             }
 
             .table-container {
@@ -269,7 +244,8 @@
 
     <div class="header">
         <h1>bind <span style="color:white; font-weight:400">| Treasury Intelligence</span></h1>
-        <span id="fecha-actualizacion" style="font-size: 12px; color: var(--bind-yellow);">Cargando Terminal...</span>
+        <span id="header-metadata" style="text-align: right; line-height: 1.4; font-size: 11px;">Cargando
+            datos...</span>
     </div>
 
     <div class="toolbar">
@@ -286,7 +262,7 @@
             </select>
         </div>
         <button onclick="resetFiltros()"
-            style="background:var(--bind-blue); color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer; font-size:11px; font-weight:bold; margin-top:12px; font-family:'Montserrat';">LIMPIAR</button>
+            style="background:var(--bind-blue); color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer; font-size:11px; font-weight:bold; margin-top:12px;">LIMPIAR</button>
     </div>
 
     <div class="main-layout">
@@ -305,21 +281,17 @@
                     <p class="value" id="kpi-honsg">0%</p>
                 </div>
             </div>
-
             <div class="chart-box">
                 <h2>Share Sociedades Depositarias</h2>
-                <div style="flex:1; position:relative; min-height: 150px;"><canvas id="chartSD"></canvas></div>
+                <div style="flex:1; position:relative;"><canvas id="chartSD"></canvas></div>
             </div>
-
             <div class="chart-box">
                 <h2>Share Sociedades Gerentes</h2>
-                <div style="flex:1; position:relative; min-height: 150px;"><canvas id="chartSG"></canvas></div>
+                <div style="flex:1; position:relative;"><canvas id="chartSG"></canvas></div>
             </div>
         </div>
-
         <div class="col-right">
-            <div
-                style="padding:12px; background:var(--bind-blue); color:white; font-weight:800; font-size:12px; letter-spacing:0.5px;">
+            <div style="padding:12px; background:var(--bind-blue); color:white; font-weight:800; font-size:12px;">
                 EXPLORADOR DE FONDOS</div>
             <div class="table-container">
                 <table>
@@ -344,14 +316,22 @@
 
         const fmtMonto = (n) => n >= 1e9 ? `$ ${(n / 1e9).toFixed(2)} B` : `$ ${(n / 1e6).toFixed(1)} M`;
 
-        fetch('data.json').then(r => r.json()).then(data => {
-            document.getElementById('fecha-actualizacion').innerText = "Corte: " + data.fecha_actualizacion + " | Archivo: " + (data.archivo_origen || "Local");
-            datosGlobales = data.fondos;
-            const selectSD = document.getElementById('filtro-sd');
-            const d_unicas = [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort();
-            d_unicas.forEach(sd => selectSD.appendChild(new Option(sd, sd)));
-            actualizarFiltroGerente();
-        });
+        // Cache Busting + Carga de Datos
+        fetch('data.json?v=' + new Date().getTime())
+            .then(r => r.json())
+            .then(data => {
+                // Inyectamos la info de trazabilidad
+                document.getElementById('header-metadata').innerHTML = `
+                    <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">ÚLTIMA ACTUALIZACIÓN:</span> ${data.fecha_actualizacion} HS<br>
+                    <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">ARCHIVO ORIGEN:</span> ${data.archivo_origen}
+                `;
+
+                datosGlobales = data.fondos;
+                const selectSD = document.getElementById('filtro-sd');
+                const d_unicas = [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort();
+                d_unicas.forEach(sd => selectSD.appendChild(new Option(sd, sd)));
+                actualizarFiltroGerente();
+            });
 
         function actualizarFiltroGerente() {
             const sdSel = document.getElementById('filtro-sd').value;
@@ -383,8 +363,8 @@
                 <tr>
                     <td><strong>${f.Fondo.substring(0, 45)}</strong></td>
                     <td style="color:var(--bind-blue); font-weight:800">${fmtMonto(f.Patrimonio)}</td>
-                    <td><span class="badge">${f.Hon_SG}%</span></td>
-                    <td><span class="badge">${f.Hon_SD}%</span></td>
+                    <td><span class="badge">${parseFloat(f.Hon_SG).toFixed(2)}%</span></td>
+                    <td><span class="badge">${parseFloat(f.Hon_SD).toFixed(2)}%</span></td>
                 </tr>
             `).join('');
 
@@ -397,7 +377,7 @@
                 let lista = Object.keys(ag).map(k => ({ l: k, v: ag[k] })).sort((a, b) => b.v - a.v);
                 let final = [], otrosV = 0;
                 lista.forEach(item => {
-                    if ((item.v / total) > 0.03 || item.l.includes("INDUSTRIAL")) final.push(item);
+                    if ((item.v / total) > 0.03 || item.l.toUpperCase().includes("INDUSTRIAL")) final.push(item);
                     else otrosV += item.v;
                 });
                 if (otrosV > 0) final.push({ l: "OTROS COMPETIDORES", v: otrosV });
@@ -410,18 +390,13 @@
         function renderPie(canvas, data, objRef, total) {
             if (window[objRef]) window[objRef].destroy();
             const palette = ['#002130', '#004691', '#0072CE', '#4B8BBE', '#7FB3D5', '#A9CCE3', '#D4E6F1'];
-
             window[objRef] = new Chart(canvas, {
                 type: 'pie',
                 data: {
                     labels: data.map(x => x.l),
                     datasets: [{
                         data: data.map(x => x.v),
-                        backgroundColor: data.map((x, i) => {
-                            if (x.l.includes("Industrial")) return '#FFD100';
-                            if (x.l === "OTROS COMPETIDORES") return '#3B332F';
-                            return palette[i % palette.length];
-                        }),
+                        backgroundColor: data.map((x, i) => x.l.toUpperCase().includes("INDUSTRIAL") ? '#FFD100' : palette[i % palette.length]),
                         borderWidth: 1, borderColor: '#fff'
                     }]
                 },
@@ -429,26 +404,11 @@
                     responsive: true, maintainAspectRatio: false,
                     layout: { padding: 10 },
                     plugins: {
-                        legend: {
-                            position: 'right',
-                            labels: { boxWidth: 10, font: { size: 9, family: 'Montserrat', weight: 'bold' }, padding: 5 }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: (item) => {
-                                    let label = item.label || '';
-                                    let p = (item.raw * 100 / total).toFixed(1) + "%";
-                                    return `${label}: ${p} (${fmtMonto(item.raw)})`;
-                                }
-                            }
-                        },
+                        legend: { position: 'right', labels: { boxWidth: 10, font: { size: 9, family: 'Montserrat', weight: 'bold' }, padding: 5 } },
+                        tooltip: { callbacks: { label: (i) => `${i.label}: ${(i.raw * 100 / total).toFixed(1)}% (${fmtMonto(i.raw)})` } },
                         datalabels: {
-                            color: '#CCB8AD',
-                            font: { weight: '800', size: 8 },
-                            formatter: (val) => {
-                                let p = (val * 100 / total).toFixed(1);
-                                return p > 3 ? p + '%' : null;
-                            }
+                            color: '#002130', font: { weight: '800', size: 9 },
+                            formatter: (val) => (val * 100 / total) > 4 ? (val * 100 / total).toFixed(1) + '%' : null
                         }
                     }
                 }
