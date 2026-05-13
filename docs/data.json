@@ -1,7 +1,7 @@
 {
-    "fecha_actualizacion": "13/05/2026 09:36:23",
+    "fecha_actualizacion": "13/05/2026 18:11:28",
     "archivo_origen": "20260512_Planilla_Diaria_A.xlsx",
-    "resumen_ia": "<p><i>Análisis IA no disponible (API Key no configurada).</i></p>",
+    "resumen_ia": "<p>El análisis de esta estructura de precios revela una clara relación inversa entre la tasa de honorarios (<b>Fee</b>) y el volumen de activos bajo gestión (<b>AUM</b>) en el sector. Se observa que sociedades con un AUM significativamente menor, como Bayfe S.A.S.G.F.C.I. ($55.5M), pueden comandar las tasas más altas del mercado (7.50%). Esto sugiere una oferta altamente especializada, servicios boutique, o un posicionamiento en nichos de mercado donde la propuesta de valor justifica un costo premium, independientemente de la escala.</p>\n<p>A medida que el AUM aumenta, la tasa de honorarios tiende a moderarse, aunque se mantiene en niveles considerables. Gestoras con volúmenes masivos, como Wise Capital y SAM Argentina, aún siendo las de menor fee en este top 5 de altas tasas, demuestran la capacidad de la industria para sostener márgenes sólidos incluso con economías de escala. Esta dinámica indica un mercado vibrante donde la estrategia de precios se adapta tanto a la especialización de nicho como a la eficiencia operativa de los grandes players, evidenciando un alto valor percibido en la gestión de activos.</p>",
     "fondos": [
         {
             "Fondo": "Allaria Equity Selection - Clase A",
@@ -415,7 +415,7 @@
             "Fondo": "Balanz Acciones - Clase A",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 31930310035.8,
+            "Patrimonio": 31928042317.43,
             "Hon_SG": 2.5,
             "Hon_SD": 0.095
         },
@@ -959,7 +959,7 @@
             "Fondo": "Fima Acciones - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 59330321153.13,
+            "Patrimonio": 59330894410.51,
             "Hon_SG": 3.145,
             "Hon_SD": 0.555
         },
@@ -983,7 +983,7 @@
             "Fondo": "Fima PB Acciones - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 33632137864.72,
+            "Patrimonio": 33633228572.42,
             "Hon_SG": 3.145,
             "Hon_SD": 0.555
         },
@@ -1383,7 +1383,7 @@
             "Fondo": "Superfondo Acciones - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 174572145065.38,
+            "Patrimonio": 174572097864.38,
             "Hon_SG": 0.9719,
             "Hon_SD": 2.9881
         },
@@ -1423,7 +1423,7 @@
             "Fondo": "Superfondo Renta Variable - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 117695787253.3,
+            "Patrimonio": 117695687509.7,
             "Hon_SG": 0.9719,
             "Hon_SD": 2.9881
         },
@@ -1727,7 +1727,7 @@
             "Fondo": "FBA Acciones Latinoamericana - Clase A",
             "Sociedad_Gerente": "BBVA Asset Management Argentina S.A.U.S.G.F.C.I.",
             "Sociedad_Depositaria": "BBVA Argentina S.A.",
-            "Patrimonio": 14432300411.3,
+            "Patrimonio": 14432300404.62,
             "Hon_SG": 3.43,
             "Hon_SD": 0.121
         },
@@ -1735,7 +1735,7 @@
             "Fondo": "FBA Acciones Latinoamericana - Clase B",
             "Sociedad_Gerente": "BBVA Asset Management Argentina S.A.U.S.G.F.C.I.",
             "Sociedad_Depositaria": "BBVA Argentina S.A.",
-            "Patrimonio": 6851822084.17,
+            "Patrimonio": 6851822082.87,
             "Hon_SG": 1.9,
             "Hon_SD": 0.121
         },
@@ -2231,7 +2231,7 @@
             "Fondo": "Fima Acciones Latinoamerica - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 293970.27,
+            "Patrimonio": 293970.24,
             "Hon_SG": 1.9125,
             "Hon_SD": 0.3375
         },
@@ -2319,7 +2319,7 @@
             "Fondo": "Adcap Balanceado VI - Clase B",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 80836643535.84,
+            "Patrimonio": 89771683400.66,
             "Hon_SG": 0.82,
             "Hon_SD": 0.121
         },
@@ -2527,7 +2527,7 @@
             "Fondo": "Allaria Ahorro Plus - Clase A",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 16233676926.21,
+            "Patrimonio": 16233676926.11,
             "Hon_SG": 2.5,
             "Hon_SD": 0.12
         },
@@ -2535,7 +2535,7 @@
             "Fondo": "Allaria Ahorro Plus - Clase B",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 110787730946.95,
+            "Patrimonio": 111185444450.44,
             "Hon_SG": 2.25,
             "Hon_SD": 0.12
         },
@@ -2807,7 +2807,7 @@
             "Fondo": "Balanz Opportunity - Clase A",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 12079275307.22,
+            "Patrimonio": 12079144267.75,
             "Hon_SG": 2.6,
             "Hon_SD": 0.095
         },
@@ -3735,7 +3735,7 @@
             "Fondo": "Fima Ahorro Pesos - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 269849246932.35,
+            "Patrimonio": 269849254235.68,
             "Hon_SG": 2.5075,
             "Hon_SD": 0.4425
         },
@@ -3743,7 +3743,7 @@
             "Fondo": "Fima Ahorro Pesos - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 162705385410.03,
+            "Patrimonio": 162705386628.86,
             "Hon_SG": 2.04,
             "Hon_SD": 0.36
         },
@@ -3751,7 +3751,7 @@
             "Fondo": "Fima Ahorro Pesos - Clase C",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 305127395415.79,
+            "Patrimonio": 305127395459.47,
             "Hon_SG": 1.7,
             "Hon_SD": 0.3
         },
@@ -3759,7 +3759,7 @@
             "Fondo": "Fima Ahorro Plus - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 253013366875.29,
+            "Patrimonio": 253013368503.8,
             "Hon_SG": 2.5075,
             "Hon_SD": 0.4425
         },
@@ -3767,7 +3767,7 @@
             "Fondo": "Fima Ahorro Plus - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 127231339272.17,
+            "Patrimonio": 127231339326.47,
             "Hon_SG": 2.04,
             "Hon_SD": 0.36
         },
@@ -3775,7 +3775,7 @@
             "Fondo": "Fima Ahorro Plus - Clase C",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 284489356369.42,
+            "Patrimonio": 284489356380.87,
             "Hon_SG": 1.7,
             "Hon_SD": 0.3
         },
@@ -3791,7 +3791,7 @@
             "Fondo": "Fima Capital Plus - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 15536038066.96,
+            "Patrimonio": 15536244600.2,
             "Hon_SG": 2.5075,
             "Hon_SD": 0.4425
         },
@@ -3799,7 +3799,7 @@
             "Fondo": "Fima Capital Plus - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 7470412992.99,
+            "Patrimonio": 7470412992.43,
             "Hon_SG": 2.125,
             "Hon_SD": 0.375
         },
@@ -3823,7 +3823,7 @@
             "Fondo": "Fima Renta Pesos - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 101389509344.98,
+            "Patrimonio": 101389510123.77,
             "Hon_SG": 2.5075,
             "Hon_SD": 0.4425
         },
@@ -3831,7 +3831,7 @@
             "Fondo": "Fima Renta Pesos - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 33462464328.54,
+            "Patrimonio": 33462464334.2,
             "Hon_SG": 2.125,
             "Hon_SD": 0.375
         },
@@ -4031,7 +4031,7 @@
             "Fondo": "HF Retorno Total - Clase I",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 89663123666.85,
+            "Patrimonio": 89663123666.9,
             "Hon_SG": 0.68,
             "Hon_SD": 0.12
         },
@@ -4671,7 +4671,7 @@
             "Fondo": "MEGAQM Ahorro - Clase B",
             "Sociedad_Gerente": "MEGA QM S.A.",
             "Sociedad_Depositaria": "Banco de Servicios y Transacciones S.A. (BST)",
-            "Patrimonio": 53728675747.1,
+            "Patrimonio": 53674675747.1,
             "Hon_SG": 2.18,
             "Hon_SD": 0.121
         },
@@ -5399,7 +5399,7 @@
             "Fondo": "Supergestion Mix VI - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 805796234117.67,
+            "Patrimonio": 805794812687.5,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -6815,7 +6815,7 @@
             "Fondo": "Allaria Renta Mixta II - Clase A",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 622746994.42,
+            "Patrimonio": 622751415.47,
             "Hon_SG": 2.5,
             "Hon_SD": 0.1
         },
@@ -7343,7 +7343,7 @@
             "Fondo": "Galileo Ahorro Plus - Clase A",
             "Sociedad_Gerente": "Galileo Argentina S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 11416839214.08,
+            "Patrimonio": 11416739214.09,
             "Hon_SG": 2.5,
             "Hon_SD": 0.1331
         },
@@ -7703,7 +7703,7 @@
             "Fondo": "Superfondo Renta Fija - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 386512697287.41,
+            "Patrimonio": 386511119935.52,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -7735,7 +7735,7 @@
             "Fondo": "Superfondo Renta Fija - Clase I",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 62749497721.49,
+            "Patrimonio": 62749497721.48,
             "Hon_SG": 1.1074,
             "Hon_SD": 1.2427
         },
@@ -8295,7 +8295,7 @@
             "Fondo": "Allaria Estructurado - Clase A",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 71226835.81,
+            "Patrimonio": 71226686.9,
             "Hon_SG": 0.5,
             "Hon_SD": 0.1
         },
@@ -8303,7 +8303,7 @@
             "Fondo": "Allaria Estructurado - Clase B",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 71052537698.35,
+            "Patrimonio": 71052389134.97,
             "Hon_SG": 0.5,
             "Hon_SD": 0.1
         },
@@ -8311,7 +8311,7 @@
             "Fondo": "Allaria Estructurado - Clase C",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 22458487209.52,
+            "Patrimonio": 22458440251.19,
             "Hon_SG": 0.5,
             "Hon_SD": 0.1
         },
@@ -9023,7 +9023,7 @@
             "Fondo": "Balanz Performance III - Clase A",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 13739352455.74,
+            "Patrimonio": 13738035005.92,
             "Hon_SG": 2.25,
             "Hon_SD": 0.095
         },
@@ -9607,7 +9607,7 @@
             "Fondo": "Fima Renta Plus - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 72578203667.4,
+            "Patrimonio": 72578205749.36,
             "Hon_SG": 2.5075,
             "Hon_SD": 0.4425
         },
@@ -9615,7 +9615,7 @@
             "Fondo": "Fima Renta Plus - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 24758801569.15,
+            "Patrimonio": 24758801599.28,
             "Hon_SG": 2.125,
             "Hon_SD": 0.375
         },
@@ -11151,7 +11151,7 @@
             "Fondo": "Super Bonos - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 40553877694.1,
+            "Patrimonio": 40553876118.99,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -11191,7 +11191,7 @@
             "Fondo": "Superfondo Renta $ - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 218527063261.79,
+            "Patrimonio": 218526705251.25,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -12807,7 +12807,7 @@
             "Fondo": "Bavsa Renta Balanceado Dólares II - Clase A",
             "Sociedad_Gerente": "BAVSA Fondos S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 11485699.06,
+            "Patrimonio": 11408077.77,
             "Hon_SG": 1.5,
             "Hon_SD": 0.12
         },
@@ -12815,7 +12815,7 @@
             "Fondo": "Bavsa Renta Balanceado Dólares II - Clase B",
             "Sociedad_Gerente": "BAVSA Fondos S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 7006207.09,
+            "Patrimonio": 6958858.58,
             "Hon_SG": 1.5,
             "Hon_SD": 0.12
         },
@@ -12823,7 +12823,7 @@
             "Fondo": "Bavsa Renta Balanceado Dólares II - Clase C",
             "Sociedad_Gerente": "BAVSA Fondos S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 2735745.81,
+            "Patrimonio": 2717257.43,
             "Hon_SG": 0.3,
             "Hon_SD": 0.12
         },
@@ -15271,7 +15271,7 @@
             "Fondo": "Fima Renta Fija Dólares - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 175632818.33,
+            "Patrimonio": 175632821.09,
             "Hon_SG": 0.85,
             "Hon_SD": 0.15
         },
@@ -15279,7 +15279,7 @@
             "Fondo": "Fima Renta Fija Dólares - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 106733616.41,
+            "Patrimonio": 106733616.63,
             "Hon_SG": 0.7225,
             "Hon_SD": 0.1275
         },
@@ -15287,7 +15287,7 @@
             "Fondo": "Fima Renta Fija Dólares - Clase C",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 99920577.09,
+            "Patrimonio": 99920577.13,
             "Hon_SG": 0.595,
             "Hon_SD": 0.105
         },
@@ -16335,7 +16335,7 @@
             "Fondo": "Galileo Income - Clase A",
             "Sociedad_Gerente": "Galileo Argentina S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 40233624.7,
+            "Patrimonio": 40233014.56,
             "Hon_SG": 1.0,
             "Hon_SD": 0.1331
         },
@@ -16543,7 +16543,7 @@
             "Fondo": "Schroder Income - Clase A",
             "Sociedad_Gerente": "Schroder S.A.S.G.F.C.I.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 18565988.0,
+            "Patrimonio": 18564750.72,
             "Hon_SG": 2.25,
             "Hon_SD": 0.0968
         },
@@ -17559,7 +17559,7 @@
             "Fondo": "Consultatio Multimercado IV - Clase B",
             "Sociedad_Gerente": "One618 Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 83549544.57,
+            "Patrimonio": 84691212.38,
             "Hon_SG": 1.9,
             "Hon_SD": 0.115
         },
@@ -19943,7 +19943,7 @@
             "Fondo": "HF Balanceado - Clase C",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 13165770212.18,
+            "Patrimonio": 13165770212.25,
             "Hon_SG": 1.5254,
             "Hon_SD": 0.2692
         },
@@ -22887,7 +22887,7 @@
             "Fondo": "Superfondo Combinado - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 27455508048.15,
+            "Patrimonio": 27455430186.03,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -23223,7 +23223,7 @@
             "Fondo": "Supergestion - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 24663816484.49,
+            "Patrimonio": 24663735090.55,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -23287,7 +23287,7 @@
             "Fondo": "Fima Mix I - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 14481391081.57,
+            "Patrimonio": 14481418322.2,
             "Hon_SG": 1.785,
             "Hon_SD": 0.315
         },
@@ -23295,7 +23295,7 @@
             "Fondo": "Fima Mix I - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 5524085612.66,
+            "Patrimonio": 5524085613.25,
             "Hon_SG": 1.5725,
             "Hon_SD": 0.2775
         },
@@ -23311,7 +23311,7 @@
             "Fondo": "Fima Mix II - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 5963182032.26,
+            "Patrimonio": 5963230444.5,
             "Hon_SG": 1.785,
             "Hon_SD": 0.315
         },
@@ -23327,7 +23327,7 @@
             "Fondo": "Fima Mix II - Clase C",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 690422.86,
+            "Patrimonio": 690422.91,
             "Hon_SG": 0.85,
             "Hon_SD": 0.15
         },
@@ -24343,7 +24343,7 @@
             "Fondo": "Fima Mix Dólares - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 95107923.37,
+            "Patrimonio": 95107972.94,
             "Hon_SG": 0.85,
             "Hon_SD": 0.15
         },
@@ -24351,7 +24351,7 @@
             "Fondo": "Fima Mix Dólares - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 29768049.15,
+            "Patrimonio": 29768226.42,
             "Hon_SG": 0.7225,
             "Hon_SD": 0.1275
         },
@@ -25791,7 +25791,7 @@
             "Fondo": "Adcap Financiamiento Abierto Pymes - Clase B",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 5894938721.13,
+            "Patrimonio": 5894938721.06,
             "Hon_SG": 2.3,
             "Hon_SD": 0.121
         },
@@ -25799,7 +25799,7 @@
             "Fondo": "Adcap Financiamiento Abierto Pymes - Clase C",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 7375297476.4,
+            "Patrimonio": 7375297476.31,
             "Hon_SG": 2.04,
             "Hon_SD": 0.1331
         },
@@ -27055,7 +27055,7 @@
             "Fondo": "HF Infraestructura II - Clase I",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 11827338847.48,
+            "Patrimonio": 11827338847.4,
             "Hon_SG": 1.7573,
             "Hon_SD": 0.3101
         },
@@ -28007,7 +28007,7 @@
             "Fondo": "Galileo Renta Fija - Clase A",
             "Sociedad_Gerente": "Galileo Argentina S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 5159891871.4,
+            "Patrimonio": 5158893159.84,
             "Hon_SG": 1.25,
             "Hon_SD": 0.1331
         },
@@ -28927,7 +28927,7 @@
             "Fondo": "Fima Cartera Sustentable FCI ASG - Clase A",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 3393780614.89,
+            "Patrimonio": 3393781115.25,
             "Hon_SG": 2.0825,
             "Hon_SD": 0.3675
         },
@@ -28935,7 +28935,7 @@
             "Fondo": "Fima Cartera Sustentable FCI ASG - Clase B",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 566829741.52,
+            "Patrimonio": 566829741.35,
             "Hon_SG": 1.785,
             "Hon_SD": 0.315
         },
@@ -29143,7 +29143,7 @@
             "Fondo": "Adcap Ahorro Pesos Fondo de Dinero - Clase A",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 27278731995.65,
+            "Patrimonio": 27279132064.39,
             "Hon_SG": 2.82,
             "Hon_SD": 0.121
         },
@@ -29151,7 +29151,7 @@
             "Fondo": "Adcap Ahorro Pesos Fondo de Dinero - Clase B",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 331550166745.96,
+            "Patrimonio": 333277358919.28,
             "Hon_SG": 1.92,
             "Hon_SD": 0.121
         },
@@ -29159,7 +29159,7 @@
             "Fondo": "Adcap Ahorro Pesos Fondo de Dinero - Clase C",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 436539216485.64,
+            "Patrimonio": 437912016485.64,
             "Hon_SG": 1.61,
             "Hon_SD": 0.121
         },
@@ -29255,7 +29255,7 @@
             "Fondo": "Adcap Ahorro Pesos Fondo de Dinero - Clase I",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 110411725397.38,
+            "Patrimonio": 110364725397.38,
             "Hon_SG": 1.82,
             "Hon_SD": 0.121
         },
@@ -29279,7 +29279,7 @@
             "Fondo": "Allaria Ahorro - Clase B",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 360800583092.54,
+            "Patrimonio": 361707998707.08,
             "Hon_SG": 2.25,
             "Hon_SD": 0.12
         },
@@ -29287,7 +29287,7 @@
             "Fondo": "Allaria Ahorro - Clase C",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 460342689844.46,
+            "Patrimonio": 460184689844.46,
             "Hon_SG": 1.5,
             "Hon_SD": 0.12
         },
@@ -29367,7 +29367,7 @@
             "Fondo": "Balanz Capital Money Market - Clase A",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 266190449053.48,
+            "Patrimonio": 266122974298.5,
             "Hon_SG": 2.35,
             "Hon_SD": 0.1
         },
@@ -29375,7 +29375,7 @@
             "Fondo": "Balanz Capital Money Market - Clase B",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 134989945162.88,
+            "Patrimonio": 136036650419.27,
             "Hon_SG": 1.85,
             "Hon_SD": 0.1
         },
@@ -29383,7 +29383,7 @@
             "Fondo": "Balanz Capital Money Market - Clase C",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 225164522519.77,
+            "Patrimonio": 230883979189.05,
             "Hon_SG": 1.55,
             "Hon_SD": 0.1
         },
@@ -29783,7 +29783,7 @@
             "Fondo": "FBA Renta Pesos - Clase A",
             "Sociedad_Gerente": "BBVA Asset Management Argentina S.A.U.S.G.F.C.I.",
             "Sociedad_Depositaria": "BBVA Argentina S.A.",
-            "Patrimonio": 466030100770.13,
+            "Patrimonio": 467350738973.15,
             "Hon_SG": 3.379,
             "Hon_SD": 0.121
         },
@@ -29791,7 +29791,7 @@
             "Fondo": "FBA Renta Pesos - Clase B",
             "Sociedad_Gerente": "BBVA Asset Management Argentina S.A.U.S.G.F.C.I.",
             "Sociedad_Depositaria": "BBVA Argentina S.A.",
-            "Patrimonio": 3112356157470.87,
+            "Patrimonio": 3112356157469.49,
             "Hon_SG": 1.829,
             "Hon_SD": 0.121
         },
@@ -30007,7 +30007,7 @@
             "Fondo": "MAF Money Market - Clase A",
             "Sociedad_Gerente": "Mariva Asset Management S.A.U.S.G.F.C.I.",
             "Sociedad_Depositaria": "Banco Mariva S.A.",
-            "Patrimonio": 11597901405.36,
+            "Patrimonio": 11570286405.36,
             "Hon_SG": 3.0,
             "Hon_SD": 0.12
         },
@@ -30015,7 +30015,7 @@
             "Fondo": "MAF Money Market - Clase B",
             "Sociedad_Gerente": "Mariva Asset Management S.A.U.S.G.F.C.I.",
             "Sociedad_Depositaria": "Banco Mariva S.A.",
-            "Patrimonio": 105864886255.74,
+            "Patrimonio": 105810886255.74,
             "Hon_SG": 1.4498,
             "Hon_SD": 0.12
         },
@@ -30039,7 +30039,7 @@
             "Fondo": "Max Money Market - Clase B",
             "Sociedad_Gerente": "Max Capital Asset Management S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 325542119941.09,
+            "Patrimonio": 325977669941.09,
             "Hon_SG": 1.4,
             "Hon_SD": 0.13
         },
@@ -30063,7 +30063,7 @@
             "Fondo": "MEGAQM Pesos - Clase B",
             "Sociedad_Gerente": "MEGA QM S.A.",
             "Sociedad_Depositaria": "Banco de Servicios y Transacciones S.A. (BST)",
-            "Patrimonio": 730319807849.95,
+            "Patrimonio": 730320807847.95,
             "Hon_SG": 1.39,
             "Hon_SD": 0.121
         },
@@ -30367,7 +30367,7 @@
             "Fondo": "Premier Renta CP en Pesos - Clase A",
             "Sociedad_Gerente": "Supervielle Asset Management S.A.",
             "Sociedad_Depositaria": "Banco Supervielle S.A.",
-            "Patrimonio": 363347302975.88,
+            "Patrimonio": 367598837870.78,
             "Hon_SG": 2.45,
             "Hon_SD": 0.05
         },
@@ -30375,7 +30375,7 @@
             "Fondo": "Premier Renta CP en Pesos - Clase B",
             "Sociedad_Gerente": "Supervielle Asset Management S.A.",
             "Sociedad_Depositaria": "Banco Supervielle S.A.",
-            "Patrimonio": 34450971675.37,
+            "Patrimonio": 34211511460.41,
             "Hon_SG": 3.92,
             "Hon_SD": 0.08
         },
@@ -30383,7 +30383,7 @@
             "Fondo": "Premier Renta CP en Pesos - Clase C",
             "Sociedad_Gerente": "Supervielle Asset Management S.A.",
             "Sociedad_Depositaria": "Banco Supervielle S.A.",
-            "Patrimonio": 569039302871.51,
+            "Patrimonio": 536570090283.2,
             "Hon_SG": 1.617,
             "Hon_SD": 0.033
         },
@@ -30495,7 +30495,7 @@
             "Fondo": "Super Ahorro $ - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 2108346141098.37,
+            "Patrimonio": 2108470718499.02,
             "Hon_SG": 0.7944,
             "Hon_SD": 2.4556
         },
@@ -30503,7 +30503,7 @@
             "Fondo": "Super Ahorro $ - Clase B",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 2502749919996.1,
+            "Patrimonio": 2502749919996.08,
             "Hon_SG": 0.9179,
             "Hon_SD": 1.0322
         },
@@ -30511,7 +30511,7 @@
             "Fondo": "Super Ahorro $ - Clase G",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 10261450180.01,
+            "Patrimonio": 10261450180.02,
             "Hon_SG": 1.5574,
             "Hon_SD": 1.6927
         },
@@ -30519,7 +30519,7 @@
             "Fondo": "Super Ahorro $ - Clase H",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 776319871355.95,
+            "Patrimonio": 776319871356.0,
             "Hon_SG": 0.9074,
             "Hon_SD": 1.0427
         },
@@ -30535,7 +30535,7 @@
             "Fondo": "Super Ahorro $ - Clase L",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 482909911.56,
+            "Patrimonio": 482934672.46,
             "Hon_SG": 0.2302,
             "Hon_SD": 1.5198
         },
@@ -30543,7 +30543,7 @@
             "Fondo": "Super Ahorro Plus - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 1261954739020.16,
+            "Patrimonio": 1261954739025.22,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -30551,7 +30551,7 @@
             "Fondo": "Super Ahorro Plus - Clase B",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 187051016151.22,
+            "Patrimonio": 187051016151.04,
             "Hon_SG": 0.9679,
             "Hon_SD": 1.0822
         },
@@ -31023,7 +31023,7 @@
             "Fondo": "Adcap Ahorro Dólares - Clase E",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 246938213.35,
+            "Patrimonio": 247008213.35,
             "Hon_SG": 0.12,
             "Hon_SD": 0.0847
         },
@@ -31463,7 +31463,7 @@
             "Fondo": "MAF Cash Dolares I - Clase B",
             "Sociedad_Gerente": "Mariva Asset Management S.A.U.S.G.F.C.I.",
             "Sociedad_Depositaria": "Banco Mariva S.A.",
-            "Patrimonio": 9570217.49,
+            "Patrimonio": 9670217.49,
             "Hon_SG": 0.25,
             "Hon_SD": 0.12
         },
@@ -31527,7 +31527,7 @@
             "Fondo": "MEGAQM Liquidez Dólar - Clase B",
             "Sociedad_Gerente": "MEGA QM S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 255429319.97,
+            "Patrimonio": 255465319.97,
             "Hon_SG": 0.1,
             "Hon_SD": 0.1
         },
@@ -31751,7 +31751,7 @@
             "Fondo": "Superfondo Ahorro en Dólares - Clase A",
             "Sociedad_Gerente": "Santander Rio Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 1038062526.21,
+            "Patrimonio": 1038062526.22,
             "Hon_SG": 0.0907,
             "Hon_SD": 0.2543
         },
@@ -31919,7 +31919,7 @@
             "Fondo": "Balanz Money Market USD - Clase A",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 161879171.24,
+            "Patrimonio": 161870729.36,
             "Hon_SG": 0.25,
             "Hon_SD": 0.08
         },
@@ -31927,7 +31927,7 @@
             "Fondo": "Balanz Money Market USD - Clase B",
             "Sociedad_Gerente": "Balanz S.G.F.C.I.S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 207540055.24,
+            "Patrimonio": 207608055.24,
             "Hon_SG": 0.2,
             "Hon_SD": 0.08
         },
@@ -31983,7 +31983,7 @@
             "Fondo": "Cocos Dólar Money Market - Clase C",
             "Sociedad_Gerente": "Cocos Asset Management S.A.",
             "Sociedad_Depositaria": "Banco Industrial S.A.",
-            "Patrimonio": 38206188.46,
+            "Patrimonio": 38101188.46,
             "Hon_SG": 0.0,
             "Hon_SD": 0.133
         },
@@ -32119,7 +32119,7 @@
             "Fondo": "ADBlick Ganaderia FCIC",
             "Sociedad_Gerente": "Supervielle Asset Management S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 2205149207.0,
+            "Patrimonio": 2158731296.0,
             "Hon_SG": 0.0,
             "Hon_SD": 0.0
         },
