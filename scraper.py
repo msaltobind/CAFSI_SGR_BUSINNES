@@ -16,7 +16,7 @@ def analizar_con_gemini(df_res):
     
     try:
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-1.5-flash') # Modelo rápido y económico
+        model = genai.GenerativeModel('gemini-2.5-flash') # Modelo rápido y económico
         
         # 1. Cálculos matemáticos del Top 5 Fees Ponderados
         df_sg = df_res[df_res['Hon_SG'] > 0].copy()
