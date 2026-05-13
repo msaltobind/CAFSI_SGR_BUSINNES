@@ -5,38 +5,69 @@ import requests
 import io
 import time
 import re
+import google.generativeai as genai
 from datetime import datetime, timedelta
+
+def analizar_con_gemini(df_res):
+    # Intentamos obtener la API KEY (Si corres local sin clave, no se rompe)
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        return "<p><i>Análisis IA no disponible (API Key no configurada).</i></p>"
+    
+    try:
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel('gemini-1.5-flash') # Modelo rápido y económico
+        
+        # 1. Cálculos matemáticos del Top 5 Fees Ponderados
+        df_sg = df_res[df_res['Hon_SG'] > 0].copy()
+        df_sg['Pond'] = df_sg['Hon_SG'] * df_sg['Patrimonio']
+        agrupado = df_sg.groupby('Sociedad_Gerente').agg({'Patrimonio': 'sum', 'Pond': 'sum'})
+        agrupado['Fee_Ponderado'] = agrupado['Pond'] / agrupado['Patrimonio']
+        top5 = agrupado.sort_values('Fee_Ponderado', ascending=False).head(5)
+        
+        # 2. Preparamos los datos para dárselos a Gemini
+        datos_prompt = ""
+        for sg, row in top5.iterrows():
+            datos_prompt += f"- {sg}: Fee {row['Fee_Ponderado']:.2f}%, AUM: ${row['Patrimonio']/1e6:.1f}M\n"
+        
+        # 3. El Prompt (Instrucciones precisas)
+        prompt = f"""
+        Actúa como un experto analista de mesas de dinero (Treasury). 
+        Estas son las 5 Sociedades Gerentes con las tasas de honorarios (fees) ponderadas más altas del mercado hoy:
+        
+        {datos_prompt}
+        
+        Escribe un breve y muy profesional resumen (máximo 2 párrafos cortos) analizando qué significa esta estructura de precios para la industria. 
+        Menciona la relación entre el Fee cobrado y el volumen patrimonial (AUM).
+        IMPORTANTE: Devuelve tu respuesta ÚNICAMENTE con etiquetas HTML válidas (<p>, <b>, <ul>, <li>). NO uses bloques de código (```html).
+        """
+        
+        respuesta = model.generate_content(prompt)
+        texto_html = respuesta.text.replace("```html", "").replace("```", "").strip()
+        return texto_html
+        
+    except Exception as e:
+        print(f"[-] Error en Gemini: {e}")
+        return "<p><i>El servicio de análisis IA se encuentra temporalmente fuera de servicio.</i></p>"
 
 def obtener_y_procesar_cafci():
     timestamp_actual = int(time.time() * 1000)
     URL_API_CAFCI = f"https://api.pub.cafci.org.ar/pb_get?d={timestamp_actual}"
-    
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-    }
+    headers = {'User-Agent': 'Mozilla/5.0'}
     
     print(f"[+] Conectando a la API de CAFCI...")
-    
     try:
         respuesta = requests.get(URL_API_CAFCI, headers=headers, timeout=30)
-        
         if respuesta.status_code == 200 and len(respuesta.content) > 5000:
-            
-            # --- MAGIA PARA OBTENER EL NOMBRE REAL DEL ARCHIVO ---
-            nombre_archivo_real = "Planilla_CAFCI.xlsx" # Nombre por defecto si falla
+            nombre_archivo_real = "Planilla_CAFCI.xlsx"
             if 'content-disposition' in respuesta.headers:
                 cd = respuesta.headers['content-disposition']
                 nombres = re.findall('filename="?([^";]+)"?', cd)
-                if nombres:
-                    nombre_archivo_real = nombres[0]
+                if nombres: nombre_archivo_real = nombres[0]
             
-            print(f"[+] Archivo detectado desde el servidor: {nombre_archivo_real}")
-            
-            # 2. Procesamiento en memoria
             excel_memoria = io.BytesIO(respuesta.content)
             df = pd.read_excel(excel_memoria, skiprows=7, header=[0, 1])
             
-            # --- ETL ---
             nuevas_cols = []
             for p, s in df.columns:
                 col_name = str(p).strip() if "Unnamed" in str(s) else f"{p}_{s}".strip()
@@ -53,27 +84,26 @@ def obtener_y_procesar_cafci():
             df_res = df_res.dropna(subset=['Fondo', 'Patrimonio'])
             df_res['Patrimonio'] = pd.to_numeric(df_res['Patrimonio'], errors='coerce').fillna(0)
             
-            # 3. METADATOS DE LA CORRIDA
+            # --- AQUÍ INVOCAMOS A LA INTELIGENCIA ARTIFICIAL ---
+            print("[+] Solicitando análisis a Gemini AI...")
+            resumen_ia = analizar_con_gemini(df_res)
+            
             hora_arg = datetime.now() - timedelta(hours=3)
             fecha_str = hora_arg.strftime("%d/%m/%Y %H:%M:%S")
 
             datos_json = {
                 "fecha_actualizacion": fecha_str,
-                "archivo_origen": nombre_archivo_real, # <--- Aquí inyectamos el nombre oficial
+                "archivo_origen": nombre_archivo_real,
+                "resumen_ia": resumen_ia, # <--- AGREGAMOS EL RESUMEN AL JSON
                 "fondos": df_res.to_dict(orient='records')
             }
 
-            # 4. Guardar JSON para Producción
             os.makedirs("docs", exist_ok=True)
             with open('docs/data.json', 'w', encoding='utf-8') as f:
                 json.dump(datos_json, f, ensure_ascii=False, indent=4)
             
-            print(f"[+] Éxito: {nombre_archivo_real} procesado a las {fecha_str} HS")
+            print(f"[+] Éxito total. Datos y Análisis IA inyectados.")
             return True
-        else:
-            print("[-] Error: CAFCI no devolvió datos válidos.")
-            return False
-            
     except Exception as e:
         print(f"[-] Error Crítico: {e}")
         return False

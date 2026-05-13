@@ -16,17 +16,22 @@
             --bg-gray: #f4f5f7;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-gray);
             margin: 0;
             color: #333;
-            overflow: hidden;
-            height: 100vh;
             display: flex;
             flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
         }
 
+        /* HEADER */
         .header {
             background-color: var(--bind-black);
             color: white;
@@ -44,6 +49,7 @@
             font-size: 18px;
         }
 
+        /* TOOLBAR */
         .toolbar {
             background: white;
             padding: 10px 30px;
@@ -53,12 +59,15 @@
             gap: 20px;
             flex-shrink: 0;
             border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
         }
 
         .filtro-grupo {
             display: flex;
             flex-direction: column;
             gap: 2px;
+            flex: 1;
+            min-width: 200px;
         }
 
         .filtro-grupo label {
@@ -69,20 +78,48 @@
         }
 
         .toolbar select {
-            padding: 6px;
+            padding: 8px;
             font-size: 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            width: 220px;
+            width: 100%;
             font-family: 'Montserrat';
         }
 
+        .btn-limpiar {
+            background: var(--bind-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 12px;
+            font-family: 'Montserrat';
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-limpiar:hover {
+            background: #003650;
+        }
+
+        /* CONTENEDOR PRINCIPAL CON SCROLL INTERNO */
+        .scroll-wrapper {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* LAYOUT COLUMNAS */
         .main-layout {
             display: flex;
-            flex: 1;
-            overflow: hidden;
             padding: 15px;
             gap: 15px;
+            flex-wrap: nowrap;
         }
 
         .col-left {
@@ -90,9 +127,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            min-width: 450px;
-            overflow-y: auto;
-            padding-right: 5px;
+            min-width: 400px;
         }
 
         .col-right {
@@ -103,57 +138,77 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            min-height: 500px;
         }
 
+        /* KPIS */
         .kpi-row {
             display: flex;
             gap: 10px;
-            margin-bottom: 5px;
         }
 
         .kpi-card {
             background: white;
-            padding: 12px;
+            padding: 15px;
             border-radius: 8px;
             flex: 1;
             border-left: 4px solid var(--bind-yellow);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            min-width: 120px;
         }
 
         .kpi-card h3 {
             margin: 0;
             color: var(--bind-blue);
-            font-size: 9px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .kpi-card .value {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 800;
-            margin: 4px 0 0 0;
+            margin: 5px 0 0 0;
             color: var(--bind-blue);
         }
 
+        /* GRAFICOS */
         .chart-box {
             background: white;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            flex: 1;
             display: flex;
             flex-direction: column;
-            min-height: 200px;
+            min-height: 320px;
         }
 
         .chart-box h2 {
-            font-size: 12px;
-            margin: 0 0 10px 0;
+            font-size: 13px;
+            margin: 0 0 15px 0;
             text-align: center;
             color: var(--bind-blue);
             border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
             font-weight: 800;
+        }
+
+        .canvas-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+        }
+
+        /* TABLA */
+        .table-header-title {
+            padding: 15px;
+            background: var(--bind-blue);
+            color: white;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 0.5px;
         }
 
         .table-container {
@@ -171,9 +226,9 @@
         thead th {
             position: sticky;
             top: 0;
-            background-color: var(--bind-blue);
+            background-color: #003650;
             color: white;
-            padding: 12px 8px;
+            padding: 12px 10px;
             text-align: left;
             z-index: 10;
             font-weight: 600;
@@ -182,7 +237,7 @@
         }
 
         tbody td {
-            padding: 8px;
+            padding: 10px;
             border-bottom: 1px solid #eee;
         }
 
@@ -192,20 +247,89 @@
 
         .badge {
             background: #e9ecef;
-            padding: 2px 5px;
-            border-radius: 3px;
+            padding: 3px 6px;
+            border-radius: 4px;
             font-weight: 700;
             color: var(--bind-blue);
-            font-size: 10px;
+            font-size: 11px;
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
+        /* SECCIÓN IA */
+        .ai-section {
+            margin: 0 15px 15px 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #8e44ad;
+        }
+
+        .ai-section h2 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #8e44ad;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+        }
+
+        .ai-content {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .ai-content p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .ai-disclaimer {
+            margin-top: 15px;
+            font-size: 10px;
+            color: #888;
+            text-align: right;
+            font-style: italic;
+            border-top: 1px dashed #eee;
+            padding-top: 10px;
+        }
+
+        /* =========================================
+           RESPONSIVE (TABLETS Y CELULARES)
+           ========================================= */
+        @media (max-width: 1024px) {
             body {
-                height: auto;
                 overflow-y: auto;
+                height: auto;
             }
 
+            .scroll-wrapper {
+                overflow: visible;
+            }
+
+            .main-layout {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .col-left,
+            .col-right {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .col-right {
+                min-height: 400px;
+                max-height: 600px;
+            }
+
+            .ai-section {
+                margin: 0 10px 15px 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
             .header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -216,26 +340,27 @@
                 flex-direction: column;
                 align-items: stretch;
                 gap: 10px;
+                padding: 15px;
             }
 
-            .toolbar select {
+            .btn-limpiar {
+                margin-top: 0;
                 width: 100%;
             }
 
-            .main-layout {
+            .kpi-row {
                 flex-direction: column;
-                overflow: visible;
             }
 
-            .col-left,
-            .col-right {
+            .kpi-card {
                 width: 100%;
-                min-width: unset;
             }
 
-            .table-container {
-                max-height: 400px;
+            .chart-box {
+                min-height: 350px;
             }
+
+            /* Más alto en móvil para la leyenda inferior */
         }
     </style>
 </head>
@@ -245,7 +370,7 @@
     <div class="header">
         <h1>bind <span style="color:white; font-weight:400">| Treasury Intelligence</span></h1>
         <span id="header-metadata" style="text-align: right; line-height: 1.4; font-size: 11px;">Cargando
-            datos...</span>
+            sistema...</span>
     </div>
 
     <div class="toolbar">
@@ -261,50 +386,71 @@
                 <option value="TODAS">TODOS LOS GERENTES</option>
             </select>
         </div>
-        <button onclick="resetFiltros()"
-            style="background:var(--bind-blue); color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer; font-size:11px; font-weight:bold; margin-top:12px;">LIMPIAR</button>
+        <button onclick="resetFiltros()" class="btn-limpiar">LIMPIAR FILTROS</button>
     </div>
 
-    <div class="main-layout">
-        <div class="col-left">
-            <div class="kpi-row">
-                <div class="kpi-card">
-                    <h3>AUM Total</h3>
-                    <p class="value" id="kpi-patrimonio">$ 0</p>
+    <div class="scroll-wrapper">
+        <div class="main-layout">
+            <div class="col-left">
+                <div class="kpi-row">
+                    <div class="kpi-card">
+                        <h3>AUM Total</h3>
+                        <p class="value" id="kpi-patrimonio">$ 0</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Fondos Activos</h3>
+                        <p class="value" id="kpi-fondos">0</p>
+                    </div>
+                    <div class="kpi-card" style="border-left-color: var(--bind-blue);">
+                        <h3>Fee Ponderado</h3>
+                        <p class="value" id="kpi-honsg">0%</p>
+                    </div>
                 </div>
-                <div class="kpi-card">
-                    <h3>Fondos Activos</h3>
-                    <p class="value" id="kpi-fondos">0</p>
+
+                <div class="chart-box">
+                    <h2>Share Sociedades Depositarias</h2>
+                    <div class="canvas-container"><canvas id="chartSD"></canvas></div>
                 </div>
-                <div class="kpi-card" style="border-left-color: var(--bind-blue);">
-                    <h3>Fee Ponderado</h3>
-                    <p class="value" id="kpi-honsg">0%</p>
+
+                <div class="chart-box">
+                    <h2>Share Sociedades Gerentes</h2>
+                    <div class="canvas-container"><canvas id="chartSG"></canvas></div>
                 </div>
             </div>
-            <div class="chart-box">
-                <h2>Share Sociedades Depositarias</h2>
-                <div style="flex:1; position:relative;"><canvas id="chartSD"></canvas></div>
-            </div>
-            <div class="chart-box">
-                <h2>Share Sociedades Gerentes</h2>
-                <div style="flex:1; position:relative;"><canvas id="chartSG"></canvas></div>
+
+            <div class="col-right">
+                <div class="table-header-title">EXPLORADOR DE FONDOS (AUM)</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fondo</th>
+                                <th>Patrimonio (AUM)</th>
+                                <th>Fee SG</th>
+                                <th>Fee SD</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-fondos"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <div class="col-right">
-            <div style="padding:12px; background:var(--bind-blue); color:white; font-weight:800; font-size:12px;">
-                EXPLORADOR DE FONDOS</div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Fondo</th>
-                            <th>Patrimonio (AUM)</th>
-                            <th>Fee SG</th>
-                            <th>Fee SD</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-fondos"></tbody>
-                </table>
+
+        <div class="ai-section">
+            <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                </svg>
+                Market Insights - Top 5 Fees (IA)
+            </h2>
+            <div id="ai-summary-content" class="ai-content">
+                Analizando estructura de mercado y ponderación de carteras...
+            </div>
+            <div class="ai-disclaimer">
+                Disclaimer: Resumen analítico generado automáticamente en el Backend por modelos de IA (Google Gemini
+                1.5). Solo para uso informativo de la Mesa de Dinero.
             </div>
         </div>
     </div>
@@ -316,38 +462,56 @@
 
         const fmtMonto = (n) => n >= 1e9 ? `$ ${(n / 1e9).toFixed(2)} B` : `$ ${(n / 1e6).toFixed(1)} M`;
 
-        // Cache Busting + Carga de Datos
+        // Cache Busting para evitar datos viejos
         fetch('data.json?v=' + new Date().getTime())
             .then(r => r.json())
             .then(data => {
-                // Inyectamos la info de trazabilidad
+                // Inyectamos Metadata
                 document.getElementById('header-metadata').innerHTML = `
                     <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">ÚLTIMA ACTUALIZACIÓN:</span> ${data.fecha_actualizacion} HS<br>
-                    <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">ARCHIVO ORIGEN:</span> ${data.archivo_origen}
+                    <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">DATA FILE:</span> ${data.archivo_origen}
                 `;
 
-                datosGlobales = data.fondos;
+                // Inyectamos el resumen IA generado por Python
+                if (data.resumen_ia) {
+                    document.getElementById('ai-summary-content').innerHTML = data.resumen_ia;
+                }
+
+                datosGlobales = data.fondos || [];
+
+                // Llenamos los Selectores
                 const selectSD = document.getElementById('filtro-sd');
                 const d_unicas = [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort();
                 d_unicas.forEach(sd => selectSD.appendChild(new Option(sd, sd)));
+
                 actualizarFiltroGerente();
+            })
+            .catch(e => {
+                document.getElementById('header-metadata').innerText = "Error cargando datos de mercado.";
+                console.error("Error en Fetch:", e);
             });
 
         function actualizarFiltroGerente() {
             const sdSel = document.getElementById('filtro-sd').value;
             const selectSG = document.getElementById('filtro-sg');
             selectSG.innerHTML = '<option value="TODAS">TODOS LOS GERENTES</option>';
+
             let f = sdSel === "TODAS" ? datosGlobales : datosGlobales.filter(x => x.Sociedad_Depositaria === sdSel);
             [...new Set(f.map(x => x.Sociedad_Gerente))].sort().forEach(g => selectSG.appendChild(new Option(g, g)));
+
             aplicarFiltros();
         }
 
-        function resetFiltros() { document.getElementById('filtro-sd').value = "TODAS"; actualizarFiltroGerente(); }
+        function resetFiltros() {
+            document.getElementById('filtro-sd').value = "TODAS";
+            actualizarFiltroGerente();
+        }
 
         function aplicarFiltros() {
             const sd = document.getElementById('filtro-sd').value;
             const sg = document.getElementById('filtro-sg').value;
             let filtrados = datosGlobales;
+
             if (sd !== "TODAS") filtrados = filtrados.filter(x => x.Sociedad_Depositaria === sd);
             if (sg !== "TODAS") filtrados = filtrados.filter(x => x.Sociedad_Gerente === sg);
 
@@ -356,12 +520,17 @@
             document.getElementById('kpi-fondos').innerText = filtrados.length;
 
             let sPond = 0, sPatV = 0;
-            filtrados.forEach(f => { if (f.Hon_SG > 0) { sPond += (f.Hon_SG * f.Patrimonio); sPatV += f.Patrimonio; } });
+            filtrados.forEach(f => {
+                if (f.Hon_SG > 0) {
+                    sPond += (f.Hon_SG * f.Patrimonio);
+                    sPatV += f.Patrimonio;
+                }
+            });
             document.getElementById('kpi-honsg').innerText = sPatV > 0 ? (sPond / sPatV).toFixed(2) + '%' : '0%';
 
             document.getElementById('tabla-fondos').innerHTML = filtrados.sort((a, b) => b.Patrimonio - a.Patrimonio).map(f => `
                 <tr>
-                    <td><strong>${f.Fondo.substring(0, 45)}</strong></td>
+                    <td><strong>${f.Fondo.substring(0, 40)}...</strong></td>
                     <td style="color:var(--bind-blue); font-weight:800">${fmtMonto(f.Patrimonio)}</td>
                     <td><span class="badge">${parseFloat(f.Hon_SG).toFixed(2)}%</span></td>
                     <td><span class="badge">${parseFloat(f.Hon_SD).toFixed(2)}%</span></td>
@@ -372,43 +541,79 @@
         }
 
         function updateCharts(data, total) {
+            if (total === 0) return; // Evita errores de division por cero si el filtro vacia la tabla
+
             const procesar = (key) => {
                 let ag = data.reduce((acc, obj) => { acc[obj[key]] = (acc[obj[key]] || 0) + obj.Patrimonio; return acc; }, {});
                 let lista = Object.keys(ag).map(k => ({ l: k, v: ag[k] })).sort((a, b) => b.v - a.v);
                 let final = [], otrosV = 0;
                 lista.forEach(item => {
-                    if ((item.v / total) > 0.03 || item.l.toUpperCase().includes("INDUSTRIAL")) final.push(item);
-                    else otrosV += item.v;
+                    // Agrupamos bajo "OTROS" lo que sea menor al 3%, salvo que sea BIND
+                    if ((item.v / total) > 0.03 || item.l.toUpperCase().includes("INDUSTRIAL")) {
+                        final.push(item);
+                    } else {
+                        otrosV += item.v;
+                    }
                 });
                 if (otrosV > 0) final.push({ l: "OTROS COMPETIDORES", v: otrosV });
                 return final;
             };
-            renderPie(document.getElementById('chartSD'), procesar('Sociedad_Depositaria'), 'chartSD_obj', total);
-            renderPie(document.getElementById('chartSG'), procesar('Sociedad_Gerente'), 'chartSG_obj', total);
+
+            renderPie('chartSD', procesar('Sociedad_Depositaria'), 'chartSD_obj', total);
+            renderPie('chartSG', procesar('Sociedad_Gerente'), 'chartSG_obj', total);
         }
 
-        function renderPie(canvas, data, objRef, total) {
+        function renderPie(canvasId, data, objRef, total) {
+            const canvas = document.getElementById(canvasId);
             if (window[objRef]) window[objRef].destroy();
+
             const palette = ['#002130', '#004691', '#0072CE', '#4B8BBE', '#7FB3D5', '#A9CCE3', '#D4E6F1'];
+
             window[objRef] = new Chart(canvas, {
                 type: 'pie',
                 data: {
                     labels: data.map(x => x.l),
                     datasets: [{
                         data: data.map(x => x.v),
-                        backgroundColor: data.map((x, i) => x.l.toUpperCase().includes("INDUSTRIAL") ? '#FFD100' : palette[i % palette.length]),
-                        borderWidth: 1, borderColor: '#fff'
+                        backgroundColor: data.map((x, i) => {
+                            if (x.l.toUpperCase().includes("INDUSTRIAL")) return '#FFD100'; // Destacar BIND
+                            if (x.l === "OTROS COMPETIDORES") return '#666666';
+                            return palette[i % palette.length];
+                        }),
+                        borderWidth: 2, borderColor: '#ffffff'
                     }]
                 },
                 options: {
-                    responsive: true, maintainAspectRatio: false,
-                    layout: { padding: 10 },
+                    responsive: true,
+                    maintainAspectRatio: false, // Vital para que no se aplaste
+                    layout: { padding: 15 },
                     plugins: {
-                        legend: { position: 'right', labels: { boxWidth: 10, font: { size: 9, family: 'Montserrat', weight: 'bold' }, padding: 5 } },
-                        tooltip: { callbacks: { label: (i) => `${i.label}: ${(i.raw * 100 / total).toFixed(1)}% (${fmtMonto(i.raw)})` } },
+                        legend: {
+                            // LEYENDA SIEMPRE ABAJO PARA EVITAR APLASTAMIENTO HORIZONTAL
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                font: { size: 10, family: 'Montserrat', weight: '600' },
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (i) => {
+                                    let percentage = (i.raw * 100 / total).toFixed(1) + "%";
+                                    return ` ${i.label}: ${percentage} (${fmtMonto(i.raw)})`;
+                                }
+                            }
+                        },
                         datalabels: {
-                            color: '#002130', font: { weight: '800', size: 9 },
-                            formatter: (val) => (val * 100 / total) > 4 ? (val * 100 / total).toFixed(1) + '%' : null
+                            color: '#ffffff',
+                            font: { weight: '800', size: 10 },
+                            textStrokeColor: '#002130', // Contorno para que sea legible en cualquier color
+                            textStrokeWidth: 2,
+                            formatter: (val) => {
+                                let p = (val * 100 / total).toFixed(1);
+                                return p > 4.0 ? p + '%' : null; // Solo muestra % mayores a 4 para no amontonar
+                            }
                         }
                     }
                 }
