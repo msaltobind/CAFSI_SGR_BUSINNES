@@ -105,7 +105,7 @@
             background: #003650;
         }
 
-        /* CONTENEDOR PRINCIPAL CON SCROLL INTERNO */
+        /* CONTENEDOR PRINCIPAL CON SCROLL INTERNO (Por si la pantalla es muy pequeña) */
         .scroll-wrapper {
             flex: 1;
             overflow-y: auto;
@@ -121,6 +121,7 @@
             padding: 15px;
             gap: 15px;
             flex-wrap: nowrap;
+            align-items: flex-start;
         }
 
         .col-left {
@@ -131,7 +132,6 @@
             min-width: 400px;
         }
 
-        /* La columna derecha ahora es un flex-column estricto para contener la tabla y la IA */
         .col-right {
             width: 55%;
             background: white;
@@ -202,7 +202,7 @@
             min-height: 250px;
         }
 
-        /* TABLA (Ahora con scroll interno forzado) */
+        /* TABLA (AJUSTE CRÍTICO: Scroll interno y altura máxima) */
         .table-header-title {
             padding: 15px;
             background: var(--bind-blue);
@@ -215,8 +215,28 @@
 
         .table-container {
             flex: 1;
+            max-height: 520px;
+            /* <--- ESTA REGLA CREA EL CUADRADO CON SCROLL INTERNO */
             overflow-y: auto;
             background: white;
+        }
+
+        /* Modificamos el scrollbar de la tabla para que se vea más moderno */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
         }
 
         table {
@@ -257,7 +277,7 @@
             font-size: 11px;
         }
 
-        /* SECCIÓN IA (Modificada para ser el footer de la columna derecha) */
+        /* SECCIÓN IA (Pegada justo debajo de la tabla) */
         .ai-section {
             padding: 15px 20px;
             background: #fdfbfd;
@@ -313,6 +333,7 @@
             .main-layout {
                 flex-direction: column;
                 padding: 10px;
+                align-items: stretch;
             }
 
             .col-left,
@@ -320,12 +341,6 @@
                 width: 100%;
                 min-width: 100%;
             }
-
-            .col-right {
-                min-height: 600px;
-            }
-
-            /* Altura mínima en móviles para la tabla+IA */
         }
 
         @media (max-width: 600px) {
@@ -357,6 +372,10 @@
 
             .chart-box {
                 min-height: 350px;
+            }
+
+            .table-container {
+                max-height: 400px;
             }
         }
     </style>
@@ -446,7 +465,7 @@
                     </div>
                     <div class="ai-disclaimer">
                         Disclaimer: Resumen analítico generado automáticamente en el Backend por modelos de Inteligencia
-                        Artificial (Powered by Google Gemini 1.5). Solo para uso informativo.
+                        Artificial (Powered by Google Gemini). Solo para uso informativo.
                     </div>
                 </div>
 
@@ -461,7 +480,6 @@
 
         const fmtMonto = (n) => n >= 1e9 ? `$ ${(n / 1e9).toFixed(2)} B` : `$ ${(n / 1e6).toFixed(1)} M`;
 
-        // Fetch de los datos generados por Python
         fetch('data.json?v=' + new Date().getTime())
             .then(r => r.json())
             .then(data => {
@@ -523,7 +541,7 @@
             });
             document.getElementById('kpi-honsg').innerText = sPatV > 0 ? (sPond / sPatV).toFixed(2) + '%' : '0%';
 
-            // RENDERIZADO DE LA TABLA (Muestra todo, pero con scroll)
+            // Renderizado de fondos en la tabla
             document.getElementById('tabla-fondos').innerHTML = filtrados.sort((a, b) => b.Patrimonio - a.Patrimonio).map(f => `
                 <tr>
                     <td><strong>${f.Fondo.substring(0, 40)}...</strong></td>
