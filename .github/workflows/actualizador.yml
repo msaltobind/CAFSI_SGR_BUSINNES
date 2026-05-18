@@ -46,16 +46,44 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 465
           secure: true
-          # Credenciales del correo REMITENTE (Guardadas en GitHub Secrets)
           username: ${{ secrets.EMAIL_BOT_USER }}
           password: ${{ secrets.EMAIL_BOT_PASS }}
-          subject: "✅ Dashboard CAFCI Actualizado Exitosamente"
+          subject: "📊 BIND Treasury | Tablero CAFCI Actualizado Exitosamente 🚀"
           to: msalto@bancoindustrial.com.ar
           from: "Bot CAFCI Intelligence"
+          
+          # Versión Texto Plano (Por si el banco bloquea HTML)
           body: |
-            Hola equipo,
+            ¡Buenos Dias! 👋
+            El bot ha finalizado con éxito la descarga y procesamiento de CAFCI. ✅
             
-            El proceso de actualización de las 10:00 AM ha finalizado correctamente.
-            El nuevo archivo de CAFCI fue descargado e inyectado en el Dashboard.
-            
-            Puedes visualizarlo aquí: https://msaltobind.github.io/CAFSI_SGR_BUSINNES/
+            🔗 Accede al Dashboard aquí: https://msaltobind.github.io/CAFSI_SGR_BUSINNES/
+          
+          # Versión Súper Visible (Con colores corporativos BIND y botón)
+          html_body: |
+            <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+              
+              <div style="background-color: #1a1a1a; padding: 20px; text-align: center; border-bottom: 4px solid #FFD100;">
+                <h2 style="color: #ffffff; margin: 0; font-size: 22px; letter-spacing: 1px;">bind <span style="font-weight: 300;">| Treasury Intelligence</span></h2>
+              </div>
+              
+              <div style="padding: 30px; background-color: #fdfbfd;">
+                <p style="font-size: 16px; margin-top: 0;">¡Buenos Dias equipo! 👋</p>
+                <p style="font-size: 15px; line-height: 1.5;">El bot ha finalizado con éxito la extracción desde la API de CAFCI. Los datos del mercado ya están procesados y listos. ✅</p>
+                
+                <ul style="font-size: 14px; line-height: 1.8; margin-top: 20px; background: #fff; padding: 15px 15px 15px 35px; border-radius: 6px; border: 1px solid #eee;">
+                  <li>📈 <b>Market Share:</b> Actualizado con el cierre de ayer.</li>
+                  <li>💰 <b>AUM & Fees Ponderados:</b> Recalculados con éxito.</li>
+                  <li>🤖 <b>Insights IA:</b> Nuevo análisis de mercado generado por Gemini.</li>
+                </ul>
+                
+                <div style="text-align: center; margin: 35px 0 20px 0;">
+                  <a href="https://msaltobind.github.io/CAFSI_SGR_BUSINNES/" style="background-color: #002130; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 6px; font-weight: bold; font-size: 16px; letter-spacing: 0.5px; display: inline-block;">📊 INGRESAR AL DASHBOARD</a>
+                </div>
+                
+              </div>
+              
+              <div style="background-color: #eeeeee; padding: 15px; text-align: center; font-size: 11px; color: #888;">
+                <i>Este es un mensaje automático generado por GitHub Actions.<br>Proceso de Gerencia de Producto.</i>
+              </div>
+            </div>
