@@ -105,7 +105,7 @@
             background: #003650;
         }
 
-        /* CONTENEDOR PRINCIPAL CON SCROLL INTERNO (Por si la pantalla es muy pequeña) */
+        /* CONTENEDOR PRINCIPAL CON SCROLL INTERNO */
         .scroll-wrapper {
             flex: 1;
             overflow-y: auto;
@@ -167,7 +167,7 @@
         }
 
         .kpi-card .value {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             margin: 5px 0 0 0;
             color: var(--bind-blue);
@@ -202,7 +202,7 @@
             min-height: 250px;
         }
 
-        /* TABLA (AJUSTE CRÍTICO: Scroll interno y altura máxima) */
+        /* TABLA Y SCROLL */
         .table-header-title {
             padding: 15px;
             background: var(--bind-blue);
@@ -216,12 +216,10 @@
         .table-container {
             flex: 1;
             max-height: 520px;
-            /* <--- ESTA REGLA CREA EL CUADRADO CON SCROLL INTERNO */
             overflow-y: auto;
             background: white;
         }
 
-        /* Modificamos el scrollbar de la tabla para que se vea más moderno */
         .table-container::-webkit-scrollbar {
             width: 8px;
         }
@@ -277,7 +275,7 @@
             font-size: 11px;
         }
 
-        /* SECCIÓN IA (Pegada justo debajo de la tabla) */
+        /* SECCIÓN IA */
         .ai-section {
             padding: 15px 20px;
             background: #fdfbfd;
@@ -317,9 +315,7 @@
             padding-top: 8px;
         }
 
-        /* =========================================
-           RESPONSIVE (TABLETS Y CELULARES)
-           ========================================= */
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             body {
                 overflow-y: auto;
@@ -468,7 +464,6 @@
                         Artificial (Powered by Google Gemini). Solo para uso informativo.
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -478,7 +473,25 @@
         let datosGlobales = [];
         let chartSD_obj, chartSG_obj;
 
-        const fmtMonto = (n) => n >= 1e9 ? `$ ${(n / 1e9).toFixed(2)} B` : `$ ${(n / 1e6).toFixed(1)} M`;
+        // NUEVA FUNCIÓN DE FORMATEO Y ESCALAS (Basada en tu código)
+        function formatearEscala(numero) {
+            let num = Number(numero);
+            if (num >= 1000000000000) {
+                return '$ ' + (num / 1000000000000).toFixed(2).replace('.', ',') + ' Billones';
+            }
+            else if (num >= 1000000000) {
+                return '$ ' + (num / 1000000000).toFixed(2).replace('.', ',') + ' Mil millones';
+            }
+            else if (num >= 1000000) {
+                return '$ ' + (num / 1000000).toFixed(2).replace('.', ',') + ' Millones';
+            }
+            else if (num >= 1000) {
+                return '$ ' + (num / 1000).toFixed(2).replace('.', ',') + ' Mil';
+            }
+            else {
+                return '$ ' + num.toFixed(2).replace('.', ',');
+            }
+        }
 
         fetch('data.json?v=' + new Date().getTime())
             .then(r => r.json())
@@ -529,7 +542,7 @@
             if (sg !== "TODAS") filtrados = filtrados.filter(x => x.Sociedad_Gerente === sg);
 
             const totalPat = filtrados.reduce((s, f) => s + f.Patrimonio, 0);
-            document.getElementById('kpi-patrimonio').innerText = fmtMonto(totalPat);
+            document.getElementById('kpi-patrimonio').innerText = formatearEscala(totalPat);
             document.getElementById('kpi-fondos').innerText = filtrados.length;
 
             let sPond = 0, sPatV = 0;
@@ -541,11 +554,11 @@
             });
             document.getElementById('kpi-honsg').innerText = sPatV > 0 ? (sPond / sPatV).toFixed(2) + '%' : '0%';
 
-            // Renderizado de fondos en la tabla
+            // Aplicando tu función de escala a la tabla
             document.getElementById('tabla-fondos').innerHTML = filtrados.sort((a, b) => b.Patrimonio - a.Patrimonio).map(f => `
                 <tr>
                     <td><strong>${f.Fondo.substring(0, 40)}...</strong></td>
-                    <td style="color:var(--bind-blue); font-weight:800">${fmtMonto(f.Patrimonio)}</td>
+                    <td style="color:var(--bind-blue); font-weight:800">${formatearEscala(f.Patrimonio)}</td>
                     <td><span class="badge">${parseFloat(f.Hon_SG).toFixed(2)}%</span></td>
                     <td><span class="badge">${parseFloat(f.Hon_SD).toFixed(2)}%</span></td>
                 </tr>
@@ -609,7 +622,8 @@
                             callbacks: {
                                 label: (i) => {
                                     let percentage = (i.raw * 100 / total).toFixed(1) + "%";
-                                    return ` ${i.label}: ${percentage} (${fmtMonto(i.raw)})`;
+                                    // Usando tu escala también en los Tooltips de los gráficos!
+                                    return ` ${i.label}: ${percentage} (${formatearEscala(i.raw)})`;
                                 }
                             }
                         },
