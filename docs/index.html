@@ -117,6 +117,7 @@
         /* LAYOUT COLUMNAS */
         .main-layout {
             display: flex;
+            flex: 1;
             padding: 15px;
             gap: 15px;
             flex-wrap: nowrap;
@@ -130,6 +131,7 @@
             min-width: 400px;
         }
 
+        /* La columna derecha ahora es un flex-column estricto para contener la tabla y la IA */
         .col-right {
             width: 55%;
             background: white;
@@ -138,7 +140,6 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            min-height: 500px;
         }
 
         /* KPIS */
@@ -201,7 +202,7 @@
             min-height: 250px;
         }
 
-        /* TABLA */
+        /* TABLA (Ahora con scroll interno forzado) */
         .table-header-title {
             padding: 15px;
             background: var(--bind-blue);
@@ -209,11 +210,13 @@
             font-weight: 800;
             font-size: 13px;
             letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
 
         .table-container {
             flex: 1;
             overflow-y: auto;
+            background: white;
         }
 
         table {
@@ -254,19 +257,18 @@
             font-size: 11px;
         }
 
-        /* SECCIÓN IA */
+        /* SECCIÓN IA (Modificada para ser el footer de la columna derecha) */
         .ai-section {
-            margin: 0 15px 15px 15px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #8e44ad;
+            padding: 15px 20px;
+            background: #fdfbfd;
+            border-top: 1px solid #eee;
+            border-bottom: 4px solid #8e44ad;
+            flex-shrink: 0;
         }
 
         .ai-section h2 {
-            margin: 0 0 10px 0;
-            font-size: 14px;
+            margin: 0 0 8px 0;
+            font-size: 13px;
             color: #8e44ad;
             display: flex;
             align-items: center;
@@ -275,24 +277,24 @@
         }
 
         .ai-content {
-            font-size: 12px;
-            line-height: 1.6;
+            font-size: 11px;
+            line-height: 1.5;
             color: #444;
         }
 
         .ai-content p {
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .ai-disclaimer {
-            margin-top: 15px;
-            font-size: 10px;
-            color: #888;
+            margin-top: 10px;
+            font-size: 9px;
+            color: #999;
             text-align: right;
             font-style: italic;
             border-top: 1px dashed #eee;
-            padding-top: 10px;
+            padding-top: 8px;
         }
 
         /* =========================================
@@ -320,13 +322,10 @@
             }
 
             .col-right {
-                min-height: 400px;
-                max-height: 600px;
+                min-height: 600px;
             }
 
-            .ai-section {
-                margin: 0 10px 15px 10px;
-            }
+            /* Altura mínima en móviles para la tabla+IA */
         }
 
         @media (max-width: 600px) {
@@ -359,8 +358,6 @@
             .chart-box {
                 min-height: 350px;
             }
-
-            /* Más alto en móvil para la leyenda inferior */
         }
     </style>
 </head>
@@ -419,7 +416,8 @@
             </div>
 
             <div class="col-right">
-                <div class="table-header-title">EXPLORADOR DE FONDOS (AUM)</div>
+                <div class="table-header-title">EXPLORADOR DE FONDOS</div>
+
                 <div class="table-container">
                     <table>
                         <thead>
@@ -433,24 +431,25 @@
                         <tbody id="tabla-fondos"></tbody>
                     </table>
                 </div>
-            </div>
-        </div>
 
-        <div class="ai-section">
-            <h2>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path
-                        d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                </svg>
-                Market Insights - Top 5 Fees (IA)
-            </h2>
-            <div id="ai-summary-content" class="ai-content">
-                Analizando estructura de mercado y ponderación de carteras...
-            </div>
-            <div class="ai-disclaimer">
-                Disclaimer: Resumen analítico generado automáticamente en el Backend por modelos de IA (Google Gemini
-                1.5). Solo para uso informativo de la Mesa de Dinero.
+                <div class="ai-section">
+                    <h2>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                        </svg>
+                        Market Insights - Top 5 Fees (IA)
+                    </h2>
+                    <div id="ai-summary-content" class="ai-content">
+                        Analizando estructura de mercado y ponderación de carteras...
+                    </div>
+                    <div class="ai-disclaimer">
+                        Disclaimer: Resumen analítico generado automáticamente en el Backend por modelos de Inteligencia
+                        Artificial (Powered by Google Gemini 1.5). Solo para uso informativo.
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -462,24 +461,20 @@
 
         const fmtMonto = (n) => n >= 1e9 ? `$ ${(n / 1e9).toFixed(2)} B` : `$ ${(n / 1e6).toFixed(1)} M`;
 
-        // Cache Busting para evitar datos viejos
+        // Fetch de los datos generados por Python
         fetch('data.json?v=' + new Date().getTime())
             .then(r => r.json())
             .then(data => {
-                // Inyectamos Metadata
                 document.getElementById('header-metadata').innerHTML = `
                     <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">ÚLTIMA ACTUALIZACIÓN:</span> ${data.fecha_actualizacion} HS<br>
                     <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">DATA FILE:</span> ${data.archivo_origen}
                 `;
 
-                // Inyectamos el resumen IA generado por Python
                 if (data.resumen_ia) {
                     document.getElementById('ai-summary-content').innerHTML = data.resumen_ia;
                 }
 
                 datosGlobales = data.fondos || [];
-
-                // Llenamos los Selectores
                 const selectSD = document.getElementById('filtro-sd');
                 const d_unicas = [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort();
                 d_unicas.forEach(sd => selectSD.appendChild(new Option(sd, sd)));
@@ -528,6 +523,7 @@
             });
             document.getElementById('kpi-honsg').innerText = sPatV > 0 ? (sPond / sPatV).toFixed(2) + '%' : '0%';
 
+            // RENDERIZADO DE LA TABLA (Muestra todo, pero con scroll)
             document.getElementById('tabla-fondos').innerHTML = filtrados.sort((a, b) => b.Patrimonio - a.Patrimonio).map(f => `
                 <tr>
                     <td><strong>${f.Fondo.substring(0, 40)}...</strong></td>
@@ -541,14 +537,13 @@
         }
 
         function updateCharts(data, total) {
-            if (total === 0) return; // Evita errores de division por cero si el filtro vacia la tabla
+            if (total === 0) return;
 
             const procesar = (key) => {
                 let ag = data.reduce((acc, obj) => { acc[obj[key]] = (acc[obj[key]] || 0) + obj.Patrimonio; return acc; }, {});
                 let lista = Object.keys(ag).map(k => ({ l: k, v: ag[k] })).sort((a, b) => b.v - a.v);
                 let final = [], otrosV = 0;
                 lista.forEach(item => {
-                    // Agrupamos bajo "OTROS" lo que sea menor al 3%, salvo que sea BIND
                     if ((item.v / total) > 0.03 || item.l.toUpperCase().includes("INDUSTRIAL")) {
                         final.push(item);
                     } else {
@@ -576,7 +571,7 @@
                     datasets: [{
                         data: data.map(x => x.v),
                         backgroundColor: data.map((x, i) => {
-                            if (x.l.toUpperCase().includes("INDUSTRIAL")) return '#FFD100'; // Destacar BIND
+                            if (x.l.toUpperCase().includes("INDUSTRIAL")) return '#FFD100';
                             if (x.l === "OTROS COMPETIDORES") return '#666666';
                             return palette[i % palette.length];
                         }),
@@ -585,17 +580,12 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false, // Vital para que no se aplaste
+                    maintainAspectRatio: false,
                     layout: { padding: 15 },
                     plugins: {
                         legend: {
-                            // LEYENDA SIEMPRE ABAJO PARA EVITAR APLASTAMIENTO HORIZONTAL
                             position: 'bottom',
-                            labels: {
-                                boxWidth: 12,
-                                font: { size: 10, family: 'Montserrat', weight: '600' },
-                                padding: 15
-                            }
+                            labels: { boxWidth: 12, font: { size: 10, family: 'Montserrat', weight: '600' }, padding: 15 }
                         },
                         tooltip: {
                             callbacks: {
@@ -608,11 +598,11 @@
                         datalabels: {
                             color: '#ffffff',
                             font: { weight: '800', size: 10 },
-                            textStrokeColor: '#002130', // Contorno para que sea legible en cualquier color
+                            textStrokeColor: '#002130',
                             textStrokeWidth: 2,
                             formatter: (val) => {
                                 let p = (val * 100 / total).toFixed(1);
-                                return p > 4.0 ? p + '%' : null; // Solo muestra % mayores a 4 para no amontonar
+                                return p > 4.0 ? p + '%' : null;
                             }
                         }
                     }
