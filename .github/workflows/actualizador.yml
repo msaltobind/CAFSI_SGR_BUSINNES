@@ -49,7 +49,8 @@ jobs:
           username: ${{ secrets.EMAIL_BOT_USER }}
           password: ${{ secrets.EMAIL_BOT_PASS }}
           subject: "📊 BIND Treasury | Tablero CAFCI Actualizado Exitosamente 🚀"
-          to: msalto@bancoindustrial.com.ar
+          # AQUÍ LLAMAMOS A LA LISTA SECRETA DE CORREOS
+          to: ${{ secrets.EMAIL_DESTINATARIOS }}
           from: "Bot CAFCI Intelligence"
           
           # Versión Texto Plano (Por si el banco bloquea HTML)
