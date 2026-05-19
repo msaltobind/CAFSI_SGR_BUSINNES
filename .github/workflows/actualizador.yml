@@ -85,6 +85,6 @@ jobs:
               </div>
               
               <div style="background-color: #eeeeee; padding: 15px; text-align: center; font-size: 11px; color: #888;">
-                <i>Este es un mensaje automático generado por GitHub Actions.<br>Proceso de Gerencia de Producto.</i>
+                <i>Este es un mensaje automático.<br>Gerencia de Producto.</i>
               </div>
             </div>
