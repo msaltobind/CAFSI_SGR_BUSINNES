@@ -4,7 +4,7 @@ on:
   schedule:
     # 13:00 UTC equivale exactamente a las 10:00 AM hora Argentina.
     # Corre de lunes (1) a viernes (5).
-    - cron: '0 13 * * 1-5'
+    - cron: '0 09 * * 1-5'
   workflow_dispatch: # Botón de ejecución manual
 
 permissions:
