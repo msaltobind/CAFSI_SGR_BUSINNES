@@ -9,46 +9,57 @@ import google.generativeai as genai
 from datetime import datetime, timedelta
 
 def analizar_con_gemini(df_res):
-    # Intentamos obtener la API KEY (Si corres local sin clave, no se rompe)
+    # Intentamos obtener la API KEY
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         return "<p><i>Análisis IA no disponible (API Key no configurada).</i></p>"
     
     try:
+        import google.generativeai as genai
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-2.5-flash') # Modelo rápido y económico
+        model = genai.GenerativeModel('gemini-1.5-flash') 
         
-        # 1. Cálculos matemáticos del Top 5 Fees Ponderados
-        df_sg = df_res[df_res['Hon_SG'] > 0].copy()
-        df_sg['Pond'] = df_sg['Hon_SG'] * df_sg['Patrimonio']
-        agrupado = df_sg.groupby('Sociedad_Gerente').agg({'Patrimonio': 'sum', 'Pond': 'sum'})
-        agrupado['Fee_Ponderado'] = agrupado['Pond'] / agrupado['Patrimonio']
-        top5 = agrupado.sort_values('Fee_Ponderado', ascending=False).head(5)
+        # 1. Agrupamos los datos por Sociedad Depositaria (SD)
+        df_sd = df_res.copy()
+        # Calculamos el Fee Ponderado matemáticamente
+        df_sd['Pond_SD'] = df_sd['Hon_SD'] * df_sd['Patrimonio']
+        res_sd = df_sd.groupby('Sociedad_Depositaria').agg({'Patrimonio': 'sum', 'Pond_SD': 'sum'}).reset_index()
+        # Evitamos divisiones por cero
+        res_sd['Fee_Pond'] = (res_sd['Pond_SD'] / res_sd['Patrimonio']).fillna(0)
         
-        # 2. Preparamos los datos para dárselos a Gemini
-        datos_prompt = ""
-        for sg, row in top5.iterrows():
-            datos_prompt += f"- {sg}: Fee {row['Fee_Ponderado']:.2f}%, AUM: ${row['Patrimonio']/1e6:.1f}M\n"
+        # 2. Extraemos ÚNICAMENTE a nuestro Banco y a la competencia directa
+        datos_competencia = ""
+        for index, row in res_sd.iterrows():
+            nombre = str(row['Sociedad_Depositaria']).upper()
+            if "VALORES" in nombre or "COMAFI" in nombre or "INDUSTRIAL" in nombre:
+                # Formateamos AUM a Billones para que la IA lo entienda fácil
+                aum_billones = row['Patrimonio'] / 1e9 
+                fee = row['Fee_Pond']
+                datos_competencia += f"- {row['Sociedad_Depositaria']}: AUM ${aum_billones:.2f} Billones | Fee Promedio: {fee:.3f}%\n"
         
-        # 3. El Prompt (Instrucciones precisas)
+        # 3. EL PROMPT FORTALECIDO (Rol, Contexto y Tarea)
         prompt = f"""
-        Actúa como un experto analista de mesas de dinero (Treasury). 
-        Estas son las 5 Sociedades Gerentes con las tasas de honorarios (fees) ponderadas más altas del mercado hoy:
+        Actúa como un Director de Inteligencia Competitiva para la Mesa de Dinero del Banco Industrial (BIND). 
+        A continuación, te presento los datos actualizados de cierre de hoy (Patrimonio bajo administración o AUM, y la tasa de honorarios Fee promedio ponderada) de nuestra entidad frente a nuestros dos principales competidores directos en el rol de Sociedad Depositaria:
         
-        {datos_prompt}
+        {datos_competencia}
         
-        Escribe un breve y muy profesional resumen (máximo 2 párrafos cortos) analizando qué significa esta estructura de precios para la industria. 
-        Menciona la relación entre el Fee cobrado y el volumen patrimonial (AUM).
-        IMPORTANTE: Devuelve tu respuesta ÚNICAMENTE con etiquetas HTML válidas (<p>, <b>, <ul>, <li>). NO uses bloques de código (```html).
+        Tu tarea:
+        Escribe un análisis competitivo muy profesional, contundente y al grano (máximo 2 párrafos cortos).
+        1. Compara el posicionamiento de Banco Industrial frente a Banco de Valores y Banco Comafi en términos de volumen de mercado (AUM) y agresividad de precios (Fees).
+        2. Identifica si nuestra estrategia de precios (nuestro Fee) está por encima o por debajo de la competencia directa y qué lectura estratégica o de captación de mercado se puede hacer de esto.
+        
+        IMPORTANTE: Devuelve tu respuesta ÚNICAMENTE con etiquetas HTML válidas (<p>, <b>, <ul>, <li>) para que se integre nativamente en nuestro Dashboard corporativo. NO uses bloques de código (```html).
         """
         
+        # 4. Llamada a la IA
         respuesta = model.generate_content(prompt)
         texto_html = respuesta.text.replace("```html", "").replace("```", "").strip()
         return texto_html
         
     except Exception as e:
         print(f"[-] Error en Gemini: {e}")
-        return "<p><i>El servicio de análisis IA se encuentra temporalmente fuera de servicio.</i></p>"
+        return "<p><i>El servicio de análisis competitivo de IA se encuentra temporalmente fuera de servicio.</i></p>"
 
 def obtener_y_procesar_cafci():
     timestamp_actual = int(time.time() * 1000)
