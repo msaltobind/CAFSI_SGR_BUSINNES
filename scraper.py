@@ -17,7 +17,7 @@ def analizar_con_gemini(df_res):
     try:
         import google.generativeai as genai
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-1.5-flash') 
+        model = genai.GenerativeModel('gemini-3.5-flash') 
         
         # 1. Agrupamos los datos por Sociedad Depositaria (SD)
         df_sd = df_res.copy()
