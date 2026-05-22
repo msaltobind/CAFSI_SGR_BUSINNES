@@ -39,7 +39,7 @@ def analizar_con_gemini(df_res):
         
         # 3. EL PROMPT FORTALECIDO (Rol, Contexto y Tarea)
         prompt = f"""
-        Actúa como un Director de Inteligencia Competitiva para la Mesa de Dinero del Banco Industrial (BIND). 
+        Actúa como un Director de Inteligencia Competitiva para EL DIRECTORIO del Banco Industrial (BIND). 
         A continuación, te presento los datos actualizados de cierre de hoy (Patrimonio bajo administración o AUM, y la tasa de honorarios Fee promedio ponderada) de nuestra entidad frente a nuestros dos principales competidores directos en el rol de Sociedad Depositaria:
         
         {datos_competencia}
@@ -47,7 +47,7 @@ def analizar_con_gemini(df_res):
         Tu tarea:
         Escribe un análisis competitivo muy profesional, contundente y al grano (máximo 2 párrafos cortos).
         1. Compara el posicionamiento de Banco Industrial frente a Banco de Valores y Banco Comafi en términos de volumen de mercado (AUM) y agresividad de precios (Fees).
-        2. Identifica si nuestra estrategia de precios (nuestro Fee) está por encima o por debajo de la competencia directa y qué lectura estratégica o de captación de mercado se puede hacer de esto.
+        2. Identifica si nuestra estrategia de precios (nuestro Fee, Banco industrial) está por encima o por debajo de la competencia directa y qué lectura estratégica o de captación de mercado se puede hacer de esto.
         
         IMPORTANTE: Devuelve tu respuesta ÚNICAMENTE con etiquetas HTML válidas (<p>, <b>, <ul>, <li>) para que se integre nativamente en nuestro Dashboard corporativo. NO uses bloques de código (```html).
         """
