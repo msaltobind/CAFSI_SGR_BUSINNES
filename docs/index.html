@@ -315,65 +315,378 @@
             padding-top: 8px;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            body {
-                overflow-y: auto;
-                height: auto;
-            }
+        /* CALCULADORA COMPETITIVA */
+        .calc-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
 
-            .scroll-wrapper {
-                overflow: visible;
-            }
+        .calc-overlay.active {
+            display: flex;
+        }
 
-            .main-layout {
-                flex-direction: column;
-                padding: 10px;
-                align-items: stretch;
-            }
+        .calc-modal {
+            background: white;
+            border-radius: 10px;
+            width: 92%;
+            max-width: 680px;
+            max-height: 88vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
 
-            .col-left,
-            .col-right {
-                width: 100%;
-                min-width: 100%;
-            }
+        .calc-header {
+            background: var(--bind-blue);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-radius: 10px 10px 0 0;
+            flex-shrink: 0;
+        }
+
+        .calc-header h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+
+        .calc-header .calc-subtitle {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.65);
+            margin-top: 3px;
+            font-weight: 400;
+        }
+
+        .calc-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 0 0 12px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .calc-close:hover {
+            opacity: 1;
+        }
+
+        .calc-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .calc-resumen {
+            background: #f4f5f7;
+            border-radius: 8px;
+            padding: 14px 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .calc-kpi {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .calc-kpi span:first-child {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #888;
+            letter-spacing: 0.5px;
+        }
+
+        .calc-kpi span:last-child {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--bind-blue);
+        }
+
+        .calc-slider-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .calc-slider-section label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--bind-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slider-row input[type=range] {
+            flex: 1;
+            accent-color: var(--bind-blue);
+            height: 4px;
+        }
+
+        .slider-val {
+            background: var(--bind-blue);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 800;
+            min-width: 62px;
+            text-align: center;
+        }
+
+        .slider-hint {
+            font-size: 9px;
+            color: #aaa;
+            margin-top: 6px;
+        }
+
+        .calc-resultado {
+            border-radius: 8px;
+            padding: 16px 18px;
+            display: none;
+        }
+
+        .calc-resultado.positivo {
+            background: linear-gradient(135deg, #e8f8f0, #d4f0e3);
+            border: 1.5px solid #27ae60;
+            display: block;
+        }
+
+        .calc-resultado.negativo {
+            background: linear-gradient(135deg, #fef9e7, #fdebd0);
+            border: 1.5px solid #e67e22;
+            display: block;
+        }
+
+        .calc-resultado h4 {
+            margin: 0 0 12px 0;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calc-resultado.positivo h4 {
+            color: #1e8449;
+        }
+
+        .calc-resultado.negativo h4 {
+            color: #ca6f1e;
+        }
+
+        .calc-comparativa {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .calc-col {
+            background: white;
+            border-radius: 6px;
+            padding: 10px 12px;
+            text-align: center;
+        }
+
+        .calc-col .col-label {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .calc-col .col-fee {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--bind-blue);
+        }
+
+        .calc-col .col-fact {
+            font-size: 10px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .calc-arrow {
+            font-size: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .calc-ahorro-total {
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            background: white;
+        }
+
+        .calc-ahorro-total .ahorro-label {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .calc-ahorro-total .ahorro-valor {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .calc-ahorro-total .ahorro-valor.verde {
+            color: #1e8449;
+        }
+
+        .calc-ahorro-total .ahorro-valor.naranja {
+            color: #ca6f1e;
+        }
+
+        .calc-ahorro-total .ahorro-sub {
+            font-size: 9px;
+            color: #999;
+            margin-top: 3px;
+        }
+
+        .calc-tabla-wrap {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 6px;
+        }
+
+        .calc-tabla-wrap table {
+            font-size: 10px;
+        }
+
+        .calc-tabla-wrap thead th {
+            background: #003650;
+            font-size: 9px;
+            padding: 8px 8px;
+        }
+
+        .calc-tabla-wrap tbody td {
+            padding: 7px 8px;
+        }
+
+        .btn-calc {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: 1px solid var(--bind-blue);
+            color: var(--bind-blue);
+            padding: 4px 9px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Montserrat';
+            transition: 0.15s;
+            white-space: nowrap;
+        }
+
+        .btn-calc:hover {
+            background: var(--bind-blue);
+            color: white;
         }
 
         @media (max-width: 600px) {
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .calc-resumen {
+                grid-template-columns: 1fr 1fr;
             }
 
-            .toolbar {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-                padding: 15px;
+            .calc-comparativa {
+                grid-template-columns: 1fr;
             }
 
-            .btn-limpiar {
-                margin-top: 0;
-                width: 100%;
-            }
-
-            .kpi-row {
-                flex-direction: column;
-            }
-
-            .kpi-card {
-                width: 100%;
-            }
-
-            .chart-box {
-                min-height: 350px;
-            }
-
-            .table-container {
-                max-height: 400px;
+            .calc-arrow {
+                display: none;
             }
         }
+    </style>
+    @media (max-width: 1024px) {
+    body {
+    overflow-y: auto;
+    height: auto;
+    }
+
+    .scroll-wrapper {
+    overflow: visible;
+    }
+
+    .main-layout {
+    flex-direction: column;
+    padding: 10px;
+    align-items: stretch;
+    }
+
+    .col-left,
+    .col-right {
+    width: 100%;
+    min-width: 100%;
+    }
+    }
+
+    @media (max-width: 600px) {
+    .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    }
+
+    .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 15px;
+    }
+
+    .btn-limpiar {
+    margin-top: 0;
+    width: 100%;
+    }
+
+    .kpi-row {
+    flex-direction: column;
+    }
+
+    .kpi-card {
+    width: 100%;
+    }
+
+    .chart-box {
+    min-height: 350px;
+    }
+
+    .table-container {
+    max-height: 400px;
+    }
+    }
     </style>
 </head>
 
@@ -398,6 +711,15 @@
                 <option value="TODAS">TODOS LOS GERENTES</option>
             </select>
         </div>
+        <div class="filtro-grupo" style="min-width:140px; max-width:160px;">
+            <label>Moneda</label>
+            <select id="filtro-moneda" onchange="aplicarFiltros()">
+                <option value="TODAS">TODAS</option>
+                <option value="ARS">🇦🇷 ARS — Pesos</option>
+                <option value="USD">🇺🇸 USD — Dólar</option>
+                <option value="USB">💵 USB — Dólar (USB)</option>
+            </select>
+        </div>
         <button onclick="resetFiltros()" class="btn-limpiar">LIMPIAR FILTROS</button>
     </div>
 
@@ -414,7 +736,7 @@
                         <p class="value" id="kpi-fondos">0</p>
                     </div>
                     <div class="kpi-card" style="border-left-color: var(--bind-blue);">
-                        <h3>Fee Ponderado</h3>
+                        <h3>Fee Pond. SD</h3>
                         <p class="value" id="kpi-honsg">0%</p>
                     </div>
                 </div>
@@ -438,9 +760,13 @@
                         <thead>
                             <tr>
                                 <th>Fondo</th>
+                                <th>Soc. Gerente</th>
+                                <th>Soc. Depositaria</th>
+                                <th>Moneda</th>
                                 <th>Patrimonio (AUM)</th>
                                 <th>Fee SG</th>
                                 <th>Fee SD</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody id="tabla-fondos"></tbody>
@@ -469,29 +795,107 @@
         </div>
     </div>
 
+    <!-- CALCULADORA COMPETITIVA -->
+    <div class="calc-overlay" id="calc-overlay" onclick="cerrarCalculadora(event)">
+        <div class="calc-modal" onclick="event.stopPropagation()">
+            <div class="calc-header">
+                <div>
+                    <h3>📊 Calculadora Competitiva — Sociedad Depositaria</h3>
+                    <div class="calc-subtitle" id="calc-nombre-gerente">—</div>
+                </div>
+                <button class="calc-close" onclick="cerrarCalculadora()">✕</button>
+            </div>
+            <div class="calc-body">
+
+                <!-- Resumen del gerente seleccionado -->
+                <div class="calc-resumen">
+                    <div class="calc-kpi">
+                        <span>AUM Total</span>
+                        <span id="calc-aum">—</span>
+                    </div>
+                    <div class="calc-kpi">
+                        <span>Fondos</span>
+                        <span id="calc-n-fondos">—</span>
+                    </div>
+                    <div class="calc-kpi">
+                        <span>Fee SD Actual (pond.)</span>
+                        <span id="calc-fee-actual-kpi">—</span>
+                    </div>
+                </div>
+
+                <!-- Slider propuesta BIND -->
+                <div class="calc-slider-section">
+                    <label>💡 Propuesta BIND — Fee SD a ofrecer</label>
+                    <div class="slider-row">
+                        <input type="range" id="calc-slider" min="0.01" max="2.00" step="0.01" value="0.06"
+                            oninput="calcularPropuesta()">
+                        <div class="slider-val" id="calc-slider-label">0.06%</div>
+                    </div>
+                    <div class="slider-hint">Rango del mercado: 0.001% – 3.63% | Media: 0.20% | Mediana: 0.13%</div>
+                </div>
+
+                <!-- Resultado dinámico -->
+                <div class="calc-resultado" id="calc-resultado">
+                    <h4 id="calc-resultado-titulo">—</h4>
+                    <div class="calc-comparativa">
+                        <div class="calc-col">
+                            <div class="col-label">Fee SD Actual</div>
+                            <div class="col-fee" id="cmp-fee-actual">—</div>
+                            <div class="col-fact" id="cmp-fact-actual">—</div>
+                        </div>
+                        <div class="calc-arrow">→</div>
+                        <div class="calc-col" style="border: 2px solid var(--bind-yellow);">
+                            <div class="col-label">Propuesta BIND</div>
+                            <div class="col-fee" id="cmp-fee-bind">—</div>
+                            <div class="col-fact" id="cmp-fact-bind">—</div>
+                        </div>
+                    </div>
+                    <div class="calc-ahorro-total">
+                        <div class="ahorro-label" id="ahorro-label-txt">Ahorro anual para el gerente</div>
+                        <div class="ahorro-valor" id="calc-ahorro-valor">—</div>
+                        <div class="ahorro-sub" id="calc-ahorro-sub">—</div>
+                    </div>
+                </div>
+
+                <!-- Tabla de fondos del gerente -->
+                <div>
+                    <div
+                        style="font-size:11px; font-weight:800; color:var(--bind-blue); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.4px;">
+                        Detalle de fondos del gerente
+                    </div>
+                    <div class="calc-tabla-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fondo</th>
+                                    <th>AUM</th>
+                                    <th>Soc. Depositaria actual</th>
+                                    <th>Fee SD actual</th>
+                                    <th>Facturación SD actual/año</th>
+                                    <th>Facturación BIND/año</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calc-tabla-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script>
         Chart.register(ChartDataLabels);
         let datosGlobales = [];
         let chartSD_obj, chartSG_obj;
 
-        // NUEVA FUNCIÓN DE FORMATEO Y ESCALAS (Basada en tu código)
         function formatearEscala(numero) {
             let num = Number(numero);
-            if (num >= 1000000000000) {
-                return '$ ' + (num / 1000000000000).toFixed(2).replace('.', ',') + ' Billones';
-            }
-            else if (num >= 1000000000) {
-                return '$ ' + (num / 1000000000).toFixed(2).replace('.', ',') + ' Mil millones';
-            }
-            else if (num >= 1000000) {
-                return '$ ' + (num / 1000000).toFixed(2).replace('.', ',') + ' Millones';
-            }
-            else if (num >= 1000) {
-                return '$ ' + (num / 1000).toFixed(2).replace('.', ',') + ' Mil';
-            }
-            else {
-                return '$ ' + num.toFixed(2).replace('.', ',');
-            }
+            if (num >= 1000000000000) return '$ ' + (num / 1000000000000).toFixed(2).replace('.', ',') + ' Billones';
+            if (num >= 1000000000) return '$ ' + (num / 1000000000).toFixed(2).replace('.', ',') + ' Mil mill.';
+            if (num >= 1000000) return '$ ' + (num / 1000000).toFixed(2).replace('.', ',') + ' Millones';
+            if (num >= 1000) return '$ ' + (num / 1000).toFixed(2).replace('.', ',') + ' Mil';
+            return '$ ' + num.toFixed(2).replace('.', ',');
         }
 
         fetch('data.json?v=' + new Date().getTime())
@@ -501,15 +905,31 @@
                     <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">ÚLTIMA ACTUALIZACIÓN:</span> ${data.fecha_actualizacion} HS<br>
                     <span style="color:var(--bind-yellow); font-weight:800; font-size:10px;">DATA FILE:</span> ${data.archivo_origen}
                 `;
-
                 if (data.resumen_ia) {
                     document.getElementById('ai-summary-content').innerHTML = data.resumen_ia;
                 }
 
                 datosGlobales = data.fondos || [];
+
+                // Poblar filtro SD
                 const selectSD = document.getElementById('filtro-sd');
-                const d_unicas = [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort();
-                d_unicas.forEach(sd => selectSD.appendChild(new Option(sd, sd)));
+                [...new Set(datosGlobales.map(f => f.Sociedad_Depositaria))].sort()
+                    .forEach(sd => selectSD.appendChild(new Option(sd, sd)));
+
+                // Poblar filtro Moneda dinámicamente desde el JSON
+                // Si el JSON ya tiene Moneda lo usamos; si no, las opciones estáticas del HTML alcanzan
+                const tieneMoneda = datosGlobales.length > 0 && 'Moneda' in datosGlobales[0];
+                if (tieneMoneda) {
+                    const selectMon = document.getElementById('filtro-moneda');
+                    const iconos = { ARS: '🇦🇷', USD: '🇺🇸', USB: '💵' };
+                    const labels = { ARS: 'ARS — Pesos', USD: 'USD — Dólar', USB: 'USB — Dólar (USB)' };
+                    selectMon.innerHTML = '<option value="TODAS">TODAS</option>';
+                    [...new Set(datosGlobales.map(f => f.Moneda).filter(Boolean))].sort()
+                        .forEach(m => {
+                            const label = (iconos[m] || '') + ' ' + (labels[m] || m);
+                            selectMon.appendChild(new Option(label, m));
+                        });
+                }
 
                 actualizarFiltroGerente();
             })
@@ -520,72 +940,89 @@
 
         function actualizarFiltroGerente() {
             const sdSel = document.getElementById('filtro-sd').value;
+            const monSel = document.getElementById('filtro-moneda').value;
             const selectSG = document.getElementById('filtro-sg');
             selectSG.innerHTML = '<option value="TODAS">TODOS LOS GERENTES</option>';
 
-            let f = sdSel === "TODAS" ? datosGlobales : datosGlobales.filter(x => x.Sociedad_Depositaria === sdSel);
-            [...new Set(f.map(x => x.Sociedad_Gerente))].sort().forEach(g => selectSG.appendChild(new Option(g, g)));
+            let f = datosGlobales;
+            if (sdSel !== 'TODAS') f = f.filter(x => x.Sociedad_Depositaria === sdSel);
+            if (monSel !== 'TODAS') f = f.filter(x => x.Moneda === monSel);
+            [...new Set(f.map(x => x.Sociedad_Gerente))].sort()
+                .forEach(g => selectSG.appendChild(new Option(g, g)));
 
             aplicarFiltros();
         }
 
         function resetFiltros() {
-            document.getElementById('filtro-sd').value = "TODAS";
+            document.getElementById('filtro-sd').value = 'TODAS';
+            document.getElementById('filtro-moneda').value = 'TODAS';
             actualizarFiltroGerente();
         }
 
         function aplicarFiltros() {
             const sd = document.getElementById('filtro-sd').value;
             const sg = document.getElementById('filtro-sg').value;
+            const mon = document.getElementById('filtro-moneda').value;
+
             let filtrados = datosGlobales;
+            if (sd !== 'TODAS') filtrados = filtrados.filter(x => x.Sociedad_Depositaria === sd);
+            if (sg !== 'TODAS') filtrados = filtrados.filter(x => x.Sociedad_Gerente === sg);
+            if (mon !== 'TODAS') filtrados = filtrados.filter(x => x.Moneda === mon);
 
-            if (sd !== "TODAS") filtrados = filtrados.filter(x => x.Sociedad_Depositaria === sd);
-            if (sg !== "TODAS") filtrados = filtrados.filter(x => x.Sociedad_Gerente === sg);
-
-            const totalPat = filtrados.reduce((s, f) => s + f.Patrimonio, 0);
+            const totalPat = filtrados.reduce((s, f) => s + (f.Patrimonio || 0), 0);
             document.getElementById('kpi-patrimonio').innerText = formatearEscala(totalPat);
             document.getElementById('kpi-fondos').innerText = filtrados.length;
 
+            // KPI Fee Ponderado — ahora por Hon_SD (corregido)
             let sPond = 0, sPatV = 0;
             filtrados.forEach(f => {
-                if (f.Hon_SG > 0) {
-                    sPond += (f.Hon_SG * f.Patrimonio);
-                    sPatV += f.Patrimonio;
-                }
+                const fee = parseFloat(f.Hon_SD) || 0;
+                if (fee > 0) { sPond += fee * f.Patrimonio; sPatV += f.Patrimonio; }
             });
-            document.getElementById('kpi-honsg').innerText = sPatV > 0 ? (sPond / sPatV).toFixed(2) + '%' : '0%';
+            document.getElementById('kpi-honsg').innerText = sPatV > 0
+                ? (sPond / sPatV).toFixed(4) + '%'
+                : '0%';
 
-            // Aplicando tu función de escala a la tabla
-            document.getElementById('tabla-fondos').innerHTML = filtrados.sort((a, b) => b.Patrimonio - a.Patrimonio).map(f => `
-                <tr>
-                    <td><strong>${f.Fondo.substring(0, 40)}...</strong></td>
-                    <td style="color:var(--bind-blue); font-weight:800">${formatearEscala(f.Patrimonio)}</td>
-                    <td><span class="badge">${parseFloat(f.Hon_SG).toFixed(2)}%</span></td>
-                    <td><span class="badge">${parseFloat(f.Hon_SD).toFixed(2)}%</span></td>
-                </tr>
-            `).join('');
+            // Tabla con nueva columna Moneda, SG, SD y botón calculadora
+            const tieneMoneda = filtrados.length > 0 && 'Moneda' in filtrados[0];
+            document.getElementById('tabla-fondos').innerHTML = filtrados
+                .sort((a, b) => b.Patrimonio - a.Patrimonio)
+                .map(f => {
+                    const monBadge = tieneMoneda
+                        ? `<td><span class="badge" style="background:${f.Moneda === 'ARS' ? '#eaf4fb' : '#fef9e7'}">${f.Moneda || '—'}</span></td>`
+                        : '<td>—</td>';
+                    return `<tr>
+                        <td><strong title="${f.Fondo}">${f.Fondo.length > 38 ? f.Fondo.substring(0, 38) + '…' : f.Fondo}</strong></td>
+                        <td style="font-size:10px; color:#555">${f.Sociedad_Gerente ? (f.Sociedad_Gerente.length > 30 ? f.Sociedad_Gerente.substring(0, 30) + '…' : f.Sociedad_Gerente) : '—'}</td>
+                        <td style="font-size:10px; color:#555">${f.Sociedad_Depositaria ? (f.Sociedad_Depositaria.length > 28 ? f.Sociedad_Depositaria.substring(0, 28) + '…' : f.Sociedad_Depositaria) : '—'}</td>
+                        ${monBadge}
+                        <td style="color:var(--bind-blue); font-weight:800">${formatearEscala(f.Patrimonio)}</td>
+                        <td><span class="badge">${parseFloat(f.Hon_SG || 0).toFixed(2)}%</span></td>
+                        <td><span class="badge">${parseFloat(f.Hon_SD || 0).toFixed(4)}%</span></td>
+                        <td><button class="btn-calc" onclick="abrirCalculadora('${f.Sociedad_Gerente.replace(/'/g, "\\'")}')">📊 Simular</button></td>
+                    </tr>`;
+                }).join('');
 
             updateCharts(filtrados, totalPat);
         }
 
         function updateCharts(data, total) {
             if (total === 0) return;
-
             const procesar = (key) => {
-                let ag = data.reduce((acc, obj) => { acc[obj[key]] = (acc[obj[key]] || 0) + obj.Patrimonio; return acc; }, {});
+                let ag = data.reduce((acc, obj) => {
+                    acc[obj[key]] = (acc[obj[key]] || 0) + obj.Patrimonio;
+                    return acc;
+                }, {});
                 let lista = Object.keys(ag).map(k => ({ l: k, v: ag[k] })).sort((a, b) => b.v - a.v);
                 let final = [], otrosV = 0;
                 lista.forEach(item => {
-                    if ((item.v / total) > 0.03 || item.l.toUpperCase().includes("INDUSTRIAL")) {
+                    if ((item.v / total) > 0.03 || item.l.toUpperCase().includes('INDUSTRIAL')) {
                         final.push(item);
-                    } else {
-                        otrosV += item.v;
-                    }
+                    } else { otrosV += item.v; }
                 });
-                if (otrosV > 0) final.push({ l: "OTROS COMPETIDORES", v: otrosV });
+                if (otrosV > 0) final.push({ l: 'OTROS COMPETIDORES', v: otrosV });
                 return final;
             };
-
             renderPie('chartSD', procesar('Sociedad_Depositaria'), 'chartSD_obj', total);
             renderPie('chartSG', procesar('Sociedad_Gerente'), 'chartSG_obj', total);
         }
@@ -593,9 +1030,7 @@
         function renderPie(canvasId, data, objRef, total) {
             const canvas = document.getElementById(canvasId);
             if (window[objRef]) window[objRef].destroy();
-
             const palette = ['#002130', '#004691', '#0072CE', '#4B8BBE', '#7FB3D5', '#A9CCE3', '#D4E6F1'];
-
             window[objRef] = new Chart(canvas, {
                 type: 'pie',
                 data: {
@@ -603,44 +1038,127 @@
                     datasets: [{
                         data: data.map(x => x.v),
                         backgroundColor: data.map((x, i) => {
-                            if (x.l.toUpperCase().includes("INDUSTRIAL")) return '#FFD100';
-                            if (x.l === "OTROS COMPETIDORES") return '#666666';
+                            if (x.l.toUpperCase().includes('INDUSTRIAL')) return '#FFD100';
+                            if (x.l === 'OTROS COMPETIDORES') return '#666666';
                             return palette[i % palette.length];
                         }),
                         borderWidth: 2, borderColor: '#ffffff'
                     }]
                 },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
+                    responsive: true, maintainAspectRatio: false,
                     layout: { padding: 15 },
                     plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { boxWidth: 12, font: { size: 10, family: 'Montserrat', weight: '600' }, padding: 15 }
-                        },
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10, family: 'Montserrat', weight: '600' }, padding: 15 } },
                         tooltip: {
                             callbacks: {
-                                label: (i) => {
-                                    let percentage = (i.raw * 100 / total).toFixed(1) + "%";
-                                    // Usando tu escala también en los Tooltips de los gráficos!
-                                    return ` ${i.label}: ${percentage} (${formatearEscala(i.raw)})`;
-                                }
+                                label: (i) => ` ${i.label}: ${(i.raw * 100 / total).toFixed(1)}% (${formatearEscala(i.raw)})`
                             }
                         },
                         datalabels: {
                             color: '#ffffff',
                             font: { weight: '800', size: 10 },
-                            textStrokeColor: '#002130',
-                            textStrokeWidth: 2,
-                            formatter: (val) => {
-                                let p = (val * 100 / total).toFixed(1);
-                                return p > 4.0 ? p + '%' : null;
-                            }
+                            textStrokeColor: '#002130', textStrokeWidth: 2,
+                            formatter: (val) => { let p = (val * 100 / total).toFixed(1); return p > 4.0 ? p + '%' : null; }
                         }
                     }
                 }
             });
+        }
+
+        // ─── CALCULADORA COMPETITIVA ───────────────────────────────────
+        let calcDatosGerente = [];
+
+        function abrirCalculadora(nombreGerente) {
+            calcDatosGerente = datosGlobales.filter(f => f.Sociedad_Gerente === nombreGerente && (f.Patrimonio || 0) > 0);
+            if (calcDatosGerente.length === 0) return;
+
+            const totalAUM = calcDatosGerente.reduce((s, f) => s + f.Patrimonio, 0);
+            const factActualTotal = calcDatosGerente.reduce((s, f) => s + f.Patrimonio * (parseFloat(f.Hon_SD) || 0) / 100, 0);
+            const feeActualPond = totalAUM > 0 ? (factActualTotal / totalAUM) * 100 : 0;
+
+            // Encabezado
+            document.getElementById('calc-nombre-gerente').textContent = nombreGerente;
+            document.getElementById('calc-aum').textContent = formatearEscala(totalAUM);
+            document.getElementById('calc-n-fondos').textContent = calcDatosGerente.length + ' fondos';
+            document.getElementById('calc-fee-actual-kpi').textContent = feeActualPond.toFixed(4) + '%';
+
+            // Reset slider a la mediana del mercado como punto de partida inteligente
+            const slider = document.getElementById('calc-slider');
+            slider.value = Math.min(Math.max(0.06, (feeActualPond * 0.5).toFixed(2)), 2.00);
+
+            // Tabla de fondos del gerente
+            document.getElementById('calc-tabla-body').innerHTML = calcDatosGerente
+                .sort((a, b) => b.Patrimonio - a.Patrimonio)
+                .map(f => {
+                    const feeSD = parseFloat(f.Hon_SD) || 0;
+                    const factAnual = f.Patrimonio * feeSD / 100;
+                    return `<tr>
+                        <td title="${f.Fondo}">${f.Fondo.length > 40 ? f.Fondo.substring(0, 40) + '…' : f.Fondo}</td>
+                        <td style="font-weight:700">${formatearEscala(f.Patrimonio)}</td>
+                        <td style="font-size:9px">${f.Sociedad_Depositaria || '—'}</td>
+                        <td style="text-align:center"><span class="badge">${feeSD.toFixed(4)}%</span></td>
+                        <td style="font-weight:700; color:var(--bind-blue)">${formatearEscala(factAnual)}/año</td>
+                        <td id="calc-fila-bind-${f.Fondo.replace(/\s/g, '_').replace(/[^a-zA-Z0-9_]/g, '').substring(0, 20)}">—</td>
+                    </tr>`;
+                }).join('');
+
+            document.getElementById('calc-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            calcularPropuesta();
+        }
+
+        function calcularPropuesta() {
+            if (calcDatosGerente.length === 0) return;
+
+            const feePropuesto = parseFloat(document.getElementById('calc-slider').value);
+            document.getElementById('calc-slider-label').textContent = feePropuesto.toFixed(2) + '%';
+
+            const totalAUM = calcDatosGerente.reduce((s, f) => s + f.Patrimonio, 0);
+            const factActualTotal = calcDatosGerente.reduce((s, f) => s + f.Patrimonio * (parseFloat(f.Hon_SD) || 0) / 100, 0);
+            const feeActualPond = totalAUM > 0 ? (factActualTotal / totalAUM) * 100 : 0;
+            const factBIND = totalAUM * feePropuesto / 100;
+            const diferencia = factActualTotal - factBIND; // positivo = ahorro para el gerente
+
+            // Actualizar columna BIND en tabla
+            calcDatosGerente.forEach(f => {
+                const key = f.Fondo.replace(/\s/g, '_').replace(/[^a-zA-Z0-9_]/g, '').substring(0, 20);
+                const celda = document.getElementById('calc-fila-bind-' + key);
+                if (celda) {
+                    const factBINDFondo = f.Patrimonio * feePropuesto / 100;
+                    celda.innerHTML = `<span style="font-weight:700; color:#1e8449">${formatearEscala(factBINDFondo)}/año</span>`;
+                }
+            });
+
+            // Resultado
+            const res = document.getElementById('calc-resultado');
+            res.className = 'calc-resultado ' + (diferencia >= 0 ? 'positivo' : 'negativo');
+
+            document.getElementById('calc-resultado-titulo').textContent =
+                diferencia >= 0
+                    ? '✅ Propuesta competitiva — El gerente ahorraría pasándose a BIND'
+                    : '⚠️ Propuesta por encima del fee actual — Revisar precio';
+
+            document.getElementById('cmp-fee-actual').textContent = feeActualPond.toFixed(4) + '%';
+            document.getElementById('cmp-fact-actual').textContent = formatearEscala(factActualTotal) + '/año';
+            document.getElementById('cmp-fee-bind').textContent = feePropuesto.toFixed(2) + '%';
+            document.getElementById('cmp-fact-bind').textContent = formatearEscala(factBIND) + '/año';
+
+            const ahorro = document.getElementById('calc-ahorro-valor');
+            ahorro.textContent = (diferencia >= 0 ? '− ' : '+ ') + formatearEscala(Math.abs(diferencia)) + ' /año';
+            ahorro.className = 'ahorro-valor ' + (diferencia >= 0 ? 'verde' : 'naranja');
+
+            document.getElementById('ahorro-label-txt').textContent =
+                diferencia >= 0 ? 'Ahorro anual para el gerente' : 'Costo adicional vs situación actual';
+            document.getElementById('calc-ahorro-sub').textContent =
+                `AUM: ${formatearEscala(totalAUM)} | Fee actual pond.: ${feeActualPond.toFixed(4)}% | Fee BIND: ${feePropuesto.toFixed(2)}%`;
+        }
+
+        function cerrarCalculadora(event) {
+            if (event && event.target !== document.getElementById('calc-overlay')) return;
+            document.getElementById('calc-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+            calcDatosGerente = [];
         }
     </script>
 </body>

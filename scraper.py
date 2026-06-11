@@ -89,9 +89,16 @@ def obtener_y_procesar_cafci():
             col_sg = next(c for c in df.columns if 'Sociedad Gerente' in c)
             col_sd = next(c for c in df.columns if 'Sociedad Depositaria' in c)
             col_patrimonio = next(c for c in df.columns if 'Patrimonio_Actual' in c or 'Patrimonio' in c)
+            col_moneda = next((c for c in df.columns if 'Moneda' in c and 'Fondo' not in c), None)
 
-            df_res = df[[col_fondo, col_sg, col_sd, col_patrimonio, 'Honorarios Adm. SG', 'Honorarios Adm. SD']].copy()
-            df_res.columns = ['Fondo', 'Sociedad_Gerente', 'Sociedad_Depositaria', 'Patrimonio', 'Hon_SG', 'Hon_SD']
+            cols_a_extraer = [col_fondo, col_sg, col_sd, col_patrimonio, 'Honorarios Adm. SG', 'Honorarios Adm. SD']
+            nombres_cols   = ['Fondo', 'Sociedad_Gerente', 'Sociedad_Depositaria', 'Patrimonio', 'Hon_SG', 'Hon_SD']
+            if col_moneda:
+                cols_a_extraer.insert(1, col_moneda)
+                nombres_cols.insert(1, 'Moneda')
+
+            df_res = df[cols_a_extraer].copy()
+            df_res.columns = nombres_cols
             df_res = df_res.dropna(subset=['Fondo', 'Patrimonio'])
             df_res['Patrimonio'] = pd.to_numeric(df_res['Patrimonio'], errors='coerce').fillna(0)
             
