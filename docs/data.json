@@ -1,7 +1,7 @@
 {
-    "fecha_actualizacion": "07/07/2026 08:49:56",
+    "fecha_actualizacion": "07/07/2026 18:06:52",
     "archivo_origen": "20260706_Planilla_Diaria_A.xlsx",
-    "resumen_ia": "<p><b>Análisis de Posicionamiento Competitivo:</b> Banco Industrial se ubica actualmente en la tercera posición por volumen de activos ($10,573.68 Billones), manteniendo una brecha de AUM del 18% frente al líder, Banco de Valores, y del 6% frente a Banco Comafi. No obstante, nuestra <b>agresividad comercial es disruptiva</b>: con un fee promedio del 0.059%, operamos con niveles de precios que representan apenas el 55% de la tasa de Valores (0.107%) y menos de la mitad de la tarifa de Comafi (0.128%), consolidándonos como el líder en eficiencia de costos del sector.</p>\n\n<p><b>Lectura Estratégica:</b> Nuestra actual política de pricing sugiere una fase de <b>captación intensiva de cuota de mercado</b>. Existe una oportunidad crítica para atraer carteras de alto volumen que hoy operan con la competencia bajo estructuras de costos significativamente más onerosas. Para escalar en el ranking de AUM, el Directorio debe apalancar esta ventaja competitiva en costos, comunicando que BIND ofrece la misma solidez depositaria con una optimización de márgenes superior para el administrador del fondo.</p>",
+    "resumen_ia": "<p><b>Posicionamiento de Mercado:</b> Banco Industrial se consolida en la tercera posición con un AUM de $10.573,68 Billones, acortando la brecha a solo un 5,6% de Banco Comafi, aunque todavía un 17,9% por debajo del líder, Banco de Valores. Nuestra ventaja competitiva radica en una agresividad de precios disruptiva: con un <b>Fee Promedio de 0,059%</b>, operamos con una tasa que es prácticamente la mitad del promedio ponderado de nuestros competidores directos (0,117%).</p>\n\n<p><b>Lectura Estratégica:</b> Actualmente nos posicionamos como el jugador de mayor eficiencia en costos del sistema, una estrategia claramente orientada a la <b>captación agresiva de cuota de mercado</b> frente a competidores con estructuras de cobro sustancialmente más altas (Comafi 0,128% y Valores 0,107%). Existe una oportunidad crítica de optimización de ingresos; contamos con margen para un ajuste gradual de <i>fees</i> que incremente la rentabilidad sin comprometer nuestra competitividad, dado que incluso un incremento moderado nos mantendría como la opción más atractiva en términos de precio.</p>",
     "fondos": [
         {
             "Fondo": "BAVSA Renta Balanceado IX - Clase A",
@@ -22958,7 +22958,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 7125742231.68,
+            "Patrimonio": 7144967663.96,
             "Hon_SG": 0.7,
             "Hon_SD": 0.0413
         },
@@ -22976,7 +22976,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 677284795.58,
+            "Patrimonio": 677451293.58,
             "Hon_SG": 3.0,
             "Hon_SD": 0.12
         },
@@ -22985,7 +22985,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 45444538740.12,
+            "Patrimonio": 45568307356.79,
             "Hon_SG": 0.67,
             "Hon_SD": 0.13
         },
@@ -22994,7 +22994,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 1575848583.41,
+            "Patrimonio": 1577242268.25,
             "Hon_SG": 4.0,
             "Hon_SD": 0.13
         },
@@ -27548,7 +27548,7 @@
             "Moneda": "USD",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 97872.53,
+            "Patrimonio": 97898.84,
             "Hon_SG": 1.5,
             "Hon_SD": 0.12
         },
@@ -27557,7 +27557,7 @@
             "Moneda": "USD",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 4944663.86,
+            "Patrimonio": 4648778.34,
             "Hon_SG": 1.5,
             "Hon_SD": 0.12
         },
@@ -27647,7 +27647,7 @@
             "Moneda": "USD",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 3361379.39,
+            "Patrimonio": 3360672.16,
             "Hon_SG": 4.0,
             "Hon_SD": 0.13
         },
@@ -29996,7 +29996,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 44760947.15,
+            "Patrimonio": 0.0,
             "Hon_SG": 0.22,
             "Hon_SD": 0.12
         },
@@ -32129,7 +32129,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 8914493943.87,
+            "Patrimonio": 8929530844.27,
             "Hon_SG": 0.22,
             "Hon_SD": 0.0413
         },
@@ -32561,7 +32561,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 2400824500.04,
+            "Patrimonio": 2400887922.4,
             "Hon_SG": 5.0,
             "Hon_SD": 0.24
         },
@@ -32570,7 +32570,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 2569587903.11,
+            "Patrimonio": 2569686276.92,
             "Hon_SG": 5.0,
             "Hon_SD": 0.22
         },
@@ -34280,7 +34280,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 3903332850277.24,
+            "Patrimonio": 3768518139825.74,
             "Hon_SG": 2.975,
             "Hon_SD": 0.525
         },
@@ -34289,7 +34289,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 4493312736581.34,
+            "Patrimonio": 4343674174253.29,
             "Hon_SG": 1.7425,
             "Hon_SD": 0.3075
         },
@@ -34298,7 +34298,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 1163261809748.79,
+            "Patrimonio": 1327387206110.73,
             "Hon_SG": 1.445,
             "Hon_SD": 0.255
         },
@@ -34739,7 +34739,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Pellegrini S.A.S.G.F.C.I.",
             "Sociedad_Depositaria": "Banco de La Nacion Argentina",
-            "Patrimonio": 10798196636.87,
+            "Patrimonio": 10532343426.55,
             "Hon_SG": 0.96,
             "Hon_SD": 0.54
         },
@@ -34820,7 +34820,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 484103525315.92,
+            "Patrimonio": 485799825847.98,
             "Hon_SG": 2.88,
             "Hon_SD": 0.32
         },
@@ -34829,7 +34829,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 2761938503597.52,
+            "Patrimonio": 2520187610456.21,
             "Hon_SG": 1.71,
             "Hon_SD": 0.19
         },
@@ -34838,7 +34838,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 1943492676.06,
+            "Patrimonio": 1946135925.85,
             "Hon_SG": 2.25,
             "Hon_SD": 0.25
         },
@@ -35513,7 +35513,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 55035143.88,
+            "Patrimonio": 470805725.41,
             "Hon_SG": 2.0,
             "Hon_SD": 0.12
         },
@@ -35522,7 +35522,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 610202990.35,
+            "Patrimonio": 611000381.45,
             "Hon_SG": 2.0,
             "Hon_SD": 0.12
         },
@@ -35531,7 +35531,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "GMC Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 22007710387.51,
+            "Patrimonio": 16075321605.77,
             "Hon_SG": 1.75,
             "Hon_SD": 0.12
         },
