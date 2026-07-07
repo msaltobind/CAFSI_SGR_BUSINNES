@@ -30,6 +30,8 @@ jobs:
       - name: 4. Correr el Script ETL y Análisis IA
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID }}
         run: python scraper.py
 
       - name: 5. Guardar los nuevos datos
