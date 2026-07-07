@@ -7,6 +7,9 @@ import time
 import re
 import google.generativeai as genai
 from datetime import datetime, timedelta
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaIoBaseUpload
 
 def analizar_con_gemini(df_res):
     # Intentamos obtener la API KEY
@@ -61,6 +64,35 @@ def analizar_con_gemini(df_res):
         print(f"[-] Error en Gemini: {e}")
         return "<p><i>El servicio de análisis competitivo de IA se encuentra temporalmente fuera de servicio.</i></p>"
 
+def subir_a_drive(contenido_bytes, nombre_archivo):
+    """Sube el .xlsx crudo a la Unidad compartida de Drive (no requiere billing)."""
+    creds_json = os.environ.get("GOOGLE_CREDENTIALS")
+    folder_id  = os.environ.get("DRIVE_FOLDER_ID")
+    if not creds_json or not folder_id:
+        print("[-] Drive: faltan GOOGLE_CREDENTIALS o DRIVE_FOLDER_ID, se omite subida.")
+        return
+    try:
+        creds = service_account.Credentials.from_service_account_info(
+            json.loads(creds_json),
+            scopes=["https://www.googleapis.com/auth/drive"],
+        )
+        service = build("drive", "v3", credentials=creds)
+        media = MediaIoBaseUpload(
+            io.BytesIO(contenido_bytes),
+            mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            resumable=True,
+        )
+        archivo = service.files().create(
+            body={"name": nombre_archivo, "parents": [folder_id]},
+            media_body=media,
+            fields="id, name",
+            supportsAllDrives=True,   # necesario para Unidades compartidas
+        ).execute()
+        print(f"[+] Subido a Drive: {archivo['name']} (id={archivo['id']})")
+    except Exception as e:
+        print(f"[-] Error subiendo a Drive: {e}")
+
+
 def obtener_y_procesar_cafci():
     timestamp_actual = int(time.time() * 1000)
     URL_API_CAFCI = f"https://api.pub.cafci.org.ar/pb_get?d={timestamp_actual}"
@@ -77,6 +109,10 @@ def obtener_y_procesar_cafci():
                 if nombres: nombre_archivo_real = nombres[0]
             
             excel_memoria = io.BytesIO(respuesta.content)
+                        # --- Guardar copia cruda del .xlsx en la Unidad compartida de Drive ---
+            hora_arg_drive = datetime.now() - timedelta(hours=3)
+            nombre_drive = f"CAFCI_{hora_arg_drive.strftime('%Y-%m-%d')}.xlsx"
+            subir_a_drive(respuesta.content, nombre_drive)
             df = pd.read_excel(excel_memoria, skiprows=7, header=[0, 1])
             
             nuevas_cols = []
