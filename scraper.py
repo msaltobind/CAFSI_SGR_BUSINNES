@@ -65,7 +65,7 @@ def analizar_con_gemini(df_res):
         return "<p><i>El servicio de análisis competitivo de IA se encuentra temporalmente fuera de servicio.</i></p>"
 
 def subir_a_drive(contenido_bytes, nombre_archivo):
-    """Sube el .xlsx crudo a la Unidad compartida de Drive (no requiere billing)."""
+    """Sube el .xlsx a Drive SOLO si el contenido es nuevo (dedup por hash)."""
     creds_json = os.environ.get("GOOGLE_CREDENTIALS")
     folder_id  = os.environ.get("DRIVE_FOLDER_ID")
     if not creds_json or not folder_id:
@@ -77,16 +77,34 @@ def subir_a_drive(contenido_bytes, nombre_archivo):
             scopes=["https://www.googleapis.com/auth/drive"],
         )
         service = build("drive", "v3", credentials=creds)
+
+        # --- DEDUP: si ya existe un archivo con el mismo contenido, no subir ---
+        hash_nuevo = hashlib.sha256(contenido_bytes).hexdigest()
+        existentes = service.files().list(
+            q=f"'{folder_id}' in parents and trashed=false",
+            fields="files(id, name, appProperties)",
+            supportsAllDrives=True,
+            includeItemsFromAllDrives=True,
+        ).execute().get("files", [])
+        for f in existentes:
+            if (f.get("appProperties") or {}).get("sha256") == hash_nuevo:
+                print(f"[=] Sin cambios: ya existe en Drive ({f['name']}). No se sube duplicado.")
+                return
+
         media = MediaIoBaseUpload(
             io.BytesIO(contenido_bytes),
             mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             resumable=True,
         )
         archivo = service.files().create(
-            body={"name": nombre_archivo, "parents": [folder_id]},
+            body={
+                "name": nombre_archivo,
+                "parents": [folder_id],
+                "appProperties": {"sha256": hash_nuevo},  # guardamos la huella
+            },
             media_body=media,
             fields="id, name",
-            supportsAllDrives=True,   # necesario para Unidades compartidas
+            supportsAllDrives=True,
         ).execute()
         print(f"[+] Subido a Drive: {archivo['name']} (id={archivo['id']})")
     except Exception as e:
