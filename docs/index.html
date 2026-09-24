@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -900,6 +900,14 @@
             return '$ ' + num.toFixed(2).replace('.', ',');
         }
 
+        function obtenerNombreFondo(fondo) {
+            return String(fondo || '').split('-', 1)[0].trim();
+        }
+
+        function contarFondosUnicos(fondos) {
+            return new Set(fondos.map(f => obtenerNombreFondo(f.Fondo))).size;
+        }
+
         fetch('data.json?v=' + new Date().getTime())
             .then(r => r.json())
             .then(data => {
@@ -971,7 +979,7 @@
 
             const totalPat = filtrados.reduce((s, f) => s + (f.Patrimonio || 0), 0);
             document.getElementById('kpi-patrimonio').innerText = formatearEscala(totalPat);
-            document.getElementById('kpi-fondos').innerText = filtrados.length;
+            document.getElementById('kpi-fondos').innerText = contarFondosUnicos(filtrados);
 
             // KPI Fee Ponderado — ahora por Hon_SD (corregido)
             let sPond = 0, sPatV = 0;
@@ -1080,7 +1088,7 @@
             // Encabezado
             document.getElementById('calc-nombre-gerente').textContent = nombreGerente;
             document.getElementById('calc-aum').textContent = formatearEscala(totalAUM);
-            document.getElementById('calc-n-fondos').textContent = calcDatosGerente.length + ' fondos';
+            document.getElementById('calc-n-fondos').textContent = contarFondosUnicos(calcDatosGerente) + ' fondos';
             document.getElementById('calc-fee-actual-kpi').textContent = feeActualPond.toFixed(4) + '%';
 
             // Reset slider a la mediana del mercado como punto de partida inteligente
