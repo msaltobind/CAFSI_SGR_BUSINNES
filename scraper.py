@@ -1,4 +1,5 @@
 import pandas as pd
+import hashlib
 import json
 import os
 import requests
@@ -20,7 +21,8 @@ def analizar_con_gemini(df_res):
     try:
         from google import genai
         client = genai.Client(api_key=api_key)
-        model = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+        model = os.environ.get("GEMINI_MODEL", "gemini-3-flash-preview")
+        fallback_model = os.environ.get("GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
         
         # 1. Agrupamos los datos por Sociedad Depositaria (SD)
         df_sd = df_res.copy()
@@ -56,7 +58,17 @@ def analizar_con_gemini(df_res):
         """
         
         # 4. Llamada a la IA
-        respuesta = client.models.generate_content(model=model, contents=prompt)
+        try:
+            respuesta = client.models.generate_content(model=model, contents=prompt)
+        except Exception as error_principal:
+            if str(getattr(error_principal, "code", "")) != "503" or fallback_model == model:
+                raise
+            print(f"[-] Gemini {model} respondió 503; se prueba el modelo alternativo {fallback_model}.")
+            try:
+                respuesta = client.models.generate_content(model=fallback_model, contents=prompt)
+            except Exception as error_alternativo:
+                print(f"[-] Error en modelo alternativo {fallback_model} ({type(error_alternativo).__name__}): {error_alternativo}")
+                raise error_alternativo from error_principal
         texto_html = (respuesta.text or "").replace("```html", "").replace("```", "").strip()
         if not texto_html:
             raise ValueError("Gemini devolvió una respuesta vacía")
