@@ -5,8 +5,8 @@ import requests
 import io
 import time
 import re
-import google.generativeai as genai
-from datetime import datetime, timedelta
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
@@ -18,9 +18,9 @@ def analizar_con_gemini(df_res):
         return "<p><i>Análisis IA no disponible (API Key no configurada).</i></p>"
     
     try:
-        import google.generativeai as genai
-        genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-3-flash-preview') 
+        from google import genai
+        client = genai.Client(api_key=api_key)
+        model = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
         
         # 1. Agrupamos los datos por Sociedad Depositaria (SD)
         df_sd = df_res.copy()
@@ -56,12 +56,14 @@ def analizar_con_gemini(df_res):
         """
         
         # 4. Llamada a la IA
-        respuesta = model.generate_content(prompt)
-        texto_html = respuesta.text.replace("```html", "").replace("```", "").strip()
+        respuesta = client.models.generate_content(model=model, contents=prompt)
+        texto_html = (respuesta.text or "").replace("```html", "").replace("```", "").strip()
+        if not texto_html:
+            raise ValueError("Gemini devolvió una respuesta vacía")
         return texto_html
         
     except Exception as e:
-        print(f"[-] Error en Gemini: {e}")
+        print(f"[-] Error en Gemini ({type(e).__name__}): {e}")
         return "<p><i>El servicio de análisis competitivo de IA se encuentra temporalmente fuera de servicio.</i></p>"
 
 def subir_a_drive(contenido_bytes, nombre_archivo):
@@ -128,7 +130,7 @@ def obtener_y_procesar_cafci():
             
             excel_memoria = io.BytesIO(respuesta.content)
                         # --- Guardar copia cruda del .xlsx en la Unidad compartida de Drive ---
-            hora_arg_drive = datetime.now() - timedelta(hours=3)
+            hora_arg_drive = datetime.now(ZoneInfo("America/Argentina/Buenos_Aires"))
             nombre_drive = f"CAFCI_{hora_arg_drive.strftime('%Y-%m-%d')}.xlsx"
             subir_a_drive(respuesta.content, nombre_drive)
             df = pd.read_excel(excel_memoria, skiprows=7, header=[0, 1])
@@ -160,7 +162,7 @@ def obtener_y_procesar_cafci():
             print("[+] Solicitando análisis a Gemini AI...")
             resumen_ia = analizar_con_gemini(df_res)
             
-            hora_arg = datetime.now() - timedelta(hours=3)
+            hora_arg = datetime.now(ZoneInfo("America/Argentina/Buenos_Aires"))
             fecha_str = hora_arg.strftime("%d/%m/%Y %H:%M:%S")
 
             datos_json = {
