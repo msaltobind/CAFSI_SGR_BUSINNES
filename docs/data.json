@@ -1,7 +1,7 @@
 {
-    "fecha_actualizacion": "12/10/2026 14:15:09",
+    "fecha_actualizacion": "13/10/2026 12:30:42",
     "archivo_origen": "20261009_Planilla_Diaria_A.xlsx",
-    "resumen_ia": "<p><b>Análisis de Posicionamiento:</b> Banco Industrial mantiene una paridad técnica con Banco Comafi por el segundo puesto en el ranking de AUM, situándose apenas un 0.001% por debajo, mientras que Banco de Valores conserva el liderazgo con una ventaja del 18%. Sin embargo, nuestra <b>tasa de honorarios (0.057%)</b> refleja una agresividad comercial extrema, operando a menos de la mitad del costo de Comafi (0.129%) y significativamente por debajo del líder del mercado (0.111%).</p>\n\n<p><b>Lectura Estratégica:</b> La brecha tarifaria identifica a BIND como el <b>disruptor por costos</b> en el segmento de Sociedad Depositaria. Esta estrategia de \"low-fee\" busca claramente la captación de volumen crítico y la migración de carteras desde la competencia; no obstante, el hecho de no haber superado aún a Comafi en AUM —pese a ser un 55% más baratos— sugiere una oportunidad para fortalecer la venta consultiva o evaluar un <i>upside</i> en los fees, ya que el mercado está convalidando precios superiores por servicios similares.</p>",
+    "resumen_ia": "<p><b>Posicionamiento de Mercado:</b> Banco Industrial se encuentra actualmente en una paridad técnica con Banco Comafi por el segundo puesto en AUM, situándose apenas un 0.001% por debajo, mientras que Banco de Valores mantiene el liderazgo con una brecha del 18% en volumen. Sin embargo, nuestra <b>agresividad comercial es disruptiva</b>: operamos con un Fee promedio del 0.057%, lo cual representa menos de la mitad del costo de Comafi (0.129%) y de Valores (0.111%), consolidándonos como el competidor más agresivo en términos de precio del sector.</p>\n\n<p><b>Lectura Estratégica:</b> Nuestra tasa se ubica significativamente por debajo del promedio de la competencia directa, reflejando una estrategia de <b>liderazgo en costos y captura acelerada de market share</b>. El hecho de que Comafi gestione un volumen casi idéntico cobrando más del doble de comisión sugiere una oportunidad inmediata para traccionar carteras de clientes sensibles al precio o, en su defecto, un margen disponible para ajustar nuestra tasa al alza sin perder competitividad, optimizando así la rentabilidad final sobre el patrimonio administrado.</p>",
     "fondos": [
         {
             "Fondo": "BAVSA Renta Balanceado IX - Clase A",
@@ -35207,7 +35207,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 3835852356659.46,
+            "Patrimonio": 3758636932026.51,
             "Hon_SG": 2.975,
             "Hon_SD": 0.525
         },
@@ -35216,7 +35216,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 4654624047571.56,
+            "Patrimonio": 4519764372562.2,
             "Hon_SG": 1.7425,
             "Hon_SD": 0.3075
         },
@@ -35225,7 +35225,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 1001138591862.75,
+            "Patrimonio": 940384225832.4,
             "Hon_SG": 1.445,
             "Hon_SD": 0.255
         },
@@ -35234,7 +35234,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 215722798174.88,
+            "Patrimonio": 216434127344.35,
             "Hon_SG": 1.4303,
             "Hon_SD": 0.1077
         },
@@ -35675,7 +35675,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Pellegrini S.A.S.G.F.C.I.",
             "Sociedad_Depositaria": "Banco de La Nacion Argentina",
-            "Patrimonio": 112264114583.57,
+            "Patrimonio": 112756075957.58,
             "Hon_SG": 0.0,
             "Hon_SD": 0.54
         },
@@ -35756,7 +35756,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 499997318771.86,
+            "Patrimonio": 492785134471.17,
             "Hon_SG": 2.88,
             "Hon_SD": 0.32
         },
@@ -35765,7 +35765,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 2563395564338.59,
+            "Patrimonio": 2536936564812.28,
             "Hon_SG": 1.71,
             "Hon_SD": 0.19
         },
@@ -35774,7 +35774,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 2012421100.95,
+            "Patrimonio": 2013422411.65,
             "Hon_SG": 2.25,
             "Hon_SD": 0.25
         },
