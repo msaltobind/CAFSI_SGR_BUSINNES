@@ -38,7 +38,7 @@ jobs:
         run: |
           git config --global user.name "Bot-Tesorería-BIND"
           git config --global user.email "bot@bind.com.ar"
-          git add docs/data.json
+          git add docs/data.json docs/cnv_colocaciones.json
           git commit -m "Actualización diaria" || echo "Sin cambios"
           git push
 

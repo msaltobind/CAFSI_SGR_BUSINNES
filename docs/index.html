@@ -117,7 +117,7 @@
         /* LAYOUT COLUMNAS */
         .main-layout {
             display: flex;
-            flex: 1;
+            flex: 0 0 auto;
             padding: 15px;
             gap: 15px;
             flex-wrap: nowrap;
@@ -273,6 +273,119 @@
             font-weight: 700;
             color: var(--bind-blue);
             font-size: 11px;
+        }
+
+        /* ÚLTIMAS COLOCACIONES CNV */
+        .cnv-section {
+            margin: 0 15px 15px 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cnv-section .table-header-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cnv-meta {
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        .cnv-meta a {
+            color: var(--bind-yellow);
+        }
+
+        .cnv-tabs {
+            display: flex;
+            background: var(--bind-blue);
+        }
+
+        .cnv-tab {
+            flex: 1;
+            padding: 12px;
+            background: #1f2a4f;
+            color: white;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .cnv-tab.active {
+            background: #003650;
+            border-bottom-color: var(--bind-yellow);
+        }
+
+        .cnv-section .table-container {
+            overflow-x: auto;
+        }
+
+        .cnv-section tbody td {
+            vertical-align: middle;
+        }
+
+        .cnv-link {
+            display: inline-flex;
+            color: #2a7fc1;
+        }
+
+        .cnv-link:hover {
+            color: var(--bind-blue);
+        }
+
+        tr.row-bind td {
+            background-color: #fff6cc;
+        }
+
+        tr.row-bind td:first-child {
+            box-shadow: inset 4px 0 0 var(--bind-yellow);
+        }
+
+        tr.row-competencia td {
+            background-color: #fdecea;
+        }
+
+        tr.row-competencia td:first-child {
+            box-shadow: inset 4px 0 0 #d32f2f;
+        }
+
+        .cnv-leyenda {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            padding: 10px 15px;
+            font-size: 10px;
+            color: #555;
+            border-top: 1px solid #eee;
+        }
+
+        .cnv-leyenda span::before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 6px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+        .cnv-leyenda .ley-bind::before {
+            background: #fff6cc;
+            border-left: 3px solid var(--bind-yellow);
+        }
+
+        .cnv-leyenda .ley-comp::before {
+            background: #fdecea;
+            border-left: 3px solid #d32f2f;
         }
 
         /* SECCIÓN IA */
@@ -793,6 +906,58 @@
                 </div>
             </div>
         </div>
+
+        <!-- ÚLTIMAS COLOCACIONES (CNV) -->
+        <div class="cnv-section">
+            <div class="table-header-title">
+                <span>ÚLTIMAS COLOCACIONES — CNV</span>
+                <span class="cnv-meta" id="cnv-meta">Cargando datos de CNV...</span>
+            </div>
+            <div class="cnv-tabs">
+                <button class="cnv-tab active" data-tab="cerrados" onclick="mostrarTabCNV('cerrados')">FCI CERRADOS</button>
+                <button class="cnv-tab" data-tab="abiertos" onclick="mostrarTabCNV('abiertos')">FCI ABIERTOS</button>
+            </div>
+
+            <div class="table-container" id="cnv-panel-cerrados">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha de emisión</th>
+                            <th>Denominación</th>
+                            <th>Objeto de inversión</th>
+                            <th>Sociedad gerente</th>
+                            <th>Sociedad depositaria</th>
+                            <th>Prospecto</th>
+                            <th>Reglamento de gestión</th>
+                            <th>Aviso de suscripción</th>
+                            <th>Resultado de colocación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cnv-tabla-cerrados"></tbody>
+                </table>
+            </div>
+
+            <div class="table-container" id="cnv-panel-abiertos" style="display:none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha de lanzamiento</th>
+                            <th>Denominación</th>
+                            <th>Objeto de inversión / Tipo de renta</th>
+                            <th>Sociedad gerente</th>
+                            <th>Sociedad depositaria</th>
+                            <th>Reglamento de gestión</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cnv-tabla-abiertos"></tbody>
+                </table>
+            </div>
+
+            <div class="cnv-leyenda">
+                <span class="ley-bind">Depositaria Banco Industrial</span>
+                <span class="ley-comp">Depositaria competencia (Banco de Valores / Banco Comafi)</span>
+            </div>
+        </div>
     </div>
 
     <!-- CALCULADORA COMPETITIVA -->
@@ -944,6 +1109,64 @@
             .catch(e => {
                 document.getElementById('header-metadata').innerText = "Error cargando datos de mercado.";
                 console.error("Error en Fetch:", e);
+            });
+
+        // --- ÚLTIMAS COLOCACIONES (CNV) ---
+        const ICONO_CNV = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>`;
+
+        function escaparHTML(txt) {
+            return String(txt ?? '').replace(/[&<>"']/g, c =>
+                ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function celdaLinkCNV(url, titulo) {
+            if (!url || !/^https?:\/\//i.test(url)) return '<td></td>';
+            return `<td><a class="cnv-link" href="${escaparHTML(url)}" target="_blank" rel="noopener" title="${titulo}">${ICONO_CNV}</a></td>`;
+        }
+
+        function claseFilaCNV(depositaria) {
+            const sd = (depositaria || '').toUpperCase();
+            if (sd.includes('INDUSTRIAL')) return 'row-bind';
+            if (sd.includes('VALORES') || sd.includes('COMAFI')) return 'row-competencia';
+            return '';
+        }
+
+        function renderTablaCNV(idTbody, filas, links) {
+            const ordenadas = [...filas].sort((a, b) => (b.fecha_iso || '').localeCompare(a.fecha_iso || ''));
+            document.getElementById(idTbody).innerHTML = ordenadas.length
+                ? ordenadas.map(f => `
+                    <tr class="${claseFilaCNV(f.sociedad_depositaria)}">
+                        <td style="white-space:nowrap;">${escaparHTML(f.fecha)}</td>
+                        <td>${escaparHTML(f.denominacion)}</td>
+                        <td>${escaparHTML(f.objeto)}</td>
+                        <td>${escaparHTML(f.sociedad_gerente)}</td>
+                        <td>${escaparHTML(f.sociedad_depositaria)}</td>
+                        ${links.map(([k, t]) => celdaLinkCNV(f[k], t)).join('')}
+                    </tr>`).join('')
+                : `<tr><td colspan="${5 + links.length}">Sin datos.</td></tr>`;
+        }
+
+        function mostrarTabCNV(tab) {
+            document.querySelectorAll('.cnv-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+            document.getElementById('cnv-panel-cerrados').style.display = tab === 'cerrados' ? '' : 'none';
+            document.getElementById('cnv-panel-abiertos').style.display = tab === 'abiertos' ? '' : 'none';
+        }
+
+        fetch('cnv_colocaciones.json?v=' + new Date().getTime())
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('cnv-meta').innerHTML =
+                    `Actualizado: ${escaparHTML(data.fecha_actualizacion)} HS · Fuente: <a href="${escaparHTML(data.fuente)}" target="_blank" rel="noopener">CNV</a>`;
+                renderTablaCNV('cnv-tabla-cerrados', data.cerrados || [], [
+                    ['prospecto', 'Prospecto'], ['reglamento', 'Reglamento de gestión'],
+                    ['aviso_suscripcion', 'Aviso de suscripción'], ['resultado_colocacion', 'Resultado de colocación']
+                ]);
+                renderTablaCNV('cnv-tabla-abiertos', data.abiertos || [], [['reglamento', 'Reglamento de gestión']]);
+            })
+            .catch(e => {
+                document.getElementById('cnv-meta').innerText = "Datos de CNV no disponibles.";
+                console.error("Error en Fetch CNV:", e);
             });
 
         function actualizarFiltroGerente() {

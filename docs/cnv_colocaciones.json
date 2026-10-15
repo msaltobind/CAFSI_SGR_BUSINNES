@@ -1,0 +1,218 @@
+{
+    "fecha_actualizacion": "15/10/2026 17:41:44",
+    "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
+    "cerrados": [
+        {
+            "fecha": "9 oct. 2026",
+            "denominacion": "Valiant Ii Fondo Común De Inversión Cerrado De Créditos",
+            "objeto": "",
+            "sociedad_gerente": "VALIANT ASSET MANAGEMENT SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSIÓN S.A.U.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/840AF07C-89AB-4288-B2A5-CF4467C917CA",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/E7D5A562-FBF0-4748-BC33-DD33C2BD7927",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/595A34E4-AA64-478C-A60D-E898E06BB717",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/0199A15B-A3F1-499A-A3D6-A15D8DDB70F8",
+            "fecha_iso": "2026-10-09"
+        },
+        {
+            "fecha": "24 ago. 2026",
+            "denominacion": "Adblick Ganadería Fondo Común De Inversión Cerrado Agropecuario",
+            "objeto": "Ganadero",
+            "sociedad_gerente": "ALLARIA FONDOS ADMINISTRADOS SGFCI S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/907378F2-9557-4C65-9BB1-0DA994114D21",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/00CAF218-3517-4734-852B-1342AB9A2208",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/CD8D2E9F-C36A-4A71-B295-C65183CC39DE",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/9461C2ED-262E-4DD8-845A-F56BB818D657",
+            "fecha_iso": "2026-08-24"
+        },
+        {
+            "fecha": "18 jun. 2026",
+            "denominacion": "Allaria Lendar Fondo Común De Inversión Cerrado De Créditos",
+            "objeto": "Inmobiliario",
+            "sociedad_gerente": "ALLARIA FONDOS ADMINISTRADOS SGFCI S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/1C7AC63D-8505-4632-8AD7-5E2D276EF4B4",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/14555329-D006-4287-9183-CC913DB2BFE3",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/384E86E9-439C-48E1-A81E-B323CA8BBC6F",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/073A20A9-7B07-473A-A04E-E2F4BE282354",
+            "fecha_iso": "2026-06-18"
+        },
+        {
+            "fecha": "11 jun. 2026",
+            "denominacion": "Fondo Común De Inversión Cerrado Inmobiliario Reit Ciclo Nova",
+            "objeto": "Inmobiliario",
+            "sociedad_gerente": "CICLO NOVA ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/24C26408-E752-4F8A-A0CD-068BCD8B6256",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/AD73DF81-679B-4230-BE24-FBA1C67FBF6F",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/C52F0478-FD56-4997-B30E-74104C12495F",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/4DA3D7D8-BD33-4FD4-B9D5-A778AC9D3551",
+            "fecha_iso": "2026-06-11"
+        },
+        {
+            "fecha": "22 abr. 2026",
+            "denominacion": "Mercadolibre Fondo Común De Inversión Cerrado De Créditos",
+            "objeto": "",
+            "sociedad_gerente": "BALANZ SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSION S.A.U.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/F7C0DC5B-6A6B-4D81-9BBF-859586351C64",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/0EC9C109-8C9A-421E-8435-31008F74F801",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/EEE8615C-7775-4205-BF94-FBE69DB4870C",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/45A548E7-693E-413F-BA9E-6956246C4467",
+            "fecha_iso": "2026-04-22"
+        },
+        {
+            "fecha": "6 mar. 2026",
+            "denominacion": "Valiant Fondo Común De Inversión Cerrado De Créditos",
+            "objeto": "",
+            "sociedad_gerente": "VALIANT ASSET MANAGEMENT SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSIÓN S.A.U.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/ADB5B129-7433-4863-B139-FE63CFBF4F2C",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/D95BA346-E959-4422-B4E8-C2C117C85B77",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/E34A3E8C-0D60-46A9-BC56-DCC313DB571C",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/B60FE94F-5080-4FD9-818B-29BC24DAF8EA",
+            "fecha_iso": "2026-03-06"
+        },
+        {
+            "fecha": "15 abr. 2025",
+            "denominacion": "Fondo Comun De Inversion Cerrado Inmobiliario Puerto Nizuc",
+            "objeto": "Inmobiliario",
+            "sociedad_gerente": "CICLO NOVA ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/30CAE6F5-A647-4006-9529-DF29B3B575C8",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/2C3E238A-4C8F-4E30-9E64-66C75D32E71A",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/8A3F43CF-37CC-4C49-AFE7-71593EC3930D",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/9F5D15D9-07D9-4090-B3BA-135AAABB0497",
+            "fecha_iso": "2025-04-15"
+        },
+        {
+            "fecha": "25 sep. 2024",
+            "denominacion": "Adblick Granos Plus Fondo Común De Inversión Cerrado Agropecuario",
+            "objeto": "Agropecuario",
+            "sociedad_gerente": "ALLARIA FONDOS ADMINISTRADOS SGFCI S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/85333971-EA71-4116-9830-EB03946FA83A",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/1CA8834F-6021-4163-B49D-C475EDB64966",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/6F53E5D7-2AAF-493C-8D72-DDA2F7174387",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/44B99AC9-3FBF-4BDC-93F5-935FBD505AB4",
+            "fecha_iso": "2024-09-25"
+        },
+        {
+            "fecha": "13 jun. 2022",
+            "denominacion": "Terrazas Del Volcan Fcic Inmobiliario",
+            "objeto": "Inmobiliario",
+            "sociedad_gerente": "VALIANT ASSET MANAGEMENT SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSIÓN S.A.U.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/EB65281C-3163-4092-85B7-30BCA3762001",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/4E023DD5-DD94-43B0-8D1F-1A2E8ADB4F6B",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/1EA8F234-84FA-4E7E-B017-3EE5D5325F03",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/CDE863EC-863A-4DE3-A462-AD261BCA677A",
+            "fecha_iso": "2022-06-13"
+        },
+        {
+            "fecha": "20 dic. 2021",
+            "denominacion": "Gss Inmobiliario I",
+            "objeto": "Inmobiliario",
+            "sociedad_gerente": "Grupo SS Sociedad Anónima Sociedad Gerente de Fondos Comunes de Inversión",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/4C2D4E51-890D-41C3-8B5D-020A6C1274CF",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/7F29B8CA-2A6C-4687-8D62-69531BE92C4B",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/2B7E4F20-C6A3-402A-9180-C75B2E04EA63",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/45D080AE-B157-461C-BB03-7B75FBF2034E",
+            "fecha_iso": "2021-12-20"
+        }
+    ],
+    "abiertos": [
+        {
+            "fecha": "7 oct. 2026",
+            "denominacion": "Chimpay Ahorro En Dólares",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "Chimpay S.A.",
+            "sociedad_depositaria": "Banco Industrial S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/B9D14020-6DD9-4615-9CC4-86E6FB88A348",
+            "fecha_iso": "2026-10-07"
+        },
+        {
+            "fecha": "1 oct. 2026",
+            "denominacion": "Tango Ahorro Usd",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "TANGO ASSET MANAGEMENT SOCIEDAD GERENTE DE F.C.I. S.A.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/EBFD28A4-6CA4-4930-B7FA-6212B2AA5183",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "1 oct. 2026",
+            "denominacion": "Bavsa Cobertura",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "BAVSA FONDOS SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/1BA5A7B3-D478-4485-8A59-E780FCA983F0",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "1 oct. 2026",
+            "denominacion": "Blacktoro Gestion Calificado I",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "BLACKTORO ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/11397461-0A3E-4F8D-BD24-16A9A1821CF9",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "1 oct. 2026",
+            "denominacion": "Bull Market Ahorro Balanceado Iii",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "BULL MARKET ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/63A502E3-174A-4198-8117-5C98CF378FBE",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "24 sep. 2026",
+            "denominacion": "Bavsa Fci Fiel",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "BAVSA FONDOS SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/0561D441-3FEB-4ED1-8A91-178959460BA0",
+            "fecha_iso": "2026-09-24"
+        },
+        {
+            "fecha": "21 sep. 2026",
+            "denominacion": "Toronto Trust Estratégico F.C.I.",
+            "objeto": "Renta Mixta",
+            "sociedad_gerente": "INVESTIS ASSET MANAGEMENT S.A. SOC.GTE. de FCI",
+            "sociedad_depositaria": "BACS Banco de Crédito y Securitización S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/6D545DE8-5009-4C3A-8C0C-36ED72E67C04",
+            "fecha_iso": "2026-09-21"
+        },
+        {
+            "fecha": "15 sep. 2026",
+            "denominacion": "Único Liquidez Pesos",
+            "objeto": "Mercado de Dinero",
+            "sociedad_gerente": "COMAFI ADMINISTRADORA DE INVERSIONES S.G.F.C.I. S.A.U.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/174E74FA-37A1-4D1D-9671-71C31AE371C7",
+            "fecha_iso": "2026-09-15"
+        },
+        {
+            "fecha": "7 sep. 2026",
+            "denominacion": "Gmc Multiestrategia",
+            "objeto": "Renta Mixta",
+            "sociedad_gerente": "GMC ASSET MANAGEMENT S.A.U",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/AE3F4896-ED44-4D54-957E-DB19FA29CB02",
+            "fecha_iso": "2026-09-07"
+        },
+        {
+            "fecha": "7 sep. 2026",
+            "denominacion": "Gmc Multiestrategia Ii",
+            "objeto": "Renta Mixta",
+            "sociedad_gerente": "GMC ASSET MANAGEMENT S.A.U",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/BC0847AE-6F78-48D5-867B-FAF803B61B40",
+            "fecha_iso": "2026-09-07"
+        }
+    ]
+}

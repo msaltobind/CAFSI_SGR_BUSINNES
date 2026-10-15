@@ -194,5 +194,94 @@ def obtener_y_procesar_cafci():
         print(f"[-] Error Crítico: {e}")
         return False
 
+MESES_ES = {'ene': 1, 'feb': 2, 'mar': 3, 'abr': 4, 'may': 5, 'jun': 6,
+            'jul': 7, 'ago': 8, 'sep': 9, 'sept': 9, 'set': 9, 'oct': 10, 'nov': 11, 'dic': 12}
+
+
+def parsear_fecha_cnv(texto):
+    # Formato CNV: "9 oct. 2026" -> "2026-10-09"
+    m = re.match(r'(\d{1,2})\s+([a-záéíóú]+)\.?\s+(\d{4})', texto.strip().lower())
+    if not m or m.group(2) not in MESES_ES:
+        return ""
+    return f"{m.group(3)}-{MESES_ES[m.group(2)]:02d}-{int(m.group(1)):02d}"
+
+
+def extraer_tabla_cnv(soup, id_tab, cols_texto, cols_link):
+    filas = []
+    tab = soup.find(id=id_tab)
+    if tab is None:
+        return filas
+    for tr in tab.select('table tbody tr'):
+        celdas = tr.find_all('td')
+        if len(celdas) < len(cols_texto):
+            continue
+        fila = {}
+        for i, col in enumerate(cols_texto):
+            fila[col] = re.sub(r'\s+', ' ', celdas[i].get_text(" ", strip=True)).strip()
+        for j, col in enumerate(cols_link):
+            idx = len(cols_texto) + j
+            a = celdas[idx].find('a', href=True) if idx < len(celdas) else None
+            fila[col] = a['href'].strip() if a else None
+        fila['fecha_iso'] = parsear_fecha_cnv(fila['fecha'])
+        filas.append(fila)
+    return filas
+
+
+def obtener_colocaciones_cnv(ruta_json='docs/cnv_colocaciones.json'):
+    from bs4 import BeautifulSoup
+    URL_CNV = "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion"
+    cols_texto = ['fecha', 'denominacion', 'objeto', 'sociedad_gerente', 'sociedad_depositaria']
+
+    print("[+] Conectando a CNV (Últimas Colocaciones)...")
+    try:
+        respuesta = requests.get(URL_CNV, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30)
+        respuesta.raise_for_status()
+        soup = BeautifulSoup(respuesta.text, 'html.parser')
+
+        nuevos = {
+            'cerrados': extraer_tabla_cnv(soup, '1a', cols_texto,
+                                          ['prospecto', 'reglamento', 'aviso_suscripcion', 'resultado_colocacion']),
+            'abiertos': extraer_tabla_cnv(soup, '2a', cols_texto, ['reglamento']),
+        }
+        if not nuevos['cerrados'] and not nuevos['abiertos']:
+            print("[-] CNV: no se encontraron filas. Se conserva el histórico anterior.")
+            return False
+
+        # Histórico acumulado: las filas nuevas pisan a las existentes con la misma clave
+        historico = {'cerrados': [], 'abiertos': []}
+        if os.path.exists(ruta_json):
+            with open(ruta_json, 'r', encoding='utf-8') as f:
+                previo = json.load(f)
+            historico['cerrados'] = previo.get('cerrados', [])
+            historico['abiertos'] = previo.get('abiertos', [])
+
+        resultado = {}
+        for tipo in ('cerrados', 'abiertos'):
+            # Primero las filas actuales (en el orden de la CNV), luego las históricas no repetidas;
+            # el sort es estable, así que a igual fecha se respeta el orden de la CNV.
+            por_clave = {}
+            for f in nuevos[tipo] + historico[tipo]:
+                por_clave.setdefault((f['fecha_iso'] or f['fecha'], f['denominacion']), f)
+            resultado[tipo] = sorted(por_clave.values(), key=lambda f: f['fecha_iso'], reverse=True)
+
+        hora_arg = datetime.now(ZoneInfo("America/Argentina/Buenos_Aires"))
+        datos_json = {
+            "fecha_actualizacion": hora_arg.strftime("%d/%m/%Y %H:%M:%S"),
+            "fuente": URL_CNV,
+            "cerrados": resultado['cerrados'],
+            "abiertos": resultado['abiertos'],
+        }
+        os.makedirs(os.path.dirname(ruta_json), exist_ok=True)
+        with open(ruta_json, 'w', encoding='utf-8') as f:
+            json.dump(datos_json, f, ensure_ascii=False, indent=4)
+
+        print(f"[+] CNV: {len(resultado['cerrados'])} cerrados y {len(resultado['abiertos'])} abiertos en histórico.")
+        return True
+    except Exception as e:
+        print(f"[-] Error obteniendo colocaciones CNV: {e}")
+        return False
+
+
 if __name__ == "__main__":
     obtener_y_procesar_cafci()
+    obtener_colocaciones_cnv()
