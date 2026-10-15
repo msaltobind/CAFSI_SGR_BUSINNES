@@ -75,6 +75,7 @@ jobs:
                 <p style="font-size: 15px; line-height: 1.5;">El bot ha finalizado con éxito la extracción desde la API de CAFCI. Los datos del mercado ya están procesados y listos. ✅</p>
                 
                 <ul style="font-size: 14px; line-height: 1.8; margin-top: 20px; background: #fff; padding: 15px 15px 15px 35px; border-radius: 6px; border: 1px solid #eee;">
+                  <li>🏛️ <b>Últimas Colocaciones CNV:</b> Nuevos FCI abiertos y cerrados lanzados.</li>
                   <li>📈 <b>Market Share:</b> Actualizado con el cierre de ayer.</li>
                   <li>💰 <b>AUM & Fees Ponderados:</b> Recalculados con éxito.</li>
                   <li>🤖 <b>Insights IA:</b> Nuevo análisis de mercado generado por Gemini.</li>
