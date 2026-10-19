@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "16/10/2026 09:57:17",
+    "fecha_actualizacion": "19/10/2026 12:13:29",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -124,6 +124,15 @@
         }
     ],
     "abiertos": [
+        {
+            "fecha": "14 oct. 2026",
+            "denominacion": "Bell Bavsa Renta Plus",
+            "objeto": "Renta Mixta",
+            "sociedad_gerente": "BAVSA FONDOS SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/2A84FE28-155F-49F7-8BC5-7CB5967CB74C",
+            "fecha_iso": "2026-10-14"
+        },
         {
             "fecha": "7 oct. 2026",
             "denominacion": "Chimpay Ahorro En Dólares",
