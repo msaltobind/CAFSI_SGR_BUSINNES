@@ -1,7 +1,19 @@
 {
-    "fecha_actualizacion": "21/10/2026 10:22:27",
+    "fecha_actualizacion": "22/10/2026 10:22:29",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
+        {
+            "fecha": "22 oct. 2026",
+            "denominacion": "Fondo Común De Inversión Cerrado Inmobiliario Simón Hotel",
+            "objeto": "Inmobiliario",
+            "sociedad_gerente": "BALANZ SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSION S.A.U.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/A72E8201-6C78-4EDD-81CE-87C00AB7E77E",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/D16577D0-93BC-4DDA-A232-02ECCA5417F2",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/5FE88C3E-8996-48E3-B596-AFCA5C8C2BA8",
+            "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/2FC8161F-B3C0-4D20-B4A0-E1160889E68A",
+            "fecha_iso": "2026-10-22"
+        },
         {
             "fecha": "9 oct. 2026",
             "denominacion": "Valiant Ii Fondo Común De Inversión Cerrado De Créditos",
