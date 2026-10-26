@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "23/10/2026 10:01:14",
+    "fecha_actualizacion": "26/10/2026 11:46:41",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -165,15 +165,6 @@
         },
         {
             "fecha": "1 oct. 2026",
-            "denominacion": "Bull Market Ahorro Balanceado Iii",
-            "objeto": "Renta Fija",
-            "sociedad_gerente": "BULL MARKET ASSET MANAGEMENT S.A.",
-            "sociedad_depositaria": "Banco Comafi S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/63A502E3-174A-4198-8117-5C98CF378FBE",
-            "fecha_iso": "2026-10-01"
-        },
-        {
-            "fecha": "1 oct. 2026",
             "denominacion": "Tango Ahorro Usd",
             "objeto": "Renta Fija",
             "sociedad_gerente": "TANGO ASSET MANAGEMENT SOCIEDAD GERENTE DE F.C.I. S.A.",
@@ -197,6 +188,15 @@
             "sociedad_gerente": "BLACKTORO ASSET MANAGEMENT S.A.",
             "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/11397461-0A3E-4F8D-BD24-16A9A1821CF9",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "1 oct. 2026",
+            "denominacion": "Bull Market Ahorro Balanceado Iii",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "BULL MARKET ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/63A502E3-174A-4198-8117-5C98CF378FBE",
             "fecha_iso": "2026-10-01"
         },
         {
