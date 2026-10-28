@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "27/10/2026 10:52:24",
+    "fecha_actualizacion": "28/10/2026 11:46:36",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -137,6 +137,15 @@
     ],
     "abiertos": [
         {
+            "fecha": "26 oct. 2026",
+            "denominacion": "Fci Conosur Financiamiento Iii",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "CONO SUR SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSIÓN",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/130670CD-D915-4DC4-B3BB-61809789A181",
+            "fecha_iso": "2026-10-26"
+        },
+        {
             "fecha": "19 oct. 2026",
             "denominacion": "Sbs Patrimonio X Fci",
             "objeto": "Renta Mixta",
@@ -165,24 +174,6 @@
         },
         {
             "fecha": "1 oct. 2026",
-            "denominacion": "Tango Ahorro Usd",
-            "objeto": "Renta Fija",
-            "sociedad_gerente": "TANGO ASSET MANAGEMENT SOCIEDAD GERENTE DE F.C.I. S.A.",
-            "sociedad_depositaria": "Banco de Valores S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/EBFD28A4-6CA4-4930-B7FA-6212B2AA5183",
-            "fecha_iso": "2026-10-01"
-        },
-        {
-            "fecha": "1 oct. 2026",
-            "denominacion": "Bavsa Cobertura",
-            "objeto": "Renta Fija",
-            "sociedad_gerente": "BAVSA FONDOS SA",
-            "sociedad_depositaria": "Banco Comafi S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/1BA5A7B3-D478-4485-8A59-E780FCA983F0",
-            "fecha_iso": "2026-10-01"
-        },
-        {
-            "fecha": "1 oct. 2026",
             "denominacion": "Blacktoro Gestion Calificado I",
             "objeto": "Renta Fija",
             "sociedad_gerente": "BLACKTORO ASSET MANAGEMENT S.A.",
@@ -197,6 +188,24 @@
             "sociedad_gerente": "BULL MARKET ASSET MANAGEMENT S.A.",
             "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/63A502E3-174A-4198-8117-5C98CF378FBE",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "1 oct. 2026",
+            "denominacion": "Tango Ahorro Usd",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "TANGO ASSET MANAGEMENT SOCIEDAD GERENTE DE F.C.I. S.A.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/EBFD28A4-6CA4-4930-B7FA-6212B2AA5183",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "1 oct. 2026",
+            "denominacion": "Bavsa Cobertura",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "BAVSA FONDOS SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/1BA5A7B3-D478-4485-8A59-E780FCA983F0",
             "fecha_iso": "2026-10-01"
         },
         {
