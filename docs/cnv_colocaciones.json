@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "29/10/2026 11:53:45",
+    "fecha_actualizacion": "30/10/2026 11:45:37",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -7,7 +7,7 @@
             "denominacion": "Fondo Común De Inversión Cerrado Inmobiliario Simón Hotel",
             "objeto": "Inmobiliario",
             "sociedad_gerente": "BALANZ SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSION S.A.U.",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/A72E8201-6C78-4EDD-81CE-87C00AB7E77E",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/D16577D0-93BC-4DDA-A232-02ECCA5417F2",
             "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/5FE88C3E-8996-48E3-B596-AFCA5C8C2BA8",
@@ -31,7 +31,7 @@
             "denominacion": "Adblick Ganadería Fondo Común De Inversión Cerrado Agropecuario",
             "objeto": "Ganadero",
             "sociedad_gerente": "ALLARIA FONDOS ADMINISTRADOS SGFCI S.A.",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/907378F2-9557-4C65-9BB1-0DA994114D21",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/00CAF218-3517-4734-852B-1342AB9A2208",
             "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/CD8D2E9F-C36A-4A71-B295-C65183CC39DE",
@@ -43,7 +43,7 @@
             "denominacion": "Allaria Lendar Fondo Común De Inversión Cerrado De Créditos",
             "objeto": "Inmobiliario",
             "sociedad_gerente": "ALLARIA FONDOS ADMINISTRADOS SGFCI S.A.",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/1C7AC63D-8505-4632-8AD7-5E2D276EF4B4",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/14555329-D006-4287-9183-CC913DB2BFE3",
             "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/384E86E9-439C-48E1-A81E-B323CA8BBC6F",
@@ -55,7 +55,7 @@
             "denominacion": "Fondo Común De Inversión Cerrado Inmobiliario Reit Ciclo Nova",
             "objeto": "Inmobiliario",
             "sociedad_gerente": "CICLO NOVA ASSET MANAGEMENT S.A.",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/24C26408-E752-4F8A-A0CD-068BCD8B6256",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/AD73DF81-679B-4230-BE24-FBA1C67FBF6F",
             "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/C52F0478-FD56-4997-B30E-74104C12495F",
@@ -103,7 +103,7 @@
             "denominacion": "Adblick Granos Plus Fondo Común De Inversión Cerrado Agropecuario",
             "objeto": "Agropecuario",
             "sociedad_gerente": "ALLARIA FONDOS ADMINISTRADOS SGFCI S.A.",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/85333971-EA71-4116-9830-EB03946FA83A",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/1CA8834F-6021-4163-B49D-C475EDB64966",
             "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/6F53E5D7-2AAF-493C-8D72-DDA2F7174387",
@@ -150,7 +150,7 @@
             "denominacion": "Sbs Patrimonio X Fci",
             "objeto": "Renta Mixta",
             "sociedad_gerente": "SBS Asset Management S.A. SG FCI",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/60F58B50-25D7-43FF-9323-190FD20B7459",
             "fecha_iso": "2026-10-19"
         },
@@ -159,7 +159,7 @@
             "denominacion": "Bell Bavsa Renta Plus",
             "objeto": "Renta Mixta",
             "sociedad_gerente": "BAVSA FONDOS SA",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/2A84FE28-155F-49F7-8BC5-7CB5967CB74C",
             "fecha_iso": "2026-10-14"
         },
@@ -183,10 +183,19 @@
         },
         {
             "fecha": "1 oct. 2026",
+            "denominacion": "Bull Market Ahorro Balanceado Iii",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "BULL MARKET ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/63A502E3-174A-4198-8117-5C98CF378FBE",
+            "fecha_iso": "2026-10-01"
+        },
+        {
+            "fecha": "1 oct. 2026",
             "denominacion": "Bavsa Cobertura",
             "objeto": "Renta Fija",
             "sociedad_gerente": "BAVSA FONDOS SA",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/1BA5A7B3-D478-4485-8A59-E780FCA983F0",
             "fecha_iso": "2026-10-01"
         },
@@ -195,17 +204,8 @@
             "denominacion": "Blacktoro Gestion Calificado I",
             "objeto": "Renta Fija",
             "sociedad_gerente": "BLACKTORO ASSET MANAGEMENT S.A.",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/11397461-0A3E-4F8D-BD24-16A9A1821CF9",
-            "fecha_iso": "2026-10-01"
-        },
-        {
-            "fecha": "1 oct. 2026",
-            "denominacion": "Bull Market Ahorro Balanceado Iii",
-            "objeto": "Renta Fija",
-            "sociedad_gerente": "BULL MARKET ASSET MANAGEMENT S.A.",
-            "sociedad_depositaria": "Banco Comafi SA",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/63A502E3-174A-4198-8117-5C98CF378FBE",
             "fecha_iso": "2026-10-01"
         },
         {
@@ -213,7 +213,7 @@
             "denominacion": "Bavsa Fci Fiel",
             "objeto": "Renta Fija",
             "sociedad_gerente": "BAVSA FONDOS SA",
-            "sociedad_depositaria": "Banco Comafi SA",
+            "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/0561D441-3FEB-4ED1-8A91-178959460BA0",
             "fecha_iso": "2026-09-24"
         },
