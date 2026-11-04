@@ -173,6 +173,18 @@
             color: var(--bind-blue);
         }
 
+        .kpi-card-aum-ars {
+            border-left-color: #2e86c1;
+        }
+
+        .kpi-card-aum-usd {
+            border-left-color: #27ae60;
+        }
+
+        .kpi-card-aum-usb {
+            border-left-color: #8e44ad;
+        }
+
         /* GRAFICOS */
         .chart-box {
             background: white;
@@ -840,9 +852,17 @@
         <div class="main-layout">
             <div class="col-left">
                 <div class="kpi-row">
-                    <div class="kpi-card">
-                        <h3>AUM Total</h3>
-                        <p class="value" id="kpi-patrimonio">$ 0</p>
+                    <div class="kpi-card kpi-card-aum-ars">
+                        <h3>AUM Pesos ARS</h3>
+                        <p class="value" id="kpi-patrimonio-ars">$ 0</p>
+                    </div>
+                    <div class="kpi-card kpi-card-aum-usd">
+                        <h3>AUM Dólares USD</h3>
+                        <p class="value" id="kpi-patrimonio-usd">US$ 0</p>
+                    </div>
+                    <div class="kpi-card kpi-card-aum-usb">
+                        <h3>AUM Dólares USB</h3>
+                        <p class="value" id="kpi-patrimonio-usb">USB 0</p>
                     </div>
                     <div class="kpi-card">
                         <h3>Fondos Activos</h3>
@@ -975,7 +995,7 @@
                 <!-- Resumen del gerente seleccionado -->
                 <div class="calc-resumen">
                     <div class="calc-kpi">
-                        <span>AUM Total</span>
+                        <span>AUM por moneda</span>
                         <span id="calc-aum">—</span>
                     </div>
                     <div class="calc-kpi">
@@ -1063,6 +1083,18 @@
             if (num >= 1000000) return '$ ' + (num / 1000000).toFixed(2).replace('.', ',') + ' Millones';
             if (num >= 1000) return '$ ' + (num / 1000).toFixed(2).replace('.', ',') + ' Mil';
             return '$ ' + num.toFixed(2).replace('.', ',');
+        }
+
+        function formatearAUMPorMoneda(numero, moneda) {
+            const simbolos = { ARS: '$', USD: 'US$', USB: 'USB' };
+            const prefijo = simbolos[moneda] || moneda;
+            const num = Number(numero) || 0;
+
+            if (num >= 1000000000000) return `${prefijo} ${(num / 1000000000000).toFixed(2).replace('.', ',')} Billones`;
+            if (num >= 1000000000) return `${prefijo} ${(num / 1000000000).toFixed(2).replace('.', ',')} Mil mill.`;
+            if (num >= 1000000) return `${prefijo} ${(num / 1000000).toFixed(2).replace('.', ',')} Millones`;
+            if (num >= 1000) return `${prefijo} ${(num / 1000).toFixed(2).replace('.', ',')} Mil`;
+            return `${prefijo} ${num.toFixed(2).replace('.', ',')}`;
         }
 
         function obtenerNombreFondo(fondo) {
@@ -1201,7 +1233,13 @@
             if (mon !== 'TODAS') filtrados = filtrados.filter(x => x.Moneda === mon);
 
             const totalPat = filtrados.reduce((s, f) => s + (f.Patrimonio || 0), 0);
-            document.getElementById('kpi-patrimonio').innerText = formatearEscala(totalPat);
+            ['ARS', 'USD', 'USB'].forEach(moneda => {
+                const patrimonioMoneda = filtrados
+                    .filter(f => f.Moneda === moneda)
+                    .reduce((s, f) => s + (f.Patrimonio || 0), 0);
+                document.getElementById(`kpi-patrimonio-${moneda.toLowerCase()}`).innerText =
+                    formatearAUMPorMoneda(patrimonioMoneda, moneda);
+            });
             document.getElementById('kpi-fondos').innerText = contarFondosUnicos(filtrados);
 
             // KPI Fee Ponderado — ahora por Hon_SD (corregido)
@@ -1307,10 +1345,16 @@
             const totalAUM = calcDatosGerente.reduce((s, f) => s + f.Patrimonio, 0);
             const factActualTotal = calcDatosGerente.reduce((s, f) => s + f.Patrimonio * (parseFloat(f.Hon_SD) || 0) / 100, 0);
             const feeActualPond = totalAUM > 0 ? (factActualTotal / totalAUM) * 100 : 0;
+            const aumPorMoneda = ['ARS', 'USD', 'USB'].map(moneda => {
+                const total = calcDatosGerente
+                    .filter(f => f.Moneda === moneda)
+                    .reduce((s, f) => s + (f.Patrimonio || 0), 0);
+                return `${moneda}: ${formatearAUMPorMoneda(total, moneda)}`;
+            }).join('<br>');
 
             // Encabezado
             document.getElementById('calc-nombre-gerente').textContent = nombreGerente;
-            document.getElementById('calc-aum').textContent = formatearEscala(totalAUM);
+            document.getElementById('calc-aum').innerHTML = aumPorMoneda;
             document.getElementById('calc-n-fondos').textContent = contarFondosUnicos(calcDatosGerente) + ' fondos';
             document.getElementById('calc-fee-actual-kpi').textContent = feeActualPond.toFixed(4) + '%';
 

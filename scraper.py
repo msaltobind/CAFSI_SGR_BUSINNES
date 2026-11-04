@@ -26,9 +26,10 @@ def analizar_con_gemini(df_res):
         
         # 1. Agrupamos los datos por Sociedad Depositaria (SD)
         df_sd = df_res.copy()
+        df_sd['Moneda'] = df_sd['Moneda'].fillna('SIN MONEDA').astype(str).str.upper()
         # Calculamos el Fee Ponderado matemáticamente
         df_sd['Pond_SD'] = df_sd['Hon_SD'] * df_sd['Patrimonio']
-        res_sd = df_sd.groupby('Sociedad_Depositaria').agg({'Patrimonio': 'sum', 'Pond_SD': 'sum'}).reset_index()
+        res_sd = df_sd.groupby(['Sociedad_Depositaria', 'Moneda']).agg({'Patrimonio': 'sum', 'Pond_SD': 'sum'}).reset_index()
         # Evitamos divisiones por cero
         res_sd['Fee_Pond'] = (res_sd['Pond_SD'] / res_sd['Patrimonio']).fillna(0)
         
@@ -38,9 +39,10 @@ def analizar_con_gemini(df_res):
             nombre = str(row['Sociedad_Depositaria']).upper()
             if "VALORES" in nombre or "COMAFI" in nombre or "INDUSTRIAL" in nombre:
                 # Formateamos AUM a Billones para que la IA lo entienda fácil
-                aum_billones = row['Patrimonio'] / 1e9 
+                aum_billones = row['Patrimonio'] / 1e9
                 fee = row['Fee_Pond']
-                datos_competencia += f"- {row['Sociedad_Depositaria']}: AUM ${aum_billones:.2f} Billones | Fee Promedio: {fee:.3f}%\n"
+                moneda = row['Moneda']
+                datos_competencia += f"- {row['Sociedad_Depositaria']} ({moneda}): AUM {aum_billones:.2f} Billones | Fee Promedio: {fee:.3f}%\n"
         
         # 3. EL PROMPT FORTALECIDO (Rol, Contexto y Tarea)
         prompt = f"""
@@ -52,6 +54,7 @@ def analizar_con_gemini(df_res):
         Tu tarea:
         Escribe un análisis competitivo muy profesional, contundente y al grano (máximo 2 párrafos cortos).
         1. Compara el posicionamiento de Banco Industrial frente a Banco de Valores y Banco Comafi en términos de volumen de mercado (AUM) y agresividad de precios (Fees).
+        Mantén separados los resultados de ARS, USD y USB. No sumes AUM de distintas monedas ni compares volúmenes entre ellas como si fueran equivalentes.
         2. Identifica si nuestra estrategia de precios (nuestro Fee, Banco industrial) está por encima o por debajo de la competencia directa y qué lectura estratégica o de captación de mercado se puede hacer de esto.
         
         IMPORTANTE: Devuelve tu respuesta ÚNICAMENTE con etiquetas HTML válidas (<p>, <b>, <ul>, <li>) para que se integre nativamente en nuestro Dashboard corporativo. NO uses bloques de código (```html).
