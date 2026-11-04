@@ -144,7 +144,8 @@
 
         /* KPIS */
         .kpi-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 10px;
         }
 
@@ -155,7 +156,8 @@
             flex: 1;
             border-left: 4px solid var(--bind-yellow);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            min-width: 120px;
+            min-width: 0;
+            overflow: hidden;
         }
 
         .kpi-card h3 {
@@ -171,6 +173,8 @@
             font-weight: 800;
             margin: 5px 0 0 0;
             color: var(--bind-blue);
+            line-height: 1.15;
+            overflow-wrap: break-word;
         }
 
         .kpi-card-aum-ars {
@@ -797,7 +801,7 @@
             }
 
             .kpi-row {
-                flex-direction: column;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .kpi-card {
@@ -810,6 +814,12 @@
 
             .table-container {
                 max-height: 400px;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .kpi-row {
+                grid-template-columns: 1fr;
             }
         }
     </style>
