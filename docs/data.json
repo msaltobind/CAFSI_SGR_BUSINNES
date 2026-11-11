@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "10/11/2026 13:00:21",
+    "fecha_actualizacion": "11/11/2026 12:47:18",
     "archivo_origen": "20261105_Planilla_Diaria_A.xlsx",
     "resumen_ia": "<p><i>El servicio de análisis competitivo de IA se encuentra temporalmente fuera de servicio.</i></p>",
     "fondos": [
@@ -1358,7 +1358,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Tutelar Inversora S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 3826511330.2,
+            "Patrimonio": 3660096673.2,
             "Hon_SG": 4.5,
             "Hon_SD": 0.363
         },
@@ -1727,7 +1727,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 144749269913.79,
+            "Patrimonio": 144748698177.39,
             "Hon_SG": 0.9719,
             "Hon_SD": 2.9881
         },
@@ -1772,7 +1772,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 92510806419.53,
+            "Patrimonio": 92510432035.74,
             "Hon_SG": 0.9719,
             "Hon_SD": 2.9881
         },
@@ -2906,7 +2906,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 25682106951.17,
+            "Patrimonio": 16016721828.88,
             "Hon_SG": 2.22,
             "Hon_SD": 0.121
         },
@@ -2915,7 +2915,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 0.0,
+            "Patrimonio": 9665385122.29,
             "Hon_SG": 1.87,
             "Hon_SD": 0.121
         },
@@ -3014,7 +3014,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 58436399285.86,
+            "Patrimonio": 41064770242.73,
             "Hon_SG": 2.12,
             "Hon_SD": 0.121
         },
@@ -3023,7 +3023,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 14372649104.36,
+            "Patrimonio": 31744278147.49,
             "Hon_SG": 1.82,
             "Hon_SD": 0.121
         },
@@ -4868,7 +4868,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Tutelar Inversora S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 669841426.73,
+            "Patrimonio": 657155114.03,
             "Hon_SG": 1.8,
             "Hon_SD": 0.363
         },
@@ -6155,7 +6155,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 977780103812.6,
+            "Patrimonio": 977778379476.73,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -8810,7 +8810,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 440081543247.69,
+            "Patrimonio": 440078919252.32,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -13958,7 +13958,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 65126830769.38,
+            "Patrimonio": 65126794552.15,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -14003,7 +14003,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 273339294480.62,
+            "Patrimonio": 273338850402.31,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -16199,7 +16199,7 @@
             "Moneda": "USD",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 15187692.67,
+            "Patrimonio": 15190647.32,
             "Hon_SG": 1.0,
             "Hon_SD": 0.11
         },
@@ -16208,7 +16208,7 @@
             "Moneda": "USD",
             "Sociedad_Gerente": "Allaria Fondos Administrados S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 5456327.1,
+            "Patrimonio": 5457388.34,
             "Hon_SG": 1.0,
             "Hon_SD": 0.11
         },
@@ -26207,7 +26207,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Parakeet S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 24760303830.02,
+            "Patrimonio": 24710029021.73,
             "Hon_SG": 2.5,
             "Hon_SD": 0.11
         },
@@ -26216,7 +26216,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Parakeet S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 27879575067.47,
+            "Patrimonio": 27822904443.03,
             "Hon_SG": 2.0,
             "Hon_SD": 0.11
         },
@@ -27071,7 +27071,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 29530111792.46,
+            "Patrimonio": 29529806216.42,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -27485,7 +27485,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 25981244109.1,
+            "Patrimonio": 25981244112.54,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -31310,7 +31310,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Tutelar Inversora S.A.",
             "Sociedad_Depositaria": "Banco de Valores S.A.",
-            "Patrimonio": 950387292.58,
+            "Patrimonio": 947062528.9,
             "Hon_SG": 5.0,
             "Hon_SD": 1.0
         },
@@ -34568,7 +34568,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 296238068242.55,
+            "Patrimonio": 296958068242.55,
             "Hon_SG": 1.92,
             "Hon_SD": 0.121
         },
@@ -34586,7 +34586,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 84016948032.25,
+            "Patrimonio": 83916948032.25,
             "Hon_SG": 0.07,
             "Hon_SD": 0.121
         },
@@ -34604,7 +34604,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 124131198.9,
+            "Patrimonio": 125131886.46,
             "Hon_SG": 2.82,
             "Hon_SD": 0.121
         },
@@ -34685,7 +34685,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 14546370356.83,
+            "Patrimonio": 15043670356.83,
             "Hon_SG": 1.82,
             "Hon_SD": 0.121
         },
@@ -35396,7 +35396,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 3885895573403.7,
+            "Patrimonio": 3846930054389.37,
             "Hon_SG": 2.975,
             "Hon_SD": 0.525
         },
@@ -35405,7 +35405,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 4866776737020.71,
+            "Patrimonio": 4648334762808.2,
             "Hon_SG": 1.7425,
             "Hon_SD": 0.3075
         },
@@ -35414,7 +35414,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 1189320776930.44,
+            "Patrimonio": 1079456985012.48,
             "Hon_SG": 1.445,
             "Hon_SD": 0.255
         },
@@ -35423,7 +35423,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Galicia Asset Management S.A.U.",
             "Sociedad_Depositaria": "Banco de Galicia y Buenos Aires S.A.",
-            "Patrimonio": 302781510310.62,
+            "Patrimonio": 311017934734.52,
             "Hon_SG": 1.0486,
             "Hon_SD": 0.0789
         },
@@ -35864,7 +35864,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Pellegrini S.A.S.G.F.C.I.",
             "Sociedad_Depositaria": "Banco de La Nacion Argentina",
-            "Patrimonio": 157293013127.37,
+            "Patrimonio": 167718381764.2,
             "Hon_SG": 0.96,
             "Hon_SD": 0.54
         },
@@ -35945,7 +35945,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 514077025507.82,
+            "Patrimonio": 522329413432.56,
             "Hon_SG": 2.88,
             "Hon_SD": 0.32
         },
@@ -35954,7 +35954,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 2549901089396.54,
+            "Patrimonio": 2431183221880.3,
             "Hon_SG": 1.71,
             "Hon_SD": 0.19
         },
@@ -35963,7 +35963,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Macro Fondos S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Macro S.A.",
-            "Patrimonio": 2027321306.76,
+            "Patrimonio": 2028358875.82,
             "Hon_SG": 2.25,
             "Hon_SD": 0.25
         },
@@ -36116,7 +36116,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 2362209375740.34,
+            "Patrimonio": 2362485946675.9,
             "Hon_SG": 0.7944,
             "Hon_SD": 2.4556
         },
@@ -36125,7 +36125,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 1990741986945.69,
+            "Patrimonio": 1990741986945.65,
             "Hon_SG": 0.9179,
             "Hon_SD": 1.0322
         },
@@ -36143,7 +36143,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 753084316272.07,
+            "Patrimonio": 753084316272.09,
             "Hon_SG": 0.9074,
             "Hon_SD": 1.0427
         },
@@ -36161,7 +36161,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 54450501521.67,
+            "Patrimonio": 54451902743.65,
             "Hon_SG": 0.1365,
             "Hon_SD": 0.8635
         },
@@ -36170,7 +36170,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 1473887722960.31,
+            "Patrimonio": 1473887722945.55,
             "Hon_SG": 0.7319,
             "Hon_SD": 2.2681
         },
@@ -36179,7 +36179,7 @@
             "Moneda": "ARS",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 178426373230.11,
+            "Patrimonio": 178426373230.0,
             "Hon_SG": 0.9679,
             "Hon_SD": 1.0822
         },
@@ -36800,7 +36800,7 @@
             "Moneda": "USD",
             "Sociedad_Gerente": "Adcap Asset Management S.G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Comafi S.A.",
-            "Patrimonio": 138431414.78,
+            "Patrimonio": 138876414.78,
             "Hon_SG": 0.12,
             "Hon_SD": 0.0847
         },
@@ -37835,7 +37835,7 @@
             "Moneda": "USD",
             "Sociedad_Gerente": "Santander Asset Management G.F.C.I.S.A.",
             "Sociedad_Depositaria": "Banco Santander Argentina S.A.",
-            "Patrimonio": 1255372988.55,
+            "Patrimonio": 1255372988.54,
             "Hon_SG": 0.0907,
             "Hon_SD": 0.2543
         },
