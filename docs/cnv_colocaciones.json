@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "11/11/2026 12:47:20",
+    "fecha_actualizacion": "12/11/2026 13:30:15",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -147,20 +147,20 @@
         },
         {
             "fecha": "4 nov. 2026",
-            "denominacion": "Quiron Plus",
-            "objeto": "Renta Fija",
-            "sociedad_gerente": "QUIRON ASSET MANAGEMENT S.A.",
-            "sociedad_depositaria": "Banco Comafi S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/DD4B50E0-4B77-4615-AFBC-E86AA4A540A8",
-            "fecha_iso": "2026-11-04"
-        },
-        {
-            "fecha": "4 nov. 2026",
             "denominacion": "Bavsa Mg Alfa Renta Dólares Balanceado",
             "objeto": "Renta Mixta",
             "sociedad_gerente": "BAVSA FONDOS SA",
             "sociedad_depositaria": "Banco de Valores S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/9AE64EB3-8B12-4215-BD5F-57303C59271B",
+            "fecha_iso": "2026-11-04"
+        },
+        {
+            "fecha": "4 nov. 2026",
+            "denominacion": "Quiron Plus",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "QUIRON ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/DD4B50E0-4B77-4615-AFBC-E86AA4A540A8",
             "fecha_iso": "2026-11-04"
         },
         {
