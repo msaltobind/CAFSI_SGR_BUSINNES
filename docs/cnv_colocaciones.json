@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "16/11/2026 14:47:28",
+    "fecha_actualizacion": "17/11/2026 14:17:49",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -137,6 +137,15 @@
     ],
     "abiertos": [
         {
+            "fecha": "11 nov. 2026",
+            "denominacion": "Dxa Dólar Dinámico",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "DRACMA ASSET MANAGEMENT SGFCI S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/F6E483C6-2DEC-4A6E-A290-B4A522633F37",
+            "fecha_iso": "2026-11-11"
+        },
+        {
             "fecha": "5 nov. 2026",
             "denominacion": "Axis Fondo Comun De Inversión Abierto Pymes 5",
             "objeto": "PyMes",
@@ -147,20 +156,20 @@
         },
         {
             "fecha": "4 nov. 2026",
-            "denominacion": "Quiron Plus",
-            "objeto": "Renta Fija",
-            "sociedad_gerente": "QUIRON ASSET MANAGEMENT S.A.",
-            "sociedad_depositaria": "Banco Comafi S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/DD4B50E0-4B77-4615-AFBC-E86AA4A540A8",
-            "fecha_iso": "2026-11-04"
-        },
-        {
-            "fecha": "4 nov. 2026",
             "denominacion": "Bavsa Mg Alfa Renta Dólares Balanceado",
             "objeto": "Renta Mixta",
             "sociedad_gerente": "BAVSA FONDOS SA",
             "sociedad_depositaria": "Banco de Valores S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/9AE64EB3-8B12-4215-BD5F-57303C59271B",
+            "fecha_iso": "2026-11-04"
+        },
+        {
+            "fecha": "4 nov. 2026",
+            "denominacion": "Quiron Plus",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "QUIRON ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/DD4B50E0-4B77-4615-AFBC-E86AA4A540A8",
             "fecha_iso": "2026-11-04"
         },
         {
