@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "17/11/2026 14:17:49",
+    "fecha_actualizacion": "18/11/2026 13:53:04",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -144,6 +144,15 @@
             "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/F6E483C6-2DEC-4A6E-A290-B4A522633F37",
             "fecha_iso": "2026-11-11"
+        },
+        {
+            "fecha": "5 nov. 2026",
+            "denominacion": "Axis Efire Productivo Fondo Comun De Inversión Abierto Pymes",
+            "objeto": "PyMes",
+            "sociedad_gerente": "Axis Sociedad Gerente de Fondos Comunes de inversión S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/86E948D7-1511-4038-AC61-981AEB78D748",
+            "fecha_iso": "2026-11-05"
         },
         {
             "fecha": "5 nov. 2026",
