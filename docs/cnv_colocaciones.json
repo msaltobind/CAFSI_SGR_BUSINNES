@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "19/11/2026 13:59:41",
+    "fecha_actualizacion": "20/11/2026 13:36:43",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -92,8 +92,8 @@
             "objeto": "Inmobiliario",
             "sociedad_gerente": "CICLO NOVA ASSET MANAGEMENT S.A.",
             "sociedad_depositaria": "Banco de Valores S.A.",
-            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/30CAE6F5-A647-4006-9529-DF29B3B575C8",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/2C3E238A-4C8F-4E30-9E64-66C75D32E71A",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/DAA7507D-381E-4B47-963B-463002AD9F2A",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/6655448B-9E04-41F5-BCC4-130712026762",
             "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/8A3F43CF-37CC-4C49-AFE7-71593EC3930D",
             "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/9F5D15D9-07D9-4090-B3BA-135AAABB0497",
             "fecha_iso": "2025-04-15"
@@ -142,7 +142,7 @@
             "objeto": "Renta Fija",
             "sociedad_gerente": "DRACMA ASSET MANAGEMENT SGFCI S.A.",
             "sociedad_depositaria": "Banco Comafi S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/F6E483C6-2DEC-4A6E-A290-B4A522633F37",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/5FD6F169-92B3-4FDE-A58A-F05B6FAF8DE3",
             "fecha_iso": "2026-11-11"
         },
         {
@@ -205,7 +205,7 @@
             "objeto": "Renta Fija",
             "sociedad_gerente": "DRACMA ASSET MANAGEMENT SGFCI S.A.",
             "sociedad_depositaria": "Banco Comafi S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/269A9E0A-CFCF-4169-A4A6-1704F01C2D81",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/325979FE-9735-4350-847E-7EC6D895BC67",
             "fecha_iso": "2026-10-29"
         },
         {
