@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "20/11/2026 13:36:43",
+    "fecha_actualizacion": "23/11/2026 16:44:23",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -8,9 +8,9 @@
             "objeto": "Inmobiliario",
             "sociedad_gerente": "BALANZ SOCIEDAD GERENTE DE FONDOS COMUNES DE INVERSION S.A.U.",
             "sociedad_depositaria": "Banco Comafi S.A.",
-            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/0F27E5A6-6D06-4AAB-BF4C-52B48E942E71",
+            "prospecto": "https://aif2.cnv.gov.ar/Presentations/publicview/1AC33E44-85D0-44AA-8CAF-73FADE42619A",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/4619D9F5-8EF4-4762-8BDB-376E907CAF4A",
-            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/5FE88C3E-8996-48E3-B596-AFCA5C8C2BA8",
+            "aviso_suscripcion": "https://aif2.cnv.gov.ar/Presentations/publicview/EE3BF951-3F57-4154-A923-843C470C43D0",
             "resultado_colocacion": "https://aif2.cnv.gov.ar/Presentations/publicview/2FC8161F-B3C0-4D20-B4A0-E1160889E68A",
             "fecha_iso": "2026-10-22"
         },
@@ -165,20 +165,20 @@
         },
         {
             "fecha": "4 nov. 2026",
-            "denominacion": "Quiron Plus",
-            "objeto": "Renta Fija",
-            "sociedad_gerente": "QUIRON ASSET MANAGEMENT S.A.",
-            "sociedad_depositaria": "Banco Comafi S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/DD4B50E0-4B77-4615-AFBC-E86AA4A540A8",
-            "fecha_iso": "2026-11-04"
-        },
-        {
-            "fecha": "4 nov. 2026",
             "denominacion": "Bavsa Mg Alfa Renta Dólares Balanceado",
             "objeto": "Renta Mixta",
             "sociedad_gerente": "BAVSA FONDOS SA",
             "sociedad_depositaria": "Banco de Valores S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/9AE64EB3-8B12-4215-BD5F-57303C59271B",
+            "fecha_iso": "2026-11-04"
+        },
+        {
+            "fecha": "4 nov. 2026",
+            "denominacion": "Quiron Plus",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "QUIRON ASSET MANAGEMENT S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/DD4B50E0-4B77-4615-AFBC-E86AA4A540A8",
             "fecha_iso": "2026-11-04"
         },
         {
