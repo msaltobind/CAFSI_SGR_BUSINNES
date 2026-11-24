@@ -523,6 +523,44 @@
             gap: 18px;
         }
 
+        .calc-moneda-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .calc-moneda-panel {
+            border: 1px solid #dfe4e8;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .calc-moneda-panel h4 {
+            margin: 0 0 10px;
+            color: var(--bind-blue);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .calc-moneda-resumen {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .calc-moneda-metrica {
+            font-size: 10px;
+            color: #555;
+        }
+
+        .calc-moneda-metrica strong {
+            display: block;
+            margin-top: 3px;
+            color: var(--bind-blue);
+            font-size: 12px;
+        }
+
         .calc-resumen {
             background: #f4f5f7;
             border-radius: 8px;
@@ -751,6 +789,10 @@
         @media (max-width: 600px) {
             .calc-resumen {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .calc-moneda-resumen {
+                grid-template-columns: 1fr;
             }
 
             .calc-comparativa {
@@ -1017,44 +1059,12 @@
                         <span id="calc-n-fondos">—</span>
                     </div>
                     <div class="calc-kpi">
-                        <span>Fee SD Actual (pond.)</span>
-                        <span id="calc-fee-actual-kpi">—</span>
+                        <span>Monedas a simular</span>
+                        <span id="calc-n-monedas">—</span>
                     </div>
                 </div>
 
-                <!-- Slider propuesta BIND -->
-                <div class="calc-slider-section">
-                    <label>💡 Propuesta BIND — Fee SD a ofrecer</label>
-                    <div class="slider-row">
-                        <input type="range" id="calc-slider" min="0.01" max="2.00" step="0.01" value="0.06"
-                            oninput="calcularPropuesta()">
-                        <div class="slider-val" id="calc-slider-label">0.06%</div>
-                    </div>
-                    <div class="slider-hint">Rango del mercado: 0.001% – 3.63% | Media: 0.20% | Mediana: 0.13%</div>
-                </div>
-
-                <!-- Resultado dinámico -->
-                <div class="calc-resultado" id="calc-resultado">
-                    <h4 id="calc-resultado-titulo">—</h4>
-                    <div class="calc-comparativa">
-                        <div class="calc-col">
-                            <div class="col-label">Fee SD Actual</div>
-                            <div class="col-fee" id="cmp-fee-actual">—</div>
-                            <div class="col-fact" id="cmp-fact-actual">—</div>
-                        </div>
-                        <div class="calc-arrow">→</div>
-                        <div class="calc-col" style="border: 2px solid var(--bind-yellow);">
-                            <div class="col-label">Propuesta BIND</div>
-                            <div class="col-fee" id="cmp-fee-bind">—</div>
-                            <div class="col-fact" id="cmp-fact-bind">—</div>
-                        </div>
-                    </div>
-                    <div class="calc-ahorro-total">
-                        <div class="ahorro-label" id="ahorro-label-txt">Ahorro anual para el gerente</div>
-                        <div class="ahorro-valor" id="calc-ahorro-valor">—</div>
-                        <div class="ahorro-sub" id="calc-ahorro-sub">—</div>
-                    </div>
-                </div>
+                <div id="calc-simulaciones-moneda" class="calc-moneda-list"></div>
 
                 <!-- Tabla de fondos del gerente -->
                 <div>
@@ -1369,6 +1379,7 @@
 
         // ─── CALCULADORA COMPETITIVA ───────────────────────────────────
         let calcDatosGerente = [];
+        let calcMonedas = [];
 
         function abrirCalculadora(nombreGerente) {
             calcDatosGerente = datosGlobales
@@ -1376,30 +1387,71 @@
                 .sort((a, b) => b.Patrimonio - a.Patrimonio);
             if (calcDatosGerente.length === 0) return;
 
-            const gruposPorMoneda = resumirFacturacionPorMoneda(calcDatosGerente);
-            const aumPorMoneda = gruposPorMoneda
-                .map(g => `${g.moneda}: ${formatearAUMPorMoneda(g.aum, g.moneda)}`)
-                .join('<br>');
-            const feesActualesPorMoneda = gruposPorMoneda
-                .map(g => `${g.moneda}: ${g.aum > 0 ? (g.facturacionActual / g.aum * 100).toFixed(4) : '0.0000'}%`)
+            calcMonedas = resumirFacturacionPorMoneda(calcDatosGerente);
+            const aumPorMoneda = calcMonedas
+                .map(g => `${escaparHTML(g.moneda)}: ${formatearAUMPorMoneda(g.aum, g.moneda)}`)
                 .join('<br>');
 
             // Encabezado
             document.getElementById('calc-nombre-gerente').textContent = nombreGerente;
             document.getElementById('calc-aum').innerHTML = aumPorMoneda;
             document.getElementById('calc-n-fondos').textContent = calcDatosGerente.length + ' fondos de otras depositarias';
-            document.getElementById('calc-fee-actual-kpi').innerHTML = feesActualesPorMoneda;
+            document.getElementById('calc-n-monedas').textContent = calcMonedas
+                .map(g => g.moneda)
+                .join(' · ');
 
-            // Reset slider a la mediana del mercado como punto de partida inteligente
-            const slider = document.getElementById('calc-slider');
-            const feesActuales = gruposPorMoneda
-                .filter(g => g.aum > 0)
-                .map(g => g.facturacionActual / g.aum * 100)
-                .sort((a, b) => a - b);
-            const feeMedio = feesActuales.length
-                ? feesActuales[Math.floor(feesActuales.length / 2)]
-                : 0.06;
-            slider.value = Math.min(Math.max(0.06, (feeMedio * 0.5).toFixed(2)), 2.00);
+            document.getElementById('calc-simulaciones-moneda').innerHTML = calcMonedas
+                .map((g, index) => {
+                    const feeActual = g.aum > 0 ? g.facturacionActual / g.aum * 100 : 0;
+                    const feeInicial = Math.min(2, Math.max(0.06, Number((feeActual * 0.5).toFixed(2))));
+                    const moneda = escaparHTML(g.moneda);
+                    return `
+                        <section class="calc-moneda-panel">
+                            <h4>Simulación ${moneda}</h4>
+                            <div class="calc-moneda-resumen">
+                                <div class="calc-moneda-metrica">AUM de otras depositarias
+                                    <strong>${formatearAUMPorMoneda(g.aum, g.moneda)}</strong>
+                                </div>
+                                <div class="calc-moneda-metrica">Fee SD actual ponderado
+                                    <strong>${feeActual.toFixed(4)}%</strong>
+                                </div>
+                                <div class="calc-moneda-metrica">Facturación SD actual/año
+                                    <strong>${formatearAUMPorMoneda(g.facturacionActual, g.moneda)}</strong>
+                                </div>
+                            </div>
+                            <div class="calc-slider-section">
+                                <label for="calc-slider-${index}">Propuesta BIND — Fee SD para ${moneda}</label>
+                                <div class="slider-row">
+                                    <input type="range" id="calc-slider-${index}" min="0.01" max="2.00" step="0.01"
+                                        value="${feeInicial.toFixed(2)}" oninput="calcularPropuestaMoneda(${index})">
+                                    <div class="slider-val" id="calc-slider-label-${index}">${feeInicial.toFixed(2)}%</div>
+                                </div>
+                                <div class="slider-hint">Este fee se aplica solo a fondos en ${moneda}. Rango: 0,01%–2,00%.</div>
+                            </div>
+                            <div class="calc-resultado" id="calc-resultado-${index}">
+                                <h4 id="calc-resultado-titulo-${index}">—</h4>
+                                <div class="calc-comparativa">
+                                    <div class="calc-col">
+                                        <div class="col-label">Fee SD actual</div>
+                                        <div class="col-fee" id="cmp-fee-actual-${index}">—</div>
+                                        <div class="col-fact" id="cmp-fact-actual-${index}">—</div>
+                                    </div>
+                                    <div class="calc-arrow">→</div>
+                                    <div class="calc-col" style="border: 2px solid var(--bind-yellow);">
+                                        <div class="col-label">Propuesta BIND</div>
+                                        <div class="col-fee" id="cmp-fee-bind-${index}">—</div>
+                                        <div class="col-fact" id="cmp-fact-bind-${index}">—</div>
+                                    </div>
+                                </div>
+                                <div class="calc-ahorro-total">
+                                    <div class="ahorro-label" id="ahorro-label-txt-${index}">—</div>
+                                    <div class="ahorro-valor" id="calc-ahorro-valor-${index}">—</div>
+                                    <div class="ahorro-sub" id="calc-ahorro-sub-${index}">—</div>
+                                </div>
+                            </div>
+                        </section>`;
+                })
+                .join('');
 
             // Tabla de fondos del gerente
             document.getElementById('calc-tabla-body').innerHTML = calcDatosGerente
@@ -1418,25 +1470,23 @@
 
             document.getElementById('calc-overlay').classList.add('active');
             document.body.style.overflow = 'hidden';
-            calcularPropuesta();
+            calcMonedas.forEach((g, index) => calcularPropuestaMoneda(index));
         }
 
-        function calcularPropuesta() {
-            if (calcDatosGerente.length === 0) return;
+        function calcularPropuestaMoneda(indiceMoneda) {
+            const grupo = calcMonedas[indiceMoneda];
+            if (!grupo) return;
 
-            const feePropuesto = parseFloat(document.getElementById('calc-slider').value);
-            document.getElementById('calc-slider-label').textContent = feePropuesto.toFixed(2) + '%';
+            const feePropuesto = parseFloat(document.getElementById(`calc-slider-${indiceMoneda}`).value);
+            const feeActual = grupo.aum > 0 ? grupo.facturacionActual / grupo.aum * 100 : 0;
+            const facturacionBind = grupo.aum * feePropuesto / 100;
+            const diferencia = grupo.facturacionActual - facturacionBind;
+            const competitiva = diferencia >= 0;
 
-            const gruposPorMoneda = resumirFacturacionPorMoneda(calcDatosGerente, feePropuesto);
-            const diferencias = gruposPorMoneda.map(g => ({
-                ...g,
-                diferencia: g.facturacionActual - g.facturacionBind
-            }));
-            const todasCompetitivas = diferencias.every(g => g.diferencia >= 0);
-            const todasMasCostosas = diferencias.every(g => g.diferencia < 0);
+            document.getElementById(`calc-slider-label-${indiceMoneda}`).textContent = feePropuesto.toFixed(2) + '%';
 
-            // Actualizar columna BIND en tabla
             calcDatosGerente.forEach((f, index) => {
+                if ((f.Moneda || 'SIN MONEDA') !== grupo.moneda) return;
                 const celda = document.getElementById('calc-fila-bind-' + index);
                 if (celda) {
                     const factBINDFondo = f.Patrimonio * feePropuesto / 100;
@@ -1444,42 +1494,27 @@
                 }
             });
 
-            // Resultado
-            const res = document.getElementById('calc-resultado');
-            res.className = 'calc-resultado ' + (todasCompetitivas ? 'positivo' : 'negativo');
+            document.getElementById(`calc-resultado-${indiceMoneda}`).className =
+                'calc-resultado ' + (competitiva ? 'positivo' : 'negativo');
+            document.getElementById(`calc-resultado-titulo-${indiceMoneda}`).textContent =
+                competitiva
+                    ? `✅ Propuesta competitiva en ${grupo.moneda}`
+                    : `⚠️ Propuesta por encima del fee actual en ${grupo.moneda} — Revisar precio`;
+            document.getElementById(`cmp-fee-actual-${indiceMoneda}`).textContent = feeActual.toFixed(4) + '%';
+            document.getElementById(`cmp-fact-actual-${indiceMoneda}`).textContent =
+                formatearAUMPorMoneda(grupo.facturacionActual, grupo.moneda) + '/año';
+            document.getElementById(`cmp-fee-bind-${indiceMoneda}`).textContent = feePropuesto.toFixed(2) + '%';
+            document.getElementById(`cmp-fact-bind-${indiceMoneda}`).textContent =
+                formatearAUMPorMoneda(facturacionBind, grupo.moneda) + '/año';
 
-            document.getElementById('calc-resultado-titulo').textContent =
-                todasCompetitivas
-                    ? '✅ Propuesta competitiva en todas las monedas'
-                    : todasMasCostosas
-                        ? '⚠️ Propuesta por encima del fee actual — Revisar precio'
-                        : '⚠️ Resultado mixto por moneda — Revisar precio';
-
-            document.getElementById('cmp-fee-actual').innerHTML = diferencias
-                .map(g => `${g.moneda}: ${g.aum > 0 ? (g.facturacionActual / g.aum * 100).toFixed(4) : '0.0000'}%`)
-                .join('<br>');
-            document.getElementById('cmp-fact-actual').innerHTML = diferencias
-                .map(g => `${g.moneda}: ${formatearAUMPorMoneda(g.facturacionActual, g.moneda)}/año`)
-                .join('<br>');
-            document.getElementById('cmp-fee-bind').innerHTML = diferencias
-                .map(g => `${g.moneda}: ${feePropuesto.toFixed(2)}%`)
-                .join('<br>');
-            document.getElementById('cmp-fact-bind').innerHTML = diferencias
-                .map(g => `${g.moneda}: ${formatearAUMPorMoneda(g.facturacionBind, g.moneda)}/año`)
-                .join('<br>');
-
-            const ahorro = document.getElementById('calc-ahorro-valor');
-            ahorro.innerHTML = diferencias.map(g => `
-                <div style="font-size:14px; color:${g.diferencia >= 0 ? '#1e8449' : '#ca6f1e'}">
-                    ${g.moneda}: ${g.diferencia >= 0 ? '−' : '+'} ${formatearAUMPorMoneda(Math.abs(g.diferencia), g.moneda)}/año
-                </div>`).join('');
-            ahorro.className = 'ahorro-valor';
-
-            document.getElementById('ahorro-label-txt').textContent =
-                todasCompetitivas
-                    ? 'Ahorro anual por moneda para el gerente'
-                    : 'Diferencia anual por moneda frente a la situación actual';
-            document.getElementById('calc-ahorro-sub').textContent = 'AUM y facturación calculados separadamente por moneda.';
+            const ahorro = document.getElementById(`calc-ahorro-valor-${indiceMoneda}`);
+            ahorro.textContent = (competitiva ? '− ' : '+ ') +
+                formatearAUMPorMoneda(Math.abs(diferencia), grupo.moneda) + ' /año';
+            ahorro.className = 'ahorro-valor ' + (competitiva ? 'verde' : 'naranja');
+            document.getElementById(`ahorro-label-txt-${indiceMoneda}`).textContent =
+                competitiva ? 'Ahorro anual para el gerente' : 'Costo adicional vs situación actual';
+            document.getElementById(`calc-ahorro-sub-${indiceMoneda}`).textContent =
+                `AUM: ${formatearAUMPorMoneda(grupo.aum, grupo.moneda)} | Fee actual: ${feeActual.toFixed(4)}% | Fee BIND: ${feePropuesto.toFixed(2)}%`;
         }
 
         function cerrarCalculadora(event) {
@@ -1487,6 +1522,7 @@
             document.getElementById('calc-overlay').classList.remove('active');
             document.body.style.overflow = '';
             calcDatosGerente = [];
+            calcMonedas = [];
         }
     </script>
 </body>
