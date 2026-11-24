@@ -1,5 +1,5 @@
 {
-    "fecha_actualizacion": "23/11/2026 16:44:23",
+    "fecha_actualizacion": "24/11/2026 16:16:19",
     "fuente": "https://www.cnv.gov.ar/SitioWeb/FondosComunesInversion",
     "cerrados": [
         {
@@ -137,6 +137,24 @@
     ],
     "abiertos": [
         {
+            "fecha": "19 nov. 2026",
+            "denominacion": "Allaria Renta Mixta Dólares Ii Fci",
+            "objeto": "Renta Mixta",
+            "sociedad_gerente": "ALLARIA FONDOS ADMINISTRADOS SGFCI S.A.",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/59EB7E24-1D72-4593-9E2C-A7724219C24B",
+            "fecha_iso": "2026-11-19"
+        },
+        {
+            "fecha": "11 nov. 2026",
+            "denominacion": "Dracma Lantia Renta Latam",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "DRACMA ASSET MANAGEMENT SGFCI S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/5FD6F169-92B3-4FDE-A58A-F05B6FAF8DE3",
+            "fecha_iso": "2026-11-11"
+        },
+        {
             "fecha": "11 nov. 2026",
             "denominacion": "Dxa Dólar Dinámico",
             "objeto": "Renta Fija",
@@ -165,20 +183,20 @@
         },
         {
             "fecha": "4 nov. 2026",
-            "denominacion": "Bavsa Mg Alfa Renta Dólares Balanceado",
-            "objeto": "Renta Mixta",
-            "sociedad_gerente": "BAVSA FONDOS SA",
-            "sociedad_depositaria": "Banco de Valores S.A.",
-            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/9AE64EB3-8B12-4215-BD5F-57303C59271B",
-            "fecha_iso": "2026-11-04"
-        },
-        {
-            "fecha": "4 nov. 2026",
             "denominacion": "Quiron Plus",
             "objeto": "Renta Fija",
             "sociedad_gerente": "QUIRON ASSET MANAGEMENT S.A.",
             "sociedad_depositaria": "Banco Comafi S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/DD4B50E0-4B77-4615-AFBC-E86AA4A540A8",
+            "fecha_iso": "2026-11-04"
+        },
+        {
+            "fecha": "4 nov. 2026",
+            "denominacion": "Bavsa Mg Alfa Renta Dólares Balanceado",
+            "objeto": "Renta Mixta",
+            "sociedad_gerente": "BAVSA FONDOS SA",
+            "sociedad_depositaria": "Banco de Valores S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/9AE64EB3-8B12-4215-BD5F-57303C59271B",
             "fecha_iso": "2026-11-04"
         },
         {
@@ -198,6 +216,15 @@
             "sociedad_depositaria": "BANCO DE GALICIA Y BUENOS AIRES S.A.",
             "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/D1535080-B65A-4102-9790-6C2F44783496",
             "fecha_iso": "2026-11-02"
+        },
+        {
+            "fecha": "29 oct. 2026",
+            "denominacion": "Dracma Lantia Pesos",
+            "objeto": "Renta Fija",
+            "sociedad_gerente": "DRACMA ASSET MANAGEMENT SGFCI S.A.",
+            "sociedad_depositaria": "Banco Comafi S.A.",
+            "reglamento": "https://aif2.cnv.gov.ar/Presentations/publicview/325979FE-9735-4350-847E-7EC6D895BC67",
+            "fecha_iso": "2026-10-29"
         },
         {
             "fecha": "29 oct. 2026",
