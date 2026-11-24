@@ -21,7 +21,7 @@ def analizar_con_gemini(df_res):
     try:
         from google import genai
         client = genai.Client(api_key=api_key)
-        model = os.environ.get("GEMINI_MODEL", "gemini-3-flash-preview")
+        model = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
         fallback_model = os.environ.get("GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
         
         # 1. Agrupamos los datos por Sociedad Depositaria (SD)
@@ -39,10 +39,10 @@ def analizar_con_gemini(df_res):
             nombre = str(row['Sociedad_Depositaria']).upper()
             if "VALORES" in nombre or "COMAFI" in nombre or "INDUSTRIAL" in nombre:
                 # Formateamos AUM a Billones para que la IA lo entienda fácil
-                aum_billones = row['Patrimonio'] / 1e9
+                aum_billones = row['Patrimonio'] / 1e12
                 fee = row['Fee_Pond']
                 moneda = row['Moneda']
-                datos_competencia += f"- {row['Sociedad_Depositaria']} ({moneda}): AUM {aum_billones:.2f} Billones | Fee Promedio: {fee:.3f}%\n"
+                datos_competencia += f"- {row['Sociedad_Depositaria']} ({moneda}): AUM {aum_billones:.2f} billones (1 billón = 10^12 {moneda}) | Fee Promedio: {fee:.3f}%\n"
         
         # 3. EL PROMPT FORTALECIDO (Rol, Contexto y Tarea)
         prompt = f"""
@@ -64,9 +64,10 @@ def analizar_con_gemini(df_res):
         try:
             respuesta = client.models.generate_content(model=model, contents=prompt)
         except Exception as error_principal:
-            if str(getattr(error_principal, "code", "")) != "503" or fallback_model == model:
+            codigo_error = str(getattr(error_principal, "code", ""))
+            if codigo_error not in {"404", "503"} or fallback_model == model:
                 raise
-            print(f"[-] Gemini {model} respondió 503; se prueba el modelo alternativo {fallback_model}.")
+            print(f"[-] Gemini {model} respondió {codigo_error}; se prueba el modelo alternativo {fallback_model}.")
             try:
                 respuesta = client.models.generate_content(model=fallback_model, contents=prompt)
             except Exception as error_alternativo:
