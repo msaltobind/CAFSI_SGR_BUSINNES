@@ -49,6 +49,37 @@
             font-size: 18px;
         }
 
+        .header-actions {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .btn-fullscreen {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Montserrat';
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: 0.2s;
+        }
+
+        .btn-fullscreen:hover {
+            background: white;
+            color: var(--bind-black);
+        }
+
+        .fullscreen-status {
+            color: var(--bind-yellow);
+            font-size: 10px;
+        }
+
         /* TOOLBAR */
         .toolbar {
             background: white;
@@ -834,6 +865,15 @@
                 gap: 10px;
             }
 
+            .header-actions {
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .header-actions #header-metadata {
+                text-align: left !important;
+            }
+
             .toolbar {
                 flex-direction: column;
                 align-items: stretch;
@@ -875,8 +915,14 @@
 
     <div class="header">
         <h1>bind <span style="color:white; font-weight:400">| Treasury Intelligence</span></h1>
-        <span id="header-metadata" style="text-align: right; line-height: 1.4; font-size: 11px;">Cargando
-            sistema...</span>
+        <div class="header-actions">
+            <button type="button" class="btn-fullscreen" id="btn-fullscreen"
+                aria-label="Activar pantalla completa" aria-pressed="false" title="Activar pantalla completa"
+                onclick="alternarPantallaCompleta()">⛶ Pantalla completa</button>
+            <span id="fullscreen-status" class="fullscreen-status" role="status" aria-live="polite"></span>
+            <span id="header-metadata" style="text-align: right; line-height: 1.4; font-size: 11px;">Cargando
+                sistema...</span>
+        </div>
     </div>
 
     <div class="toolbar">
@@ -1146,6 +1192,43 @@
             });
             return [...grupos.values()].sort((a, b) => a.moneda.localeCompare(b.moneda));
         }
+
+        function actualizarBotonPantallaCompleta() {
+            const activo = Boolean(document.fullscreenElement);
+            const boton = document.getElementById('btn-fullscreen');
+            boton.textContent = activo ? '↙ Salir de pantalla completa' : '⛶ Pantalla completa';
+            boton.setAttribute('aria-label', activo ? 'Salir de pantalla completa' : 'Activar pantalla completa');
+            boton.setAttribute('aria-pressed', String(activo));
+            boton.title = activo ? 'Salir de pantalla completa' : 'Activar pantalla completa';
+            document.getElementById('fullscreen-status').textContent = '';
+        }
+
+        function alternarPantallaCompleta() {
+            let cambio;
+            if (document.fullscreenElement) {
+                if (typeof document.exitFullscreen !== 'function') {
+                    document.getElementById('fullscreen-status').textContent =
+                        'El navegador no permite salir de pantalla completa.';
+                    return;
+                }
+                cambio = document.exitFullscreen();
+            } else {
+                if (typeof document.documentElement.requestFullscreen !== 'function') {
+                    document.getElementById('fullscreen-status').textContent =
+                        'El navegador no permite pantalla completa.';
+                    return;
+                }
+                cambio = document.documentElement.requestFullscreen();
+            }
+
+            cambio.catch(error => {
+                console.error('No se pudo cambiar el modo de pantalla completa:', error);
+                document.getElementById('fullscreen-status').textContent =
+                    'El navegador no permitió cambiar a pantalla completa.';
+            });
+        }
+
+        document.addEventListener('fullscreenchange', actualizarBotonPantallaCompleta);
 
         fetch('data.json?v=' + new Date().getTime())
             .then(r => r.json())
