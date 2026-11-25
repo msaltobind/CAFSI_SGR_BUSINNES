@@ -1411,6 +1411,9 @@
                     const monBadge = tieneMoneda
                         ? `<td><span class="badge" style="background:${f.Moneda === 'ARS' ? '#eaf4fb' : '#fef9e7'}">${f.Moneda || '—'}</span></td>`
                         : '<td>—</td>';
+                    const botonSimular = esBancoIndustrial(f.Sociedad_Depositaria)
+                        ? ''
+                        : `<button class="btn-calc" onclick="abrirCalculadora('${f.Sociedad_Gerente.replace(/'/g, "\\'")}')">📊 Simular</button>`;
                     return `<tr>
                         <td><strong class="nombre-fondo" title="${escaparHTML(f.Fondo)}">${escaparHTML(f.Fondo)}</strong></td>
                         <td style="font-size:10px; color:#555">${f.Sociedad_Gerente ? (f.Sociedad_Gerente.length > 30 ? f.Sociedad_Gerente.substring(0, 30) + '…' : f.Sociedad_Gerente) : '—'}</td>
@@ -1419,7 +1422,7 @@
                         <td style="color:var(--bind-blue); font-weight:800">${formatearEscala(f.Patrimonio)}</td>
                         <td><span class="badge">${parseFloat(f.Hon_SG || 0).toFixed(2)}%</span></td>
                         <td><span class="badge">${parseFloat(f.Hon_SD || 0).toFixed(4)}%</span></td>
-                        <td><button class="btn-calc" onclick="abrirCalculadora('${f.Sociedad_Gerente.replace(/'/g, "\\'")}')">📊 Simular</button></td>
+                        <td>${botonSimular}</td>
                     </tr>`;
                 }).join('');
 
